@@ -1,0 +1,100 @@
+# EESchema Netlist Version 1.1 created  Fri 26 Feb 2010 03:27:12 PM PST
+(
+ ( /4B885732 $noname  K1 CCB {Lib=CONN_3}
+  (    1 /LED+ )
+  (    2 GND )
+  (    3 /LED- )
+ )
+ ( /4B885718 $noname  P1 POWER {Lib=CONN_2}
+  (    1 N-000004 )
+  (    2 N-000006 )
+ )
+ ( /4B708BAA $noname  TP2 CS+ {Lib=TESTPOINT}
+  (    1 N-000001 )
+ )
+ ( /4B708BA0 $noname  TP1 CS- {Lib=TESTPOINT}
+  (    1 /LED+ )
+ )
+ ( /4B67540F $noname  RV1 5k {Lib=POT}
+  (    1 N-000003 )
+  (    2 N-000002 )
+  (    3 ? )
+ )
+ ( /4B6750C4 $noname  BP1 BUCKPUCK {Lib=BUCKPUCK}
+  (    1 N-000001 )
+  (    2 /LED- )
+  (    3 N-000003 )
+  (    4 N-000002 )
+  (    5 /Vin )
+  (    6 GND )
+ )
+ ( /4B5F750E $noname  D1 BRIDGE {Lib=BRIDGE}
+  (    1 GND )
+  (    2 N-000006 )
+  (    3 /Vin )
+  (    4 N-000004 )
+ )
+ ( /4B5F7E76 $noname  SW1 SPST {Lib=SPST}
+  (    1 N-000003 )
+  (    2 N-000002 )
+ )
+ ( /4B5F73D3 $noname  C1 10uF {Lib=C}
+  (    1 /Vin )
+  (    2 GND )
+ )
+ ( /4B5F5C94 $noname  R1 0.1 {Lib=R}
+  (    1 /LED+ )
+  (    2 N-000001 )
+ )
+)
+*
+{ Allowed footprints by component:
+$component C1
+ SM*
+ C?
+ C1-1
+$endlist
+$component R1
+ R?
+ SM0603
+ SM0805
+$endlist
+$endfootprintlist
+}
+{ Pin List by Nets
+Net 1 "" ""
+ TP2 1
+ BP1 1
+ R1 2
+Net 2 "" ""
+ RV1 2
+ BP1 4
+ SW1 2
+Net 3 "" ""
+ RV1 1
+ BP1 3
+ SW1 1
+Net 4 "" ""
+ P1 1
+ D1 4
+Net 5 "GND" "GND"
+ K1 2
+ BP1 6
+ D1 1
+ C1 2
+Net 6 "" ""
+ P1 2
+ D1 2
+Net 7 "/LED-" "LED-"
+ K1 3
+ BP1 2
+Net 8 "/LED+" "LED+"
+ K1 1
+ TP1 1
+ R1 1
+Net 10 "/Vin" "Vin"
+ BP1 5
+ D1 3
+ C1 1
+}
+#End

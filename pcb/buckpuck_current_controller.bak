@@ -1,0 +1,260 @@
+EESchema Schematic File Version 2  date Wed 20 Apr 2011 01:17:19 PM PDT
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:special
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:buckpuck_current_controller
+LIBS:panels_controller_nano
+EELAYER 24  0
+EELAYER END
+$Descr A4 11700 8267
+Sheet 1 1
+Title "LED ARRAY POWER BOARD"
+Date "20 apr 2011"
+Rev "1.0"
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Wire Wire Line
+	8850 2350 8850 2050
+Wire Wire Line
+	8850 2050 9000 2050
+Wire Wire Line
+	3700 1600 3700 1800
+Connection ~ 3450 1800
+Wire Wire Line
+	3700 1800 3350 1800
+Wire Wire Line
+	1200 1900 1350 1900
+Wire Wire Line
+	1200 1900 1200 1700
+Wire Wire Line
+	1200 1700 1000 1700
+Connection ~ 3450 2900
+Wire Wire Line
+	3450 2300 3450 2900
+Wire Wire Line
+	2500 950  1350 950 
+Wire Wire Line
+	1350 1900 1350 2650
+Wire Wire Line
+	1350 2650 2500 2650
+Wire Wire Line
+	2400 750  2400 950 
+Connection ~ 2400 950 
+Wire Wire Line
+	1650 1800 1650 2900
+Wire Wire Line
+	2950 2750 2950 2900
+Connection ~ 2950 2900
+Wire Wire Line
+	3200 2900 3200 3050
+Connection ~ 3200 2900
+Wire Wire Line
+	1000 1900 1100 1900
+Wire Wire Line
+	1100 1900 1100 1800
+Wire Wire Line
+	1100 1800 1350 1800
+Wire Wire Line
+	1350 1800 1350 950 
+Wire Wire Line
+	3450 1900 3450 1500
+Wire Wire Line
+	1650 2900 3450 2900
+Wire Wire Line
+	9000 1750 8850 1750
+Wire Wire Line
+	8850 1750 8850 1450
+$Comp
+L GND #PWR?
+U 1 1 4DAF3F39
+P 8850 2350
+F 0 "#PWR?" H 8850 2350 30  0001 C CNN
+F 1 "GND" H 8850 2280 30  0001 C CNN
+	1    8850 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L VAA #PWR?
+U 1 1 4DAF3F2F
+P 8850 1450
+F 0 "#PWR?" H 8850 1510 30  0001 C CNN
+F 1 "VAA" H 8850 1560 30  0000 C CNN
+	1    8850 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L VAA #PWR?
+U 1 1 4DAF3EF4
+P 3700 1600
+F 0 "#PWR?" H 3700 1660 30  0001 C CNN
+F 1 "VAA" H 3700 1710 30  0000 C CNN
+	1    3700 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L ARDUINO_NANO U?
+U 1 1 4DAF2A1C
+P 6100 4200
+F 0 "U?" H 5650 5150 60  0000 C CNN
+F 1 "ARDUINO_NANO" H 6100 3350 60  0000 C CNN
+	1    6100 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_3 K1
+U 1 1 4B885732
+P 2750 5550
+F 0 "K1" V 2700 5550 50  0000 C CNN
+F 1 "CCB" V 2800 5550 40  0000 C CNN
+	1    2750 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_2 P1
+U 1 1 4B885718
+P 650 1800
+F 0 "P1" V 600 1800 40  0000 C CNN
+F 1 "POWER" V 700 1800 40  0000 C CNN
+	1    650  1800
+	-1   0    0    1   
+$EndComp
+$Comp
+L GND #PWR01
+U 1 1 4B88490B
+P 8050 5750
+F 0 "#PWR01" H 8050 5750 30  0001 C CNN
+F 1 "GND" H 8050 5680 30  0001 C CNN
+	1    8050 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR02
+U 1 1 4B884901
+P 3200 3050
+F 0 "#PWR02" H 3200 3050 30  0001 C CNN
+F 1 "GND" H 3200 2980 30  0001 C CNN
+	1    3200 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L TESTPOINT TP2
+U 1 1 4B708BAA
+P 2000 4400
+F 0 "TP2" H 2150 4400 60  0000 C CNN
+F 1 "CS+" H 2000 4500 60  0000 C CNN
+	1    2000 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L TESTPOINT TP1
+U 1 1 4B708BA0
+P 2900 4400
+F 0 "TP1" H 3050 4400 60  0000 C CNN
+F 1 "CS-" H 2900 4500 60  0000 C CNN
+	1    2900 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L POT RV1
+U 1 1 4B67540F
+P 5250 6400
+F 0 "RV1" H 5250 6300 50  0000 C CNN
+F 1 "5k" H 5250 6400 50  0000 C CNN
+	1    5250 6400
+	1    0    0    -1  
+$EndComp
+$Comp
+L BUCKPUCK BP1
+U 1 1 4B6750C4
+P 9350 1900
+F 0 "BP1" H 9700 1700 60  0000 C CNN
+F 1 "BUCKPUCK" H 9350 2200 60  0000 C CNN
+	1    9350 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L BRIDGE D1
+U 1 1 4B5F750E
+P 2500 1800
+F 0 "D1" H 2500 1850 70  0000 C CNN
+F 1 "BRIDGE" H 2500 1750 70  0000 C CNN
+	1    2500 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L PWR_FLAG #FLG03
+U 1 1 4B61DEC3
+P 2950 2750
+F 0 "#FLG03" H 2950 3020 30  0001 C CNN
+F 1 "PWR_FLAG" H 2950 2980 30  0000 C CNN
+	1    2950 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L PWR_FLAG #FLG04
+U 1 1 4B61DEA9
+P 2400 750
+F 0 "#FLG04" H 2400 1020 30  0001 C CNN
+F 1 "PWR_FLAG" H 2400 980 30  0000 C CNN
+	1    2400 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L PWR_FLAG #FLG05
+U 1 1 4B61DE8F
+P 3450 1500
+F 0 "#FLG05" H 3450 1770 30  0001 C CNN
+F 1 "PWR_FLAG" H 3450 1730 30  0000 C CNN
+	1    3450 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L SPST SW1
+U 1 1 4B5F7E76
+P 6600 6500
+F 0 "SW1" H 6600 6600 70  0000 C CNN
+F 1 "SPST" H 6600 6400 70  0000 C CNN
+	1    6600 6500
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C1
+U 1 1 4B5F73D3
+P 3450 2100
+F 0 "C1" H 3300 2200 50  0000 L CNN
+F 1 "10uF" H 3150 2000 50  0000 L CNN
+	1    3450 2100
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
