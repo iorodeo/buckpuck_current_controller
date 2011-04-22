@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 20 Apr 2011 04:09:23 PM PDT
+EESchema Schematic File Version 2  date Thu 21 Apr 2011 06:01:15 PM PDT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -31,12 +31,13 @@ LIBS:contrib
 LIBS:valves
 LIBS:buckpuck_current_controller
 LIBS:panels_controller_nano
+LIBS:buckpuck_current_controller-cache
 EELAYER 24  0
 EELAYER END
 $Descr A4 11700 8267
 Sheet 1 1
 Title "LED ARRAY POWER BOARD"
-Date "20 apr 2011"
+Date "22 apr 2011"
 Rev "1.0"
 Comp ""
 Comment1 ""
@@ -44,6 +45,108 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+NoConn ~ 6950 3450
+NoConn ~ 6950 3650
+NoConn ~ 6950 4650
+NoConn ~ 6950 4750
+NoConn ~ 6950 4850
+NoConn ~ 5250 4850
+NoConn ~ 5250 3650
+Text Label 4800 4650 0    60   ~ 0
+SwitchC
+Text Label 4800 4350 0    60   ~ 0
+SwitchA
+Text Label 4800 4050 0    60   ~ 0
+SwitchB
+Text Label 4800 3850 0    60   ~ 0
+SwitchD
+Wire Wire Line
+	5250 4650 4750 4650
+Wire Wire Line
+	5250 4350 4750 4350
+Wire Wire Line
+	5250 4550 4650 4550
+Wire Wire Line
+	4600 3850 4600 3750
+Wire Wire Line
+	4600 3750 5250 3750
+Wire Wire Line
+	5250 4750 4850 4750
+Wire Wire Line
+	5250 4250 4850 4250
+Wire Wire Line
+	5250 6350 5250 6500
+Wire Wire Line
+	6950 3850 7150 3850
+Wire Wire Line
+	6950 4050 7150 4050
+Wire Wire Line
+	6950 4250 7150 4250
+Wire Wire Line
+	6950 4450 7150 4450
+Connection ~ 10000 4350
+Wire Wire Line
+	10000 4500 10000 4300
+Wire Wire Line
+	9700 4150 10250 4150
+Wire Wire Line
+	8850 3850 8850 4150
+Wire Wire Line
+	8850 4150 9000 4150
+Wire Wire Line
+	9000 4450 8850 4450
+Wire Wire Line
+	8850 4450 8850 4750
+Wire Wire Line
+	10000 4300 9700 4300
+Wire Wire Line
+	10250 4350 10000 4350
+Wire Wire Line
+	9300 4650 9300 4850
+Wire Wire Line
+	9300 5850 9300 6050
+Wire Wire Line
+	10000 5550 10250 5550
+Wire Wire Line
+	9700 5500 10000 5500
+Wire Wire Line
+	8850 5950 8850 5650
+Wire Wire Line
+	8850 5650 9000 5650
+Wire Wire Line
+	9000 5350 8850 5350
+Wire Wire Line
+	8850 5350 8850 5050
+Wire Wire Line
+	9700 5350 10250 5350
+Wire Wire Line
+	10000 5500 10000 5700
+Connection ~ 10000 5550
+Connection ~ 10000 3150
+Wire Wire Line
+	10000 3300 10000 3100
+Wire Wire Line
+	9700 2950 10250 2950
+Wire Wire Line
+	8850 2650 8850 2950
+Wire Wire Line
+	8850 2950 9000 2950
+Wire Wire Line
+	9000 3250 8850 3250
+Wire Wire Line
+	8850 3250 8850 3550
+Wire Wire Line
+	10000 3100 9700 3100
+Wire Wire Line
+	10250 3150 10000 3150
+Wire Wire Line
+	9300 3450 9300 3650
+Wire Wire Line
+	9300 2250 9300 2450
+Wire Wire Line
+	10000 1950 10250 1950
+Wire Wire Line
+	9700 1900 10000 1900
 Wire Wire Line
 	8850 2350 8850 2050
 Wire Wire Line
@@ -88,13 +191,360 @@ Wire Wire Line
 Wire Wire Line
 	1350 1800 1350 950 
 Wire Wire Line
-	3450 1900 3450 1500
+	3450 1500 3450 1900
 Wire Wire Line
 	1650 2900 3450 2900
 Wire Wire Line
 	9000 1750 8850 1750
 Wire Wire Line
 	8850 1750 8850 1450
+Wire Wire Line
+	9700 1750 10250 1750
+Wire Wire Line
+	10000 1900 10000 2100
+Connection ~ 10000 1950
+Wire Wire Line
+	6950 4550 7150 4550
+Wire Wire Line
+	6950 4350 7150 4350
+Wire Wire Line
+	6950 4150 7150 4150
+Wire Wire Line
+	6950 3950 7150 3950
+Wire Wire Line
+	5250 5700 5250 5850
+Wire Wire Line
+	5400 6100 5600 6100
+Wire Wire Line
+	5950 6100 6150 6100
+Wire Wire Line
+	5800 5700 5800 5850
+Wire Wire Line
+	5800 6350 5800 6500
+Wire Wire Line
+	6900 6350 6900 6500
+Wire Wire Line
+	6900 5700 6900 5850
+Wire Wire Line
+	7050 6100 7250 6100
+Wire Wire Line
+	6500 6100 6700 6100
+Wire Wire Line
+	6350 5700 6350 5850
+Wire Wire Line
+	6350 6350 6350 6500
+Wire Wire Line
+	5250 4150 4850 4150
+Wire Wire Line
+	5250 3950 4850 3950
+Wire Wire Line
+	5250 4450 4650 4450
+Wire Wire Line
+	5250 3850 4750 3850
+Wire Wire Line
+	5250 4050 4750 4050
+Text Label 4700 4550 0    60   ~ 0
+DisplayTX
+Text Label 4700 4450 0    60   ~ 0
+DisplayRX
+$Comp
+L GND #PWR?
+U 1 1 4DB0D0E3
+P 4600 3850
+F 0 "#PWR?" H 4600 3850 30  0001 C CNN
+F 1 "GND" H 4600 3780 30  0001 C CNN
+	1    4600 3850
+	1    0    0    -1  
+$EndComp
+NoConn ~ 5250 3550
+NoConn ~ 5250 3450
+Text Label 4900 4750 0    60   ~ 0
+PwmC
+Text Label 4900 4250 0    60   ~ 0
+PwmA
+Text Label 4900 4150 0    60   ~ 0
+PwmB
+Text Label 4900 3950 0    60   ~ 0
+PwmD
+Text Label 9300 6000 0    60   ~ 0
+CtrlD
+Text Label 9300 4800 0    60   ~ 0
+CtrlC
+Text Label 9300 3600 0    60   ~ 0
+CtrlB
+Text Label 9300 2400 0    60   ~ 0
+CtrlA
+Text Label 7150 6100 1    60   ~ 0
+PotentiometerD
+Text Label 6600 6100 1    60   ~ 0
+PotentiometerC
+Text Label 6050 6100 1    60   ~ 0
+PotentiometerB
+Text Label 5500 6100 1    60   ~ 0
+PotentiometerA
+$Comp
+L POT RV?
+U 1 1 4DB0CD1A
+P 6350 6100
+F 0 "RV?" H 6350 6000 50  0000 C CNN
+F 1 "5k" H 6350 6100 50  0000 C CNN
+	1    6350 6100
+	0    1    1    0   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4DB0CD19
+P 6350 6500
+F 0 "#PWR?" H 6350 6500 30  0001 C CNN
+F 1 "GND" H 6350 6430 30  0001 C CNN
+	1    6350 6500
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR?
+U 1 1 4DB0CD18
+P 6350 5700
+F 0 "#PWR?" H 6350 5800 30  0001 C CNN
+F 1 "VCC" H 6350 5800 30  0000 C CNN
+	1    6350 5700
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR?
+U 1 1 4DB0CD17
+P 6900 5700
+F 0 "#PWR?" H 6900 5800 30  0001 C CNN
+F 1 "VCC" H 6900 5800 30  0000 C CNN
+	1    6900 5700
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4DB0CD16
+P 6900 6500
+F 0 "#PWR?" H 6900 6500 30  0001 C CNN
+F 1 "GND" H 6900 6430 30  0001 C CNN
+	1    6900 6500
+	1    0    0    -1  
+$EndComp
+$Comp
+L POT RV?
+U 1 1 4DB0CD15
+P 6900 6100
+F 0 "RV?" H 6900 6000 50  0000 C CNN
+F 1 "5k" H 6900 6100 50  0000 C CNN
+	1    6900 6100
+	0    1    1    0   
+$EndComp
+$Comp
+L POT RV?
+U 1 1 4DB0CD0E
+P 5800 6100
+F 0 "RV?" H 5800 6000 50  0000 C CNN
+F 1 "5k" H 5800 6100 50  0000 C CNN
+	1    5800 6100
+	0    1    1    0   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4DB0CD0D
+P 5800 6500
+F 0 "#PWR?" H 5800 6500 30  0001 C CNN
+F 1 "GND" H 5800 6430 30  0001 C CNN
+	1    5800 6500
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR?
+U 1 1 4DB0CD0C
+P 5800 5700
+F 0 "#PWR?" H 5800 5800 30  0001 C CNN
+F 1 "VCC" H 5800 5800 30  0000 C CNN
+	1    5800 5700
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR?
+U 1 1 4DB0CCDA
+P 5250 5700
+F 0 "#PWR?" H 5250 5800 30  0001 C CNN
+F 1 "VCC" H 5250 5800 30  0000 C CNN
+	1    5250 5700
+	1    0    0    -1  
+$EndComp
+Text Label 7050 3850 0    60   ~ 0
+PotentiometerD
+Text Label 7050 3950 0    60   ~ 0
+CurrentSenseD
+Text Label 7050 4050 0    60   ~ 0
+PotentiometerC
+Text Label 7050 4150 0    60   ~ 0
+CurrentSenseC
+Text Label 7050 4250 0    60   ~ 0
+PotentiometerB
+Text Label 7050 4350 0    60   ~ 0
+CurrentSenseB
+Text Label 7050 4450 0    60   ~ 0
+PotentiometerA
+Text Label 7050 4550 0    60   ~ 0
+CurrentSenseA
+$Comp
+L BUCKPUCK BP?
+U 1 1 4DB0C77D
+P 9350 4300
+F 0 "BP?" H 9700 4100 60  0000 C CNN
+F 1 "BUCKPUCK" H 9350 4600 60  0000 C CNN
+	1    9350 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L VAA #PWR?
+U 1 1 4DB0C77C
+P 8850 3850
+F 0 "#PWR?" H 8850 3910 30  0001 C CNN
+F 1 "VAA" H 8850 3960 30  0000 C CNN
+	1    8850 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4DB0C77B
+P 8850 4750
+F 0 "#PWR?" H 8850 4750 30  0001 C CNN
+F 1 "GND" H 8850 4680 30  0001 C CNN
+	1    8850 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_2 P?
+U 1 1 4DB0C77A
+P 10600 4250
+F 0 "P?" V 10550 4250 40  0000 C CNN
+F 1 "CONN_2" V 10650 4250 40  0000 C CNN
+	1    10600 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4DB0C779
+P 10000 4500
+F 0 "#PWR?" H 10000 4500 30  0001 C CNN
+F 1 "GND" H 10000 4430 30  0001 C CNN
+	1    10000 4500
+	1    0    0    -1  
+$EndComp
+NoConn ~ 9500 4650
+NoConn ~ 9500 5850
+$Comp
+L GND #PWR?
+U 1 1 4DB0C778
+P 10000 5700
+F 0 "#PWR?" H 10000 5700 30  0001 C CNN
+F 1 "GND" H 10000 5630 30  0001 C CNN
+	1    10000 5700
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_2 P?
+U 1 1 4DB0C777
+P 10600 5450
+F 0 "P?" V 10550 5450 40  0000 C CNN
+F 1 "CONN_2" V 10650 5450 40  0000 C CNN
+	1    10600 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4DB0C776
+P 8850 5950
+F 0 "#PWR?" H 8850 5950 30  0001 C CNN
+F 1 "GND" H 8850 5880 30  0001 C CNN
+	1    8850 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L VAA #PWR?
+U 1 1 4DB0C775
+P 8850 5050
+F 0 "#PWR?" H 8850 5110 30  0001 C CNN
+F 1 "VAA" H 8850 5160 30  0000 C CNN
+	1    8850 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L BUCKPUCK BP?
+U 1 1 4DB0C774
+P 9350 5500
+F 0 "BP?" H 9700 5300 60  0000 C CNN
+F 1 "BUCKPUCK" H 9350 5800 60  0000 C CNN
+	1    9350 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L BUCKPUCK BP?
+U 1 1 4DB0C768
+P 9350 3100
+F 0 "BP?" H 9700 2900 60  0000 C CNN
+F 1 "BUCKPUCK" H 9350 3400 60  0000 C CNN
+	1    9350 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L VAA #PWR?
+U 1 1 4DB0C767
+P 8850 2650
+F 0 "#PWR?" H 8850 2710 30  0001 C CNN
+F 1 "VAA" H 8850 2760 30  0000 C CNN
+	1    8850 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4DB0C766
+P 8850 3550
+F 0 "#PWR?" H 8850 3550 30  0001 C CNN
+F 1 "GND" H 8850 3480 30  0001 C CNN
+	1    8850 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_2 P?
+U 1 1 4DB0C765
+P 10600 3050
+F 0 "P?" V 10550 3050 40  0000 C CNN
+F 1 "CONN_2" V 10650 3050 40  0000 C CNN
+	1    10600 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4DB0C764
+P 10000 3300
+F 0 "#PWR?" H 10000 3300 30  0001 C CNN
+F 1 "GND" H 10000 3230 30  0001 C CNN
+	1    10000 3300
+	1    0    0    -1  
+$EndComp
+NoConn ~ 9500 3450
+NoConn ~ 9500 2250
+$Comp
+L GND #PWR?
+U 1 1 4DB0C704
+P 10000 2100
+F 0 "#PWR?" H 10000 2100 30  0001 C CNN
+F 1 "GND" H 10000 2030 30  0001 C CNN
+	1    10000 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_2 P?
+U 1 1 4DB0C6CC
+P 10600 1850
+F 0 "P?" V 10550 1850 40  0000 C CNN
+F 1 "CONN_2" V 10650 1850 40  0000 C CNN
+	1    10600 1850
+	1    0    0    -1  
+$EndComp
 $Comp
 L GND #PWR?
 U 1 1 4DAF3F39
@@ -152,10 +602,10 @@ $EndComp
 $Comp
 L GND #PWR01
 U 1 1 4B88490B
-P 8050 5750
-F 0 "#PWR01" H 8050 5750 30  0001 C CNN
-F 1 "GND" H 8050 5680 30  0001 C CNN
-	1    8050 5750
+P 5250 6500
+F 0 "#PWR01" H 5250 6500 30  0001 C CNN
+F 1 "GND" H 5250 6430 30  0001 C CNN
+	1    5250 6500
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -188,11 +638,11 @@ $EndComp
 $Comp
 L POT RV1
 U 1 1 4B67540F
-P 5250 6400
-F 0 "RV1" H 5250 6300 50  0000 C CNN
-F 1 "5k" H 5250 6400 50  0000 C CNN
-	1    5250 6400
-	1    0    0    -1  
+P 5250 6100
+F 0 "RV1" H 5250 6000 50  0000 C CNN
+F 1 "5k" H 5250 6100 50  0000 C CNN
+	1    5250 6100
+	0    1    1    0   
 $EndComp
 $Comp
 L BUCKPUCK BP1
@@ -242,10 +692,10 @@ $EndComp
 $Comp
 L SPST SW1
 U 1 1 4B5F7E76
-P 6600 6500
-F 0 "SW1" H 6600 6600 70  0000 C CNN
-F 1 "SPST" H 6600 6400 70  0000 C CNN
-	1    6600 6500
+P 2050 6500
+F 0 "SW1" H 2050 6600 70  0000 C CNN
+F 1 "SPST" H 2050 6400 70  0000 C CNN
+	1    2050 6500
 	1    0    0    -1  
 $EndComp
 $Comp
