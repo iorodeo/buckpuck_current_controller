@@ -1,3 +1,9 @@
-EESchema-DOCLIB  Version 2.0  Date: Wed 20 Apr 2011 11:34:55 AM PDT
+EESchema-DOCLIB  Version 2.0  Date: Mon 16 May 2011 08:18:01 PM PDT
+#
+$CMP LM321
+D Op amp.
+K AmpliOp
+F AmpliOp.sch
+$ENDCMP
 #
 #End Doc Library
