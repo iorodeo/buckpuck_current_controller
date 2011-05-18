@@ -1,50 +1,355 @@
-# EESchema Netlist Version 1.1 created  Fri 26 Feb 2010 03:27:12 PM PST
+# EESchema Netlist Version 1.1 created  Wed 18 May 2011 04:20:41 PM PDT
 (
- ( /4B885732 $noname  K1 CCB {Lib=CONN_3}
-  (    1 /LED+ )
-  (    2 GND )
-  (    3 /LED- )
+ ( /4DD19FA6/4DD1B143 8-pin_SOIC ACS1 ACS712
+  ( 1 N-000039 )
+  ( 2 ? )
+  ( 3 ? )
+  ( 4 N-000036 )
+  ( 5 GND )
+  ( 6 N-000040 )
+  ( 7 /ChannelA/VIOUT )
+  ( 8 +5V )
  )
- ( /4B885718 $noname  P1 POWER {Lib=CONN_2}
-  (    1 N-000004 )
-  (    2 N-000006 )
+ ( /4DD2E82D/4DD1B143 8-pin_SOIC ACS2 ACS712
+  ( 1 N-000048 )
+  ( 2 ? )
+  ( 3 ? )
+  ( 4 N-000045 )
+  ( 5 GND )
+  ( 6 N-000049 )
+  ( 7 /ChannelB/VIOUT )
+  ( 8 +5V )
  )
- ( /4B708BAA $noname  TP2 CS+ {Lib=TESTPOINT}
-  (    1 N-000001 )
+ ( /4DD2E861/4DD1B143 8-pin_SOIC ACS3 ACS712
+  ( 1 N-000057 )
+  ( 2 ? )
+  ( 3 ? )
+  ( 4 N-000054 )
+  ( 5 GND )
+  ( 6 N-000058 )
+  ( 7 /ChannelC/VIOUT )
+  ( 8 +5V )
  )
- ( /4B708BA0 $noname  TP1 CS- {Lib=TESTPOINT}
-  (    1 /LED+ )
+ ( /4DD2E86D/4DD1B143 8-pin_SOIC ACS4 ACS712
+  ( 1 N-000066 )
+  ( 2 ? )
+  ( 3 ? )
+  ( 4 N-000063 )
+  ( 5 GND )
+  ( 6 N-000067 )
+  ( 7 /ChannelD/VIOUT )
+  ( 8 +5V )
  )
- ( /4B67540F $noname  RV1 5k {Lib=POT}
-  (    1 N-000003 )
-  (    2 N-000002 )
-  (    3 ? )
+ ( /4DD19FA6/4DD1A2DC BUCKPUCK BP1 BUCKPUCK
+  ( 1 N-000039 )
+  ( 2 GND )
+  ( 3 N-000044 )
+  ( 4 ? )
+  ( 5 VAA )
+  ( 6 GND )
  )
- ( /4B6750C4 $noname  BP1 BUCKPUCK {Lib=BUCKPUCK}
-  (    1 N-000001 )
-  (    2 /LED- )
-  (    3 N-000003 )
-  (    4 N-000002 )
-  (    5 /Vin )
-  (    6 GND )
+ ( /4DD2E82D/4DD1A2DC BUCKPUCK BP2 BUCKPUCK
+  ( 1 N-000048 )
+  ( 2 GND )
+  ( 3 N-000053 )
+  ( 4 ? )
+  ( 5 VAA )
+  ( 6 GND )
  )
- ( /4B5F750E $noname  D1 BRIDGE {Lib=BRIDGE}
-  (    1 GND )
-  (    2 N-000006 )
-  (    3 /Vin )
-  (    4 N-000004 )
+ ( /4DD2E861/4DD1A2DC BUCKPUCK BP3 BUCKPUCK
+  ( 1 N-000057 )
+  ( 2 GND )
+  ( 3 N-000062 )
+  ( 4 ? )
+  ( 5 VAA )
+  ( 6 GND )
  )
- ( /4B5F7E76 $noname  SW1 SPST {Lib=SPST}
-  (    1 N-000003 )
-  (    2 N-000002 )
+ ( /4DD2E86D/4DD1A2DC BUCKPUCK BP4 BUCKPUCK
+  ( 1 N-000066 )
+  ( 2 GND )
+  ( 3 N-000071 )
+  ( 4 ? )
+  ( 5 VAA )
+  ( 6 GND )
  )
- ( /4B5F73D3 $noname  C1 10uF {Lib=C}
-  (    1 /Vin )
-  (    2 GND )
+ ( /4B5F73D3 SM1210 C1 10uF
+  ( 1 VAA )
+  ( 2 GND )
  )
- ( /4B5F5C94 $noname  R1 0.1 {Lib=R}
-  (    1 /LED+ )
-  (    2 N-000001 )
+ ( /4DD30F51 SM1210 C2 10uF
+  ( 1 VAA )
+  ( 2 GND )
+ )
+ ( /4DD30F54 SM1210 C3 10uF
+  ( 1 VDD )
+  ( 2 GND )
+ )
+ ( /4DD2F558 SM1210 C4 0.33uF
+  ( 1 N-000017 )
+  ( 2 GND )
+ )
+ ( /4DD2F791 SM1210 C5 0.1uF
+  ( 1 VDD )
+  ( 2 GND )
+ )
+ ( /4DD19FA6/4DD1B46C SM1210 C6 0.1uF
+  ( 1 +5V )
+  ( 2 GND )
+ )
+ ( /4DD19FA6/4DD1B655 SM1210 C7 1uF
+  ( 1 N-000040 )
+  ( 2 GND )
+ )
+ ( /4DD19FA6/4DD1EAF8 SM1210 C8 0.1uF
+  ( 1 GND )
+  ( 2 +5V )
+ )
+ ( /4DD19FA6/4DD1BDBA SM1210 C9 1uF
+  ( 1 N-000044 )
+  ( 2 GND )
+ )
+ ( /4DD2E82D/4DD1B46C SM1210 C10 0.1uF
+  ( 1 +5V )
+  ( 2 GND )
+ )
+ ( /4DD2E82D/4DD1B655 SM1210 C11 1uF
+  ( 1 N-000049 )
+  ( 2 GND )
+ )
+ ( /4DD2E82D/4DD1EAF8 SM1210 C12 0.1uF
+  ( 1 GND )
+  ( 2 +5V )
+ )
+ ( /4DD2E82D/4DD1BDBA SM1210 C13 1uF
+  ( 1 N-000053 )
+  ( 2 GND )
+ )
+ ( /4DD2E861/4DD1B46C SM1210 C14 0.1uF
+  ( 1 +5V )
+  ( 2 GND )
+ )
+ ( /4DD2E861/4DD1B655 SM1210 C15 1uF
+  ( 1 N-000058 )
+  ( 2 GND )
+ )
+ ( /4DD2E861/4DD1EAF8 SM1210 C16 0.1uF
+  ( 1 GND )
+  ( 2 +5V )
+ )
+ ( /4DD2E861/4DD1BDBA SM1210 C17 1uF
+  ( 1 N-000062 )
+  ( 2 GND )
+ )
+ ( /4DD2E86D/4DD1B46C SM1210 C18 0.1uF
+  ( 1 +5V )
+  ( 2 GND )
+ )
+ ( /4DD2E86D/4DD1B655 SM1210 C19 1uF
+  ( 1 N-000067 )
+  ( 2 GND )
+ )
+ ( /4DD2E86D/4DD1EAF8 SM1210 C20 0.1uF
+  ( 1 GND )
+  ( 2 +5V )
+ )
+ ( /4DD2E86D/4DD1BDBA SM1210 C21 1uF
+  ( 1 N-000071 )
+  ( 2 GND )
+ )
+ ( /4B5F750E TO_269AA D1 BRIDGE
+  ( 1 GND )
+  ( 2 N-000029 )
+  ( 3 VAA )
+  ( 4 N-000035 )
+ )
+ ( /4B885718 SCREW_TERMINAL_2 P1 POWER
+  ( 1 N-000035 )
+  ( 2 N-000029 )
+ )
+ ( /4DD2F1DB PIN_ARRAY_2X2 P2 ResetOverride
+  ( 1 /RST )
+  ( 2 N-000017 )
+  ( 3 ? )
+  ( 4 ? )
+ )
+ ( /4DD40675 PIN_ARRAY_2X1 P3 SetSwitch
+  ( 1 N-000028 )
+  ( 2 GND )
+ )
+ ( /4DD2F842 PIN_ARRAY_4X1 P4 Display
+  ( 1 VDD )
+  ( 2 GND )
+  ( 3 /DisplayRX )
+  ( 4 /DisplayTX )
+ )
+ ( /4DD19FA6/4DD1A2D9 SCREW_TERMINAL_2 P5 CurrentOutput
+  ( 1 N-000036 )
+  ( 2 GND )
+ )
+ ( /4DD19FA6/4DD2B819 PIN_ARRAY_2X1 P6 OnOffSwitch
+  ( 1 /OnOffSwitchA )
+  ( 2 GND )
+ )
+ ( /4DD2E82D/4DD1A2D9 SCREW_TERMINAL_2 P7 CurrentOutput
+  ( 1 N-000045 )
+  ( 2 GND )
+ )
+ ( /4DD2E82D/4DD2B819 PIN_ARRAY_2X1 P8 OnOffSwitch
+  ( 1 /OnOffSwitchB )
+  ( 2 GND )
+ )
+ ( /4DD2E861/4DD1A2D9 SCREW_TERMINAL_2 P9 CurrentOutput
+  ( 1 N-000054 )
+  ( 2 GND )
+ )
+ ( /4DD2E861/4DD2B819 PIN_ARRAY_2X1 P10 OnOffSwitch
+  ( 1 /OnOffSwitchC )
+  ( 2 GND )
+ )
+ ( /4DD2E86D/4DD1A2D9 SCREW_TERMINAL_2 P11 CurrentOutput
+  ( 1 N-000063 )
+  ( 2 GND )
+ )
+ ( /4DD2E86D/4DD2B819 PIN_ARRAY_2X1 P12 OnOffSwitch
+  ( 1 /OnOffSwitchD )
+  ( 2 GND )
+ )
+ ( /4DD2F567 SM1210 R1 68
+  ( 1 N-000017 )
+  ( 2 +5V )
+ )
+ ( /4DD19FA6/4DD1BDC8 SM1210 R2 1.7k
+  ( 1 N-000044 )
+  ( 2 /PwmA )
+ )
+ ( /4DD19FA6/4DD1E9C2 SM1210 R3 43k
+  ( 1 /CurrentSenseA )
+  ( 2 N-000038 )
+ )
+ ( /4DD19FA6/4DD1E9BF SM1210 R4 1.7k
+  ( 1 N-000038 )
+  ( 2 GND )
+ )
+ ( /4DD2E82D/4DD1BDC8 SM1210 R5 1.7k
+  ( 1 N-000053 )
+  ( 2 /PwmB )
+ )
+ ( /4DD2E82D/4DD1E9C2 SM1210 R6 43k
+  ( 1 /CurrentSenseB )
+  ( 2 N-000047 )
+ )
+ ( /4DD2E82D/4DD1E9BF SM1210 R7 1.7k
+  ( 1 N-000047 )
+  ( 2 GND )
+ )
+ ( /4DD2E861/4DD1BDC8 SM1210 R8 1.7k
+  ( 1 N-000062 )
+  ( 2 /PwmC )
+ )
+ ( /4DD2E861/4DD1E9C2 SM1210 R9 43k
+  ( 1 /CurrentSenseC )
+  ( 2 N-000056 )
+ )
+ ( /4DD2E861/4DD1E9BF SM1210 R10 1.7k
+  ( 1 N-000056 )
+  ( 2 GND )
+ )
+ ( /4DD2E86D/4DD1BDC8 SM1210 R11 1.7k
+  ( 1 N-000071 )
+  ( 2 /PwmD )
+ )
+ ( /4DD2E86D/4DD1E9C2 SM1210 R12 43k
+  ( 1 /Channel1 )
+  ( 2 N-000065 )
+ )
+ ( /4DD2E86D/4DD1E9BF SM1210 R13 1.7k
+  ( 1 N-000065 )
+  ( 2 GND )
+ )
+ ( /4DD19FA6/4DD1EC78 POT_EVUE2J RV1 POT
+  ( 1 GND )
+  ( 2 /PotentiometerA )
+  ( 3 +5V )
+ )
+ ( /4DD2E82D/4DD1EC78 POT_EVUE2J RV2 POT
+  ( 1 GND )
+  ( 2 /Channel2 )
+  ( 3 +5V )
+ )
+ ( /4DD2E861/4DD1EC78 POT_EVUE2J RV3 POT
+  ( 1 GND )
+  ( 2 /Channel3 )
+  ( 3 +5V )
+ )
+ ( /4DD2E86D/4DD1EC78 POT_EVUE2J RV4 POT
+  ( 1 GND )
+  ( 2 /PotentiometerD )
+  ( 3 +5V )
+ )
+ ( /4DD30F0E V78XX-1000 U1 V7809
+  ( 1 VAA )
+  ( 2 GND )
+  ( 3 VDD )
+ )
+ ( /4DAF2A1C arduino_nano U2 ARDUINO_NANO
+  ( 1 ? )
+  ( 2 ? )
+  ( 3 /RST )
+  ( 4 GND )
+  ( 5 /OnOffSwitchD )
+  ( 6 /PwmD )
+  ( 7 /OnOffSwitchB )
+  ( 8 /PwmB )
+  ( 9 /PwmA )
+  ( 10 /OnOffSwitchA )
+  ( 11 /DisplayRX )
+  ( 12 /DisplayTX )
+  ( 13 /OnOffSwitchC )
+  ( 14 /PwmC )
+  ( 15 N-000028 )
+  ( 16 ? )
+  ( 17 ? )
+  ( 18 ? )
+  ( 19 /CurrentSenseA )
+  ( 20 /PotentiometerA )
+  ( 21 /CurrentSenseB )
+  ( 22 /Channel2 )
+  ( 23 /CurrentSenseC )
+  ( 24 /Channel3 )
+  ( 25 /Channel1 )
+  ( 26 /PotentiometerD )
+  ( 27 +5V )
+  ( 28 ? )
+  ( 29 GND )
+  ( 30 VDD )
+ )
+ ( /4DD19FA6/4DD1E92F SOT23-5 U3 LM321
+  ( 1 /ChannelA/VIOUT )
+  ( 2 GND )
+  ( 3 N-000038 )
+  ( 4 /CurrentSenseA )
+  ( 5 +5V )
+ )
+ ( /4DD2E82D/4DD1E92F SOT23-5 U4 LM321
+  ( 1 /ChannelB/VIOUT )
+  ( 2 GND )
+  ( 3 N-000047 )
+  ( 4 /CurrentSenseB )
+  ( 5 +5V )
+ )
+ ( /4DD2E861/4DD1E92F SOT23-5 U5 LM321
+  ( 1 /ChannelC/VIOUT )
+  ( 2 GND )
+  ( 3 N-000056 )
+  ( 4 /CurrentSenseC )
+  ( 5 +5V )
+ )
+ ( /4DD2E86D/4DD1E92F SOT23-5 U6 LM321
+  ( 1 /ChannelD/VIOUT )
+  ( 2 GND )
+  ( 3 N-000065 )
+  ( 4 /Channel1 )
+  ( 5 +5V )
  )
 )
 *
@@ -54,47 +359,183 @@ $component C1
  C?
  C1-1
 $endlist
+$component C2
+ SM*
+ C?
+ C1-1
+$endlist
+$component C3
+ SM*
+ C?
+ C1-1
+$endlist
+$component C4
+ SM*
+ C?
+ C1-1
+$endlist
+$component C5
+ SM*
+ C?
+ C1-1
+$endlist
+$component C6
+ SM*
+ C?
+ C1-1
+$endlist
+$component C7
+ SM*
+ C?
+ C1-1
+$endlist
+$component C8
+ SM*
+ C?
+ C1-1
+$endlist
+$component C9
+ SM*
+ C?
+ C1-1
+$endlist
+$component C10
+ SM*
+ C?
+ C1-1
+$endlist
+$component C11
+ SM*
+ C?
+ C1-1
+$endlist
+$component C12
+ SM*
+ C?
+ C1-1
+$endlist
+$component C13
+ SM*
+ C?
+ C1-1
+$endlist
+$component C14
+ SM*
+ C?
+ C1-1
+$endlist
+$component C15
+ SM*
+ C?
+ C1-1
+$endlist
+$component C16
+ SM*
+ C?
+ C1-1
+$endlist
+$component C17
+ SM*
+ C?
+ C1-1
+$endlist
+$component C18
+ SM*
+ C?
+ C1-1
+$endlist
+$component C19
+ SM*
+ C?
+ C1-1
+$endlist
+$component C20
+ SM*
+ C?
+ C1-1
+$endlist
+$component C21
+ SM*
+ C?
+ C1-1
+$endlist
 $component R1
  R?
  SM0603
  SM0805
+ R?-*
+$endlist
+$component R2
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R3
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R4
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R5
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R6
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R7
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R8
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R9
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R10
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R11
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R12
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R13
+ R?
+ SM0603
+ SM0805
+ R?-*
 $endlist
 $endfootprintlist
 }
-{ Pin List by Nets
-Net 1 "" ""
- TP2 1
- BP1 1
- R1 2
-Net 2 "" ""
- RV1 2
- BP1 4
- SW1 2
-Net 3 "" ""
- RV1 1
- BP1 3
- SW1 1
-Net 4 "" ""
- P1 1
- D1 4
-Net 5 "GND" "GND"
- K1 2
- BP1 6
- D1 1
- C1 2
-Net 6 "" ""
- P1 2
- D1 2
-Net 7 "/LED-" "LED-"
- K1 3
- BP1 2
-Net 8 "/LED+" "LED+"
- K1 1
- TP1 1
- R1 1
-Net 10 "/Vin" "Vin"
- BP1 5
- D1 3
- C1 1
-}
-#End

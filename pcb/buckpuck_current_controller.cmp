@@ -1,0 +1,458 @@
+Cmp-Mod V01 Created by CvPCB (2010-03-14)-final date = Wed 18 May 2011 04:20:41 PM PDT
+
+BeginCmp
+TimeStamp = /4DD19FA6/4DD1B143;
+Reference = ACS1;
+ValeurCmp = ACS712;
+IdModule  = 8-pin_SOIC;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E82D/4DD1B143;
+Reference = ACS2;
+ValeurCmp = ACS712;
+IdModule  = 8-pin_SOIC;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E861/4DD1B143;
+Reference = ACS3;
+ValeurCmp = ACS712;
+IdModule  = 8-pin_SOIC;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E86D/4DD1B143;
+Reference = ACS4;
+ValeurCmp = ACS712;
+IdModule  = 8-pin_SOIC;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD19FA6/4DD1A2DC;
+Reference = BP1;
+ValeurCmp = BUCKPUCK;
+IdModule  = BUCKPUCK;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E82D/4DD1A2DC;
+Reference = BP2;
+ValeurCmp = BUCKPUCK;
+IdModule  = BUCKPUCK;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E861/4DD1A2DC;
+Reference = BP3;
+ValeurCmp = BUCKPUCK;
+IdModule  = BUCKPUCK;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E86D/4DD1A2DC;
+Reference = BP4;
+ValeurCmp = BUCKPUCK;
+IdModule  = BUCKPUCK;
+EndCmp
+
+BeginCmp
+TimeStamp = /4B5F73D3;
+Reference = C1;
+ValeurCmp = 10uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD30F51;
+Reference = C2;
+ValeurCmp = 10uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD30F54;
+Reference = C3;
+ValeurCmp = 10uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2F558;
+Reference = C4;
+ValeurCmp = 0.33uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2F791;
+Reference = C5;
+ValeurCmp = 0.1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD19FA6/4DD1B46C;
+Reference = C6;
+ValeurCmp = 0.1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD19FA6/4DD1B655;
+Reference = C7;
+ValeurCmp = 1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD19FA6/4DD1EAF8;
+Reference = C8;
+ValeurCmp = 0.1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD19FA6/4DD1BDBA;
+Reference = C9;
+ValeurCmp = 1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E82D/4DD1B46C;
+Reference = C10;
+ValeurCmp = 0.1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E82D/4DD1B655;
+Reference = C11;
+ValeurCmp = 1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E82D/4DD1EAF8;
+Reference = C12;
+ValeurCmp = 0.1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E82D/4DD1BDBA;
+Reference = C13;
+ValeurCmp = 1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E861/4DD1B46C;
+Reference = C14;
+ValeurCmp = 0.1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E861/4DD1B655;
+Reference = C15;
+ValeurCmp = 1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E861/4DD1EAF8;
+Reference = C16;
+ValeurCmp = 0.1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E861/4DD1BDBA;
+Reference = C17;
+ValeurCmp = 1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E86D/4DD1B46C;
+Reference = C18;
+ValeurCmp = 0.1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E86D/4DD1B655;
+Reference = C19;
+ValeurCmp = 1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E86D/4DD1EAF8;
+Reference = C20;
+ValeurCmp = 0.1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E86D/4DD1BDBA;
+Reference = C21;
+ValeurCmp = 1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4B5F750E;
+Reference = D1;
+ValeurCmp = BRIDGE;
+IdModule  = TO_269AA;
+EndCmp
+
+BeginCmp
+TimeStamp = /4B885718;
+Reference = P1;
+ValeurCmp = POWER;
+IdModule  = SCREW_TERMINAL_2;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2F1DB;
+Reference = P2;
+ValeurCmp = ResetOverride;
+IdModule  = PIN_ARRAY_2X2;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD40675;
+Reference = P3;
+ValeurCmp = SetSwitch;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2F842;
+Reference = P4;
+ValeurCmp = Display;
+IdModule  = PIN_ARRAY_4X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD19FA6/4DD1A2D9;
+Reference = P5;
+ValeurCmp = CurrentOutput;
+IdModule  = SCREW_TERMINAL_2;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD19FA6/4DD2B819;
+Reference = P6;
+ValeurCmp = OnOffSwitch;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E82D/4DD1A2D9;
+Reference = P7;
+ValeurCmp = CurrentOutput;
+IdModule  = SCREW_TERMINAL_2;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E82D/4DD2B819;
+Reference = P8;
+ValeurCmp = OnOffSwitch;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E861/4DD1A2D9;
+Reference = P9;
+ValeurCmp = CurrentOutput;
+IdModule  = SCREW_TERMINAL_2;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E861/4DD2B819;
+Reference = P10;
+ValeurCmp = OnOffSwitch;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E86D/4DD1A2D9;
+Reference = P11;
+ValeurCmp = CurrentOutput;
+IdModule  = SCREW_TERMINAL_2;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E86D/4DD2B819;
+Reference = P12;
+ValeurCmp = OnOffSwitch;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2F567;
+Reference = R1;
+ValeurCmp = 68;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD19FA6/4DD1BDC8;
+Reference = R2;
+ValeurCmp = 1.7k;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD19FA6/4DD1E9C2;
+Reference = R3;
+ValeurCmp = 43k;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD19FA6/4DD1E9BF;
+Reference = R4;
+ValeurCmp = 1.7k;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E82D/4DD1BDC8;
+Reference = R5;
+ValeurCmp = 1.7k;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E82D/4DD1E9C2;
+Reference = R6;
+ValeurCmp = 43k;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E82D/4DD1E9BF;
+Reference = R7;
+ValeurCmp = 1.7k;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E861/4DD1BDC8;
+Reference = R8;
+ValeurCmp = 1.7k;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E861/4DD1E9C2;
+Reference = R9;
+ValeurCmp = 43k;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E861/4DD1E9BF;
+Reference = R10;
+ValeurCmp = 1.7k;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E86D/4DD1BDC8;
+Reference = R11;
+ValeurCmp = 1.7k;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E86D/4DD1E9C2;
+Reference = R12;
+ValeurCmp = 43k;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E86D/4DD1E9BF;
+Reference = R13;
+ValeurCmp = 1.7k;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD19FA6/4DD1EC78;
+Reference = RV1;
+ValeurCmp = POT;
+IdModule  = POT_EVUE2J;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E82D/4DD1EC78;
+Reference = RV2;
+ValeurCmp = POT;
+IdModule  = POT_EVUE2J;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E861/4DD1EC78;
+Reference = RV3;
+ValeurCmp = POT;
+IdModule  = POT_EVUE2J;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E86D/4DD1EC78;
+Reference = RV4;
+ValeurCmp = POT;
+IdModule  = POT_EVUE2J;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD30F0E;
+Reference = U1;
+ValeurCmp = V7809;
+IdModule  = V78XX-1000;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DAF2A1C;
+Reference = U2;
+ValeurCmp = ARDUINO_NANO;
+IdModule  = arduino_nano;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD19FA6/4DD1E92F;
+Reference = U3;
+ValeurCmp = LM321;
+IdModule  = SOT23-5;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E82D/4DD1E92F;
+Reference = U4;
+ValeurCmp = LM321;
+IdModule  = SOT23-5;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E861/4DD1E92F;
+Reference = U5;
+ValeurCmp = LM321;
+IdModule  = SOT23-5;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD2E86D/4DD1E92F;
+Reference = U6;
+ValeurCmp = LM321;
+IdModule  = SOT23-5;
+EndCmp
+
+EndListe

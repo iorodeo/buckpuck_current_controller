@@ -1,5 +1,5 @@
-update=Mon 16 May 2011 08:19:06 PM PDT
-last_client=eeschema
+update=Wed 18 May 2011 04:02:53 PM PDT
+last_client=pcbnew
 [general]
 version=1
 [eeschema]
@@ -68,3 +68,33 @@ LibName27=atmel
 LibName28=contrib
 LibName29=valves
 LibName30=buckpuck_current_controller
+[cvpcb]
+version=1
+NetIExt=net
+[cvpcb/libraries]
+EquName1=devcms
+[pcbnew]
+version=1
+PadDrlX=360
+PadDimH=650
+PadDimV=650
+BoardThickness=630
+RouteTo=15
+RouteBo=0
+Segm45=1
+Racc45=1
+SgPcb45=1
+TxtPcbV=800
+TxtPcbH=600
+TxtModV=600
+TxtModH=600
+TxtModW=120
+VEgarde=100
+DrawLar=150
+EdgeLar=90
+TxtLar=120
+MSegLar=150
+WpenSer=10
+[pcbnew/libraries]
+LibDir=
+LibName1=buckpuck_current_controller
