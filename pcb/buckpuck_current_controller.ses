@@ -1,0 +1,1575 @@
+
+(session buckpuck_current_controller.ses
+  (base_design buckpuck_current_controller.dsn)
+  (placement
+    (resolution mil 10)
+    (component POT_EVUE2J
+      (place RV1 43000 -53500 front 270)
+      (place RV4 53000 -53500 front 270)
+      (place RV3 63000 -53500 front 270)
+      (place RV2 73000 -53500 front 270)
+    )
+    (component arduino_nano
+      (place U2 33000 -46100 front 0)
+    )
+    (component "V78XX-1000"
+      (place U1 83000 -49500 front 180)
+    )
+    (component "SOT23-5"
+      (place U3 42000 -41100 back 90)
+      (place U4 52000 -41100 back 90)
+      (place U5 62000 -41100 back 90)
+      (place U6 72000 -41100 back 90)
+    )
+    (component SM1210
+      (place C2 83000 -45500 back 0)
+      (place C3 83000 -52000 front 0)
+      (place C4 31000 -35500 front 90)
+      (place C5 38500 -39500 front 270)
+      (place C6 41100 -41700 front 270)
+      (place C7 41100 -39300 front 90)
+      (place C8 42000 -39400 back 0)
+      (place C9 44500 -46000 back 180)
+      (place C10 51100 -41700 front 270)
+      (place C11 51100 -39300 front 90)
+      (place C12 52000 -39400 back 0)
+      (place C13 54500 -46000 back 180)
+      (place C14 61100 -41700 front 270)
+      (place C15 61100 -39300 front 90)
+      (place C16 62000 -39400 back 0)
+      (place C17 64500 -46000 back 180)
+      (place C18 71100 -41700 front 270)
+      (place C19 71100 -39300 front 90)
+      (place C20 72000 -39400 back 0)
+      (place C21 74500 -46000 back 180)
+      (place R2 44500 -48500 back 180)
+      (place R3 42000 -42700 back 180)
+      (place R4 44000 -41100 back 270)
+      (place R5 54500 -48500 back 180)
+      (place R6 52000 -42700 back 180)
+      (place R7 54000 -41100 back 270)
+      (place R8 64500 -48500 back 180)
+      (place R9 62000 -42700 back 180)
+      (place R10 64000 -41100 back 270)
+      (place R11 74500 -48500 back 180)
+      (place R12 72000 -42700 back 180)
+      (place R13 74000 -41100 back 270)
+      (place R1 32500 -35500 front 90)
+      (place C1 83000 -43000 back 0)
+    )
+    (component SCREW_TERMINAL_2
+      (place P5 43000 -36100 front 180)
+      (place P7 53000 -36100 front 180)
+      (place P9 63000 -36100 front 180)
+      (place P11 73000 -36100 front 180)
+      (place P1 83000 -36000 front 180)
+    )
+    (component PIN_ARRAY_4X1
+      (place P4 27100 -48500 front 270)
+    )
+    (component PIN_ARRAY_2X2
+      (place P2 34500 -35500 front 90)
+    )
+    (component PIN_ARRAY_2X1
+      (place P3 27100 -53000 front 180)
+      (place P6 27100 -44000 front 180)
+      (place P8 27100 -42000 front 180)
+      (place P10 27100 -40000 front 180)
+      (place P12 27100 -38000 front 180)
+    )
+    (component "8-pin_SOIC"
+      (place ACS1 44900 -40500 front 180)
+      (place ACS2 54900 -40500 front 180)
+      (place ACS3 64900 -40500 front 180)
+      (place ACS4 74900 -40500 front 180)
+    )
+    (component TO_269AA
+      (place D1 83000 -40000 back 90)
+    )
+    (component BUCKPUCK
+      (place BP1 43000 -44000 front 270)
+      (place BP4 73000 -44000 front 270)
+      (place BP3 63000 -44000 front 270)
+      (place BP2 53000 -44000 front 270)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution mil 10)
+    (parser
+      (host_cad "Kicad's PCBNEW")
+      (host_version "(2010-03-14)-final")
+    )
+    (library_out 
+      (padstack "Via[0-1]_35:25_mil"
+        (shape
+          (circle Component 350 0 0)
+        )
+        (shape
+          (circle Copper 350 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_35:0_mil"
+        (shape
+          (circle Component 350 0 0)
+        )
+        (shape
+          (circle Copper 350 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+      (net GND
+        (wire
+          (path Component 320
+            71100 -38700
+            70337 -38700
+          )
+        )
+        (wire
+          (path Component 320
+            69899 -38666
+            70303 -38666
+            70337 -38700
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 69899 -38666
+        )
+        (wire
+          (path Component 320
+            53187 -39750
+            53187 -39817
+            53150 -39854
+          )
+        )
+        (wire
+          (path Component 320
+            51100 -42300
+            51863 -42300
+          )
+        )
+        (wire
+          (path Component 320
+            52000 -42280
+            51883 -42280
+            51863 -42300
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 52000 -42280
+        )
+        (wire
+          (path Component 320
+            83600 -52000
+            83087 -52000
+          )
+        )
+        (wire
+          (path Component 320
+            83000 -51913
+            83087 -52000
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 83000 -51913
+        )
+        (wire
+          (path Component 320
+            61100 -38700
+            61100 -39213
+          )
+        )
+        (wire
+          (path Component 320
+            60593 -39300
+            60680 -39213
+            61100 -39213
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 60593 -39300
+        )
+        (wire
+          (path Component 320
+            61100 -42300
+            61863 -42300
+          )
+        )
+        (wire
+          (path Component 320
+            62000 -42330
+            61893 -42330
+            61863 -42300
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 62000 -42330
+        )
+        (wire
+          (path Component 320
+            51100 -38700
+            51100 -39213
+          )
+        )
+        (wire
+          (path Component 320
+            50837 -39270
+            50894 -39213
+            51100 -39213
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 50837 -39270
+        )
+        (wire
+          (path Component 320
+            31000 -34900
+            31000 -35413
+          )
+        )
+        (wire
+          (path Component 320
+            31117 -35500
+            31030 -35413
+            31000 -35413
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 31117 -35500
+        )
+        (wire
+          (path Component 320
+            38500 -40100
+            38500 -39587
+          )
+        )
+        (wire
+          (path Component 320
+            38600 -39563
+            38576 -39587
+            38500 -39587
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 38600 -39563
+        )
+        (wire
+          (path Component 320
+            41100 -42300
+            41100 -41787
+          )
+        )
+        (wire
+          (path Component 320
+            40948 -41700
+            41035 -41787
+            41100 -41787
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 40948 -41700
+        )
+        (wire
+          (path Component 320
+            41100 -38700
+            40337 -38700
+          )
+        )
+        (wire
+          (path Component 320
+            40238 -38833
+            40337 -38734
+            40337 -38700
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 40238 -38833
+        )
+        (wire
+          (path Component 320
+            71100 -42300
+            71863 -42300
+          )
+        )
+        (wire
+          (path Component 320
+            72000 -42240
+            71923 -42240
+            71863 -42300
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 72000 -42240
+        )
+        (wire
+          (path Component 320
+            43800 -39750
+            43187 -39750
+          )
+        )
+        (wire
+          (path Component 320
+            43150 -39870
+            43187 -39833
+            43187 -39750
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 43150 -39870
+        )
+        (wire
+          (path Component 320
+            53800 -39750
+            53187 -39750
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 53150 -39854
+        )
+        (wire
+          (path Component 320
+            63800 -39750
+            63187 -39750
+          )
+        )
+        (wire
+          (path Component 320
+            63150 -39751
+            63187 -39751
+            63187 -39750
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 63150 -39751
+        )
+        (wire
+          (path Component 320
+            73800 -39750
+            73187 -39750
+          )
+        )
+        (wire
+          (path Component 320
+            73150 -39751
+            73187 -39751
+            73187 -39750
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 73150 -39751
+        )
+      )
+      (net VAA
+        (wire
+          (path Copper 320
+            83000 -45500
+            83600 -45500
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 83000 -45500
+        )
+        (wire
+          (path Copper 320
+            83588 -44250
+            83600 -44238
+            83600 -43000
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 83588 -44250
+        )
+        (wire
+          (path Copper 320
+            83600 -43000
+            83600 -42237
+          )
+        )
+        (wire
+          (path Copper 320
+            83600 -42237
+            83500 -42137
+            83500 -41250
+          )
+        )
+      )
+      (net +5V
+        (wire
+          (path Copper 320
+            63984 -53500
+            64682 -54198
+            73286 -54198
+            73984 -53500
+          )
+        )
+        (wire
+          (path Copper 320
+            53984 -54190
+            63294 -54190
+            63984 -53500
+          )
+        )
+        (wire
+          (path Component 320
+            67810 -43115
+            63984 -46941
+            63984 -53500
+          )
+        )
+        (wire
+          (path Copper 320
+            71400 -39400
+            70887 -39400
+          )
+        )
+        (wire
+          (path Copper 320
+            70861 -39300
+            70887 -39326
+            70887 -39400
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 70861 -39300
+        )
+        (wire
+          (path Copper 320
+            51400 -39400
+            51400 -40163
+          )
+        )
+        (wire
+          (path Copper 320
+            51490 -40725
+            51948 -40725
+          )
+        )
+        (wire
+          (path Copper 320
+            52000 -40920
+            51948 -40868
+            51948 -40725
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 52000 -40920
+        )
+        (wire
+          (path Copper 320
+            61490 -40725
+            61948 -40725
+          )
+        )
+        (wire
+          (path Copper 320
+            62000 -40920
+            61948 -40868
+            61948 -40725
+          )
+        )
+        (wire
+          (path Copper 320
+            61490 -40725
+            61490 -40253
+            61400 -40163
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 62000 -40920
+        )
+        (wire
+          (path Copper 320
+            51490 -40725
+            51490 -40253
+            51400 -40163
+          )
+        )
+        (wire
+          (path Copper 320
+            53984 -54190
+            44674 -54190
+            43984 -53500
+          )
+        )
+        (wire
+          (path Copper 320
+            53984 -53500
+            53984 -54190
+          )
+        )
+        (wire
+          (path Copper 320
+            61400 -39400
+            61400 -40163
+          )
+        )
+        (wire
+          (path Copper 320
+            71400 -39400
+            71400 -40163
+          )
+        )
+        (wire
+          (path Copper 320
+            71400 -40163
+            71490 -40253
+            71490 -40725
+          )
+        )
+        (wire
+          (path Copper 320
+            41490 -40725
+            41490 -40327
+          )
+        )
+        (wire
+          (path Copper 320
+            41400 -39400
+            41913 -39400
+          )
+        )
+        (wire
+          (path Copper 320
+            41933 -39395
+            41918 -39395
+            41913 -39400
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 41933 -39395
+        )
+        (wire
+          (path Copper 320
+            41400 -39400
+            41400 -40237
+            41490 -40327
+          )
+        )
+      )
+      (net VDD
+        (wire
+          (path Component 320
+            82000 -51166
+            82000 -49500
+          )
+        )
+        (wire
+          (path Copper 320
+            36000 -39100
+            34672 -39100
+          )
+        )
+        (wire
+          (path Copper 320
+            34207 -39036
+            34608 -39036
+            34672 -39100
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 34207 -39036
+        )
+        (wire
+          (path Component 320
+            31434 -38499
+            33670 -38499
+            34207 -39036
+          )
+        )
+        (wire
+          (path Component 320
+            36000 -39100
+            37328 -39100
+          )
+        )
+        (wire
+          (path Component 320
+            37328 -39100
+            37528 -38900
+            38500 -38900
+          )
+        )
+      )
+      (net /Channel1
+        (wire
+          (path Copper 80
+            71490 -41475
+            71490 -41197
+          )
+        )
+        (wire
+          (path Copper 80
+            71490 -41197
+            71212 -41197
+            68366 -38351
+            41465 -38351
+            37208 -42608
+            37208 -44100
+          )
+        )
+        (wire
+          (path Copper 80
+            71400 -42057
+            71490 -41967
+            71490 -41475
+          )
+        )
+        (wire
+          (path Copper 80
+            36000 -44100
+            37208 -44100
+          )
+        )
+        (wire
+          (path Copper 80
+            71400 -42700
+            71400 -42057
+          )
+        )
+      )
+      (net /Channel2
+        (wire
+          (path Component 80
+            36000 -47100
+            37208 -47100
+          )
+        )
+        (wire
+          (path Component 80
+            37208 -47100
+            41650 -51542
+            58396 -51542
+            61133 -54279
+            72221 -54279
+            73000 -53500
+          )
+        )
+      )
+      (net /Channel3
+        (wire
+          (path Component 80
+            36000 -45100
+            37208 -45100
+          )
+        )
+        (wire
+          (path Component 80
+            37208 -45100
+            42117 -50009
+            60172 -50009
+            63000 -52837
+            63000 -53500
+          )
+        )
+      )
+      (net /ChannelA/VIOUT
+        (wire
+          (path Copper 80
+            42510 -40725
+            42848 -40725
+          )
+        )
+        (wire
+          (path Copper 80
+            43040 -40920
+            42848 -40728
+            42848 -40725
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 43040 -40920
+        )
+        (wire
+          (path Component 80
+            43800 -40750
+            43210 -40750
+            43040 -40920
+          )
+        )
+      )
+      (net /ChannelB/VIOUT
+        (wire
+          (path Copper 80
+            52510 -40725
+            52848 -40725
+          )
+        )
+        (wire
+          (path Copper 80
+            53078 -40701
+            52872 -40701
+            52848 -40725
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 53078 -40701
+        )
+        (wire
+          (path Component 80
+            53800 -40750
+            53127 -40750
+            53078 -40701
+          )
+        )
+      )
+      (net /ChannelC/VIOUT
+        (wire
+          (path Copper 80
+            62510 -40725
+            62848 -40725
+          )
+        )
+        (wire
+          (path Copper 80
+            63078 -40645
+            62928 -40645
+            62848 -40725
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 63078 -40645
+        )
+        (wire
+          (path Component 80
+            63800 -40750
+            63183 -40750
+            63078 -40645
+          )
+        )
+      )
+      (net /ChannelD/VIOUT
+        (wire
+          (path Component 80
+            73800 -40750
+            73307 -40750
+          )
+        )
+        (wire
+          (path Copper 80
+            73078 -40920
+            72883 -40725
+            72510 -40725
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 73078 -40920
+        )
+        (wire
+          (path Component 80
+            73307 -40750
+            73137 -40920
+            73078 -40920
+          )
+        )
+      )
+      (net /CurrentSenseA
+        (wire
+          (path Copper 80
+            41400 -42700
+            41400 -42057
+          )
+        )
+        (wire
+          (path Copper 80
+            41400 -42057
+            41490 -41967
+            41490 -41475
+          )
+        )
+        (wire
+          (path Copper 80
+            41400 -42700
+            41400 -43441
+            37230 -47611
+            34813 -47611
+            34792 -47632
+            34792 -50100
+          )
+        )
+        (wire
+          (path Copper 80
+            36000 -50100
+            34792 -50100
+          )
+        )
+      )
+      (net /CurrentSenseB
+        (wire
+          (path Copper 80
+            51400 -42700
+            51007 -42700
+          )
+        )
+        (wire
+          (path Copper 80
+            37208 -48100
+            37208 -47991
+            41733 -43466
+            50241 -43466
+            51007 -42700
+          )
+        )
+        (wire
+          (path Copper 80
+            51400 -42378
+            51400 -42700
+          )
+        )
+        (wire
+          (path Copper 80
+            36000 -48100
+            37208 -48100
+          )
+        )
+        (wire
+          (path Copper 80
+            51400 -42378
+            51400 -42057
+          )
+        )
+        (wire
+          (path Copper 80
+            51490 -41475
+            51490 -41753
+          )
+        )
+        (wire
+          (path Copper 80
+            51400 -42057
+            51400 -41843
+            51490 -41753
+          )
+        )
+      )
+      (net /CurrentSenseC
+        (wire
+          (path Copper 80
+            61400 -41843
+            61490 -41753
+          )
+        )
+        (wire
+          (path Copper 80
+            61400 -42700
+            61400 -41843
+          )
+        )
+        (wire
+          (path Copper 80
+            61400 -41843
+            61270 -41843
+            58021 -38594
+            44951 -38594
+            43102 -40443
+            42176 -40443
+            42154 -40465
+            42154 -40699
+            41753 -41100
+            41096 -41100
+            37208 -44988
+            37208 -46100
+          )
+        )
+        (wire
+          (path Copper 80
+            36000 -46100
+            37208 -46100
+          )
+        )
+        (wire
+          (path Copper 80
+            61490 -41475
+            61490 -41753
+          )
+        )
+      )
+      (net /DisplayRX
+        (wire
+          (path Component 80
+            30000 -49100
+            28792 -49100
+          )
+        )
+        (wire
+          (path Component 80
+            27100 -49000
+            28692 -49000
+            28792 -49100
+          )
+        )
+      )
+      (net /DisplayTX
+        (wire
+          (path Component 80
+            30000 -50100
+            28792 -50100
+          )
+        )
+        (wire
+          (path Component 80
+            27100 -50000
+            28692 -50000
+            28792 -50100
+          )
+        )
+      )
+      (net /OnOffSwitchA
+        (wire
+          (path Copper 80
+            30000 -48100
+            28792 -48100
+          )
+        )
+        (wire
+          (path Copper 80
+            27600 -44000
+            27600 -46908
+            28792 -48100
+          )
+        )
+      )
+      (net /OnOffSwitchB
+        (wire
+          (path Copper 80
+            30000 -45100
+            28792 -45100
+          )
+        )
+        (wire
+          (path Copper 80
+            27600 -42000
+            27600 -42443
+          )
+        )
+        (wire
+          (path Copper 80
+            27600 -42443
+            28792 -43635
+            28792 -45100
+          )
+        )
+      )
+      (net /OnOffSwitchC
+        (wire
+          (path Copper 80
+            27600 -40000
+            27600 -40443
+          )
+        )
+        (wire
+          (path Copper 80
+            30000 -51100
+            28792 -51100
+          )
+        )
+        (wire
+          (path Copper 80
+            28792 -51100
+            28792 -48972
+            27264 -47444
+            26678 -47444
+            26656 -47422
+            26656 -45399
+            27157 -44898
+            27157 -40886
+            27600 -40443
+          )
+        )
+      )
+      (net /OnOffSwitchD
+        (wire
+          (path Copper 80
+            30000 -43100
+            28792 -43100
+          )
+        )
+        (wire
+          (path Copper 80
+            27600 -38000
+            27600 -38443
+          )
+        )
+        (wire
+          (path Copper 80
+            27600 -38443
+            28792 -39635
+            28792 -43100
+          )
+        )
+      )
+      (net /PotentiometerA
+        (wire
+          (path Component 80
+            36000 -49100
+            38624 -49100
+            43000 -53476
+            43000 -53500
+          )
+        )
+      )
+      (net /PotentiometerD
+        (wire
+          (path Component 80
+            36000 -43100
+            34792 -43100
+          )
+        )
+        (wire
+          (path Component 80
+            34792 -43100
+            34792 -47568
+            34813 -47589
+            37374 -47589
+            41514 -51729
+            51792 -51729
+            53000 -52937
+            53000 -53500
+          )
+        )
+      )
+      (net /PwmA
+        (wire
+          (path Copper 80
+            45100 -48500
+            44707 -48500
+          )
+        )
+        (wire
+          (path Component 80
+            37647 -48780
+            37478 -48611
+            33921 -48611
+            32410 -47100
+            30000 -47100
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 37647 -48780
+        )
+        (wire
+          (path Copper 80
+            44707 -48500
+            44707 -48893
+            44109 -49491
+            38358 -49491
+            37647 -48780
+          )
+        )
+      )
+      (net /PwmB
+        (wire
+          (path Copper 80
+            30000 -46100
+            31208 -46100
+          )
+        )
+        (wire
+          (path Copper 80
+            55100 -48500
+            54707 -48500
+          )
+        )
+        (wire
+          (path Copper 80
+            54707 -48500
+            54707 -48893
+            53011 -50589
+            34858 -50589
+            31208 -46939
+            31208 -46100
+          )
+        )
+      )
+      (net /PwmC
+        (wire
+          (path Copper 80
+            30000 -52100
+            31208 -52100
+          )
+        )
+        (wire
+          (path Copper 80
+            65100 -48500
+            64707 -48500
+          )
+        )
+        (wire
+          (path Copper 80
+            64707 -48500
+            64707 -48893
+            61988 -51612
+            31696 -51612
+            31208 -52100
+          )
+        )
+      )
+      (net /PwmD
+        (wire
+          (path Copper 80
+            75100 -48500
+            75493 -48500
+          )
+        )
+        (wire
+          (path Copper 80
+            75493 -48500
+            76539 -47454
+            76539 -41466
+            73240 -38167
+            41388 -38167
+            37966 -41589
+            33925 -41589
+            31414 -44100
+            30000 -44100
+          )
+        )
+      )
+      (net /RST
+        (wire
+          (path Copper 80
+            30000 -41100
+            31208 -41100
+          )
+        )
+        (wire
+          (path Copper 80
+            35000 -36000
+            35000 -37308
+            31208 -41100
+          )
+        )
+      )
+      (net "N-000017"
+        (wire
+          (path Component 80
+            32500 -36100
+            33143 -36100
+          )
+        )
+        (wire
+          (path Component 80
+            34000 -36000
+            33243 -36000
+            33143 -36100
+          )
+        )
+        (wire
+          (path Component 80
+            32500 -36100
+            31000 -36100
+          )
+        )
+      )
+      (net "N-000028"
+        (wire
+          (path Component 80
+            30000 -53100
+            28792 -53100
+          )
+        )
+        (wire
+          (path Component 80
+            27600 -53000
+            28692 -53000
+            28792 -53100
+          )
+        )
+      )
+      (net "N-000029"
+        (wire
+          (path Copper 320
+            82500 -38750
+            82500 -36000
+          )
+        )
+      )
+      (net "N-000035"
+        (wire
+          (path Copper 320
+            83500 -38750
+            83500 -36000
+          )
+        )
+      )
+      (net "N-000036"
+        (wire
+          (path Component 320
+            43500 -36100
+            43500 -36728
+          )
+        )
+        (wire
+          (path Component 320
+            46000 -39750
+            45387 -39750
+          )
+        )
+        (wire
+          (path Component 320
+            45387 -39750
+            45387 -38615
+            43500 -36728
+          )
+        )
+      )
+      (net "N-000038"
+        (wire
+          (path Copper 80
+            42600 -41700
+            42600 -41565
+            42510 -41475
+          )
+        )
+        (wire
+          (path Copper 80
+            42600 -42700
+            42600 -41700
+          )
+        )
+        (wire
+          (path Copper 80
+            43357 -41700
+            42600 -41700
+          )
+        )
+        (wire
+          (path Copper 80
+            44000 -41700
+            43357 -41700
+          )
+        )
+      )
+      (net "N-000039"
+        (wire
+          (path Component 320
+            46000 -41250
+            45387 -41250
+          )
+        )
+        (wire
+          (path Component 320
+            46000 -44000
+            45387 -43387
+            45387 -41250
+          )
+        )
+      )
+      (net "N-000040"
+        (wire
+          (path Component 80
+            41100 -39900
+            41743 -39900
+          )
+        )
+        (wire
+          (path Component 80
+            43800 -40250
+            42093 -40250
+            41743 -39900
+          )
+        )
+      )
+      (net "N-000044"
+        (wire
+          (path Copper 80
+            43900 -48500
+            43900 -46000
+          )
+        )
+        (wire
+          (path Copper 80
+            43900 -46000
+            43900 -45357
+          )
+        )
+        (wire
+          (path Copper 80
+            44000 -44000
+            44000 -45257
+            43900 -45357
+          )
+        )
+      )
+      (net "N-000045"
+        (wire
+          (path Component 320
+            53500 -36100
+            53500 -36728
+          )
+        )
+        (wire
+          (path Component 320
+            56000 -39750
+            55387 -39750
+          )
+        )
+        (wire
+          (path Component 320
+            55387 -39750
+            55387 -38615
+            53500 -36728
+          )
+        )
+      )
+      (net "N-000047"
+        (wire
+          (path Copper 80
+            52600 -41700
+            52600 -41565
+            52510 -41475
+          )
+        )
+        (wire
+          (path Copper 80
+            52600 -42700
+            52600 -41700
+          )
+        )
+        (wire
+          (path Copper 80
+            53357 -41700
+            52600 -41700
+          )
+        )
+        (wire
+          (path Copper 80
+            54000 -41700
+            53357 -41700
+          )
+        )
+      )
+      (net "N-000048"
+        (wire
+          (path Component 320
+            56000 -41250
+            55387 -41250
+          )
+        )
+        (wire
+          (path Component 320
+            56000 -44000
+            55387 -43387
+            55387 -41250
+          )
+        )
+      )
+      (net "N-000049"
+        (wire
+          (path Component 80
+            51100 -39900
+            51743 -39900
+          )
+        )
+        (wire
+          (path Component 80
+            53800 -40250
+            52093 -40250
+            51743 -39900
+          )
+        )
+      )
+      (net "N-000053"
+        (wire
+          (path Copper 80
+            53900 -48500
+            53900 -46000
+          )
+        )
+        (wire
+          (path Copper 80
+            53900 -46000
+            53900 -45357
+          )
+        )
+        (wire
+          (path Copper 80
+            54000 -44000
+            54000 -45257
+            53900 -45357
+          )
+        )
+      )
+      (net "N-000054"
+        (wire
+          (path Component 320
+            63500 -36100
+            63500 -36728
+          )
+        )
+        (wire
+          (path Component 320
+            66000 -39750
+            65387 -39750
+          )
+        )
+        (wire
+          (path Component 320
+            65387 -39750
+            65387 -38615
+            63500 -36728
+          )
+        )
+      )
+      (net "N-000056"
+        (wire
+          (path Copper 80
+            63015 -41642
+            62848 -41475
+          )
+        )
+        (wire
+          (path Copper 80
+            64000 -41700
+            63073 -41700
+            63015 -41642
+          )
+        )
+        (wire
+          (path Copper 80
+            62600 -42057
+            63015 -41642
+          )
+        )
+        (wire
+          (path Copper 80
+            62600 -42700
+            62600 -42057
+          )
+        )
+        (wire
+          (path Copper 80
+            62510 -41475
+            62848 -41475
+          )
+        )
+      )
+      (net "N-000057"
+        (wire
+          (path Component 320
+            66000 -41250
+            65387 -41250
+          )
+        )
+        (wire
+          (path Component 320
+            66000 -44000
+            65387 -43387
+            65387 -41250
+          )
+        )
+      )
+      (net "N-000058"
+        (wire
+          (path Component 80
+            63800 -40250
+            62093 -40250
+            61743 -39900
+          )
+        )
+        (wire
+          (path Component 80
+            61100 -39900
+            61743 -39900
+          )
+        )
+      )
+      (net "N-000062"
+        (wire
+          (path Copper 80
+            63900 -48500
+            63900 -46000
+          )
+        )
+        (wire
+          (path Copper 80
+            63900 -46000
+            63900 -45357
+          )
+        )
+        (wire
+          (path Copper 80
+            64000 -44000
+            64000 -45257
+            63900 -45357
+          )
+        )
+      )
+      (net "N-000063"
+        (wire
+          (path Component 320
+            73500 -36100
+            73500 -36728
+          )
+        )
+        (wire
+          (path Component 320
+            76000 -39750
+            75387 -39750
+          )
+        )
+        (wire
+          (path Component 320
+            75387 -39750
+            75387 -38615
+            73500 -36728
+          )
+        )
+      )
+      (net "N-000065"
+        (wire
+          (path Copper 80
+            72600 -41700
+            72600 -41565
+            72510 -41475
+          )
+        )
+        (wire
+          (path Copper 80
+            72600 -42700
+            72600 -41700
+          )
+        )
+        (wire
+          (path Copper 80
+            73357 -41700
+            72600 -41700
+          )
+        )
+        (wire
+          (path Copper 80
+            74000 -41700
+            73357 -41700
+          )
+        )
+      )
+      (net "N-000066"
+        (wire
+          (path Component 320
+            76000 -41250
+            75387 -41250
+          )
+        )
+        (wire
+          (path Component 320
+            76000 -44000
+            75387 -43387
+            75387 -41250
+          )
+        )
+      )
+      (net "N-000067"
+        (wire
+          (path Component 80
+            73800 -40250
+            72093 -40250
+            71743 -39900
+          )
+        )
+        (wire
+          (path Component 80
+            71100 -39900
+            71743 -39900
+          )
+        )
+      )
+      (net "N-000071"
+        (wire
+          (path Copper 80
+            73900 -48500
+            73900 -46000
+          )
+        )
+        (wire
+          (path Copper 80
+            73900 -46000
+            73900 -45357
+          )
+        )
+        (wire
+          (path Copper 80
+            74000 -44000
+            74000 -45257
+            73900 -45357
+          )
+        )
+      )
+    )
+  )
+)
