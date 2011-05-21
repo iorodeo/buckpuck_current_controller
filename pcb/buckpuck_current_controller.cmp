@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPCB (2010-03-14)-final date = Wed 18 May 2011 04:20:41 PM PDT
+Cmp-Mod V01 Created by CvPCB (2010-03-14)-final date = Fri 20 May 2011 04:23:24 PM PDT
 
 BeginCmp
 TimeStamp = /4DD19FA6/4DD1B143;
@@ -292,6 +292,41 @@ TimeStamp = /4DD2E86D/4DD2B819;
 Reference = P12;
 ValeurCmp = OnOffSwitch;
 IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD6F3DD;
+Reference = P13;
+ValeurCmp = CONN_1;
+IdModule  = MOUNT_HOLE_4_40;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD6F3E5;
+Reference = P14;
+ValeurCmp = CONN_1;
+IdModule  = MOUNT_HOLE_4_40;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD6F3E8;
+Reference = P15;
+ValeurCmp = CONN_1;
+IdModule  = MOUNT_HOLE_4_40;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD6F3EB;
+Reference = P16;
+ValeurCmp = CONN_1;
+IdModule  = MOUNT_HOLE_4_40;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD6F3EE;
+Reference = P17;
+ValeurCmp = CONN_1;
+IdModule  = MOUNT_HOLE_4_40;
 EndCmp
 
 BeginCmp

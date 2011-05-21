@@ -1,4 +1,4 @@
-# EESchema Netlist Version 1.1 created  Wed 18 May 2011 04:20:41 PM PDT
+# EESchema Netlist Version 1.1 created  Fri 20 May 2011 04:23:24 PM PDT
 (
  ( /4DD19FA6/4DD1B143 8-pin_SOIC ACS1 ACS712
   ( 1 N-000039 )
@@ -85,7 +85,7 @@
   ( 2 GND )
  )
  ( /4DD2F558 SM1210 C4 0.33uF
-  ( 1 N-000017 )
+  ( 1 N-000035 )
   ( 2 GND )
  )
  ( /4DD2F791 SM1210 C5 0.1uF
@@ -158,22 +158,22 @@
  )
  ( /4B5F750E TO_269AA D1 BRIDGE
   ( 1 GND )
-  ( 2 N-000029 )
+  ( 2 N-000031 )
   ( 3 VAA )
-  ( 4 N-000035 )
+  ( 4 N-000027 )
  )
  ( /4B885718 SCREW_TERMINAL_2 P1 POWER
-  ( 1 N-000035 )
-  ( 2 N-000029 )
+  ( 1 N-000027 )
+  ( 2 N-000031 )
  )
  ( /4DD2F1DB PIN_ARRAY_2X2 P2 ResetOverride
   ( 1 /RST )
-  ( 2 N-000017 )
+  ( 2 N-000035 )
   ( 3 ? )
   ( 4 ? )
  )
  ( /4DD40675 PIN_ARRAY_2X1 P3 SetSwitch
-  ( 1 N-000028 )
+  ( 1 N-000034 )
   ( 2 GND )
  )
  ( /4DD2F842 PIN_ARRAY_4X1 P4 Display
@@ -203,7 +203,7 @@
   ( 2 GND )
  )
  ( /4DD2E861/4DD2B819 PIN_ARRAY_2X1 P10 OnOffSwitch
-  ( 1 /OnOffSwitchC )
+  ( 1 /Channel1 )
   ( 2 GND )
  )
  ( /4DD2E86D/4DD1A2D9 SCREW_TERMINAL_2 P11 CurrentOutput
@@ -214,8 +214,23 @@
   ( 1 /OnOffSwitchD )
   ( 2 GND )
  )
+ ( /4DD6F3DD MOUNT_HOLE_4_40 P13 CONN_1
+  ( 1 GND )
+ )
+ ( /4DD6F3E5 MOUNT_HOLE_4_40 P14 CONN_1
+  ( 1 GND )
+ )
+ ( /4DD6F3E8 MOUNT_HOLE_4_40 P15 CONN_1
+  ( 1 GND )
+ )
+ ( /4DD6F3EB MOUNT_HOLE_4_40 P16 CONN_1
+  ( 1 GND )
+ )
+ ( /4DD6F3EE MOUNT_HOLE_4_40 P17 CONN_1
+  ( 1 GND )
+ )
  ( /4DD2F567 SM1210 R1 68
-  ( 1 N-000017 )
+  ( 1 N-000035 )
   ( 2 +5V )
  )
  ( /4DD19FA6/4DD1BDC8 SM1210 R2 1.7k
@@ -232,7 +247,7 @@
  )
  ( /4DD2E82D/4DD1BDC8 SM1210 R5 1.7k
   ( 1 N-000053 )
-  ( 2 /PwmB )
+  ( 2 /ChannelB/PWM )
  )
  ( /4DD2E82D/4DD1E9C2 SM1210 R6 43k
   ( 1 /CurrentSenseB )
@@ -247,7 +262,7 @@
   ( 2 /PwmC )
  )
  ( /4DD2E861/4DD1E9C2 SM1210 R9 43k
-  ( 1 /CurrentSenseC )
+  ( 1 /Channel2 )
   ( 2 N-000056 )
  )
  ( /4DD2E861/4DD1E9BF SM1210 R10 1.7k
@@ -256,10 +271,10 @@
  )
  ( /4DD2E86D/4DD1BDC8 SM1210 R11 1.7k
   ( 1 N-000071 )
-  ( 2 /PwmD )
+  ( 2 /ChannelD/PWM )
  )
  ( /4DD2E86D/4DD1E9C2 SM1210 R12 43k
-  ( 1 /Channel1 )
+  ( 1 /Channel3 )
   ( 2 N-000065 )
  )
  ( /4DD2E86D/4DD1E9BF SM1210 R13 1.7k
@@ -273,12 +288,12 @@
  )
  ( /4DD2E82D/4DD1EC78 POT_EVUE2J RV2 POT
   ( 1 GND )
-  ( 2 /Channel2 )
+  ( 2 /Channel4 )
   ( 3 +5V )
  )
  ( /4DD2E861/4DD1EC78 POT_EVUE2J RV3 POT
   ( 1 GND )
-  ( 2 /Channel3 )
+  ( 2 /PotentiometerC )
   ( 3 +5V )
  )
  ( /4DD2E86D/4DD1EC78 POT_EVUE2J RV4 POT
@@ -297,26 +312,26 @@
   ( 3 /RST )
   ( 4 GND )
   ( 5 /OnOffSwitchD )
-  ( 6 /PwmD )
+  ( 6 /ChannelD/PWM )
   ( 7 /OnOffSwitchB )
-  ( 8 /PwmB )
+  ( 8 /ChannelB/PWM )
   ( 9 /PwmA )
   ( 10 /OnOffSwitchA )
   ( 11 /DisplayRX )
   ( 12 /DisplayTX )
-  ( 13 /OnOffSwitchC )
+  ( 13 /Channel1 )
   ( 14 /PwmC )
-  ( 15 N-000028 )
+  ( 15 N-000034 )
   ( 16 ? )
   ( 17 ? )
   ( 18 ? )
   ( 19 /CurrentSenseA )
   ( 20 /PotentiometerA )
   ( 21 /CurrentSenseB )
-  ( 22 /Channel2 )
-  ( 23 /CurrentSenseC )
-  ( 24 /Channel3 )
-  ( 25 /Channel1 )
+  ( 22 /Channel4 )
+  ( 23 /Channel2 )
+  ( 24 /PotentiometerC )
+  ( 25 /Channel3 )
   ( 26 /PotentiometerD )
   ( 27 +5V )
   ( 28 ? )
@@ -341,14 +356,14 @@
   ( 1 /ChannelC/VIOUT )
   ( 2 GND )
   ( 3 N-000056 )
-  ( 4 /CurrentSenseC )
+  ( 4 /Channel2 )
   ( 5 +5V )
  )
  ( /4DD2E86D/4DD1E92F SOT23-5 U6 LM321
   ( 1 /ChannelD/VIOUT )
   ( 2 GND )
   ( 3 N-000065 )
-  ( 4 /Channel1 )
+  ( 4 /Channel3 )
   ( 5 +5V )
  )
 )
