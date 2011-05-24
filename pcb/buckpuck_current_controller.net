@@ -1,4 +1,4 @@
-# EESchema Netlist Version 1.1 created  Fri 20 May 2011 04:23:24 PM PDT
+# EESchema Netlist Version 1.1 created  Mon 23 May 2011 01:07:19 PM PDT
 (
  ( /4DD19FA6/4DD1B143 8-pin_SOIC ACS1 ACS712
   ( 1 N-000039 )
@@ -156,7 +156,7 @@
   ( 1 N-000071 )
   ( 2 GND )
  )
- ( /4B5F750E TO_269AA D1 BRIDGE
+ ( /4B5F750E PBPC-6 D1 BRIDGE
   ( 1 GND )
   ( 2 N-000031 )
   ( 3 VAA )

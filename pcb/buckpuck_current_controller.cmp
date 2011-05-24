@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPCB (2010-03-14)-final date = Fri 20 May 2011 04:23:24 PM PDT
+Cmp-Mod V01 Created by CvPCB (2010-03-14)-final date = Mon 23 May 2011 01:07:19 PM PDT
 
 BeginCmp
 TimeStamp = /4DD19FA6/4DD1B143;
@@ -207,7 +207,7 @@ BeginCmp
 TimeStamp = /4B5F750E;
 Reference = D1;
 ValeurCmp = BRIDGE;
-IdModule  = TO_269AA;
+IdModule  = PBPC-6;
 EndCmp
 
 BeginCmp
