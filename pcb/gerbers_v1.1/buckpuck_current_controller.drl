@@ -1,5 +1,5 @@
 M48
-;DRILL file {PCBnew (2010-03-14)-final} date Mon 23 May 2011 01:35:02 PM PDT
+;DRILL file {PCBnew (2010-03-14)-final} date Wed 25 May 2011 10:37:05 AM PDT
 ;FORMAT={2:4/ absolute / inch / suppress trailing zeros}
 R,T
 VER,1
@@ -71,6 +71,8 @@ X034Y-035
 X034Y-036
 X035Y-035
 X035Y-036
+X03795Y-0531
+X03895Y-0531
 T4
 X03Y-0391
 X03Y-0401

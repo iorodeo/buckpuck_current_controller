@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Fri 20 May 2011 04:23:06 PM PDT
+EESchema Schematic File Version 2  date Tue 24 May 2011 02:41:27 PM PDT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -35,7 +35,7 @@ EELAYER END
 $Descr A4 11700 8267
 Sheet 5 5
 Title "Single Buckpuck Channel"
-Date "20 may 2011"
+Date "24 may 2011"
 Rev "1.0"
 Comp ""
 Comment1 ""
@@ -155,7 +155,7 @@ AR Path="/4DD19FA6/4DD2B819" Ref="P6"  Part="1"
 AR Path="/4DD2E82D/4DD2B819" Ref="P8"  Part="1" 
 AR Path="/4DD2E86D/4DD2B819" Ref="P12"  Part="1" 
 AR Path="/4DD2E861/4DD2B819" Ref="P10"  Part="1" 
-F 0 "P12" V 5550 6050 40  0000 C CNN
+F 0 "P6" V 5550 6050 40  0000 C CNN
 F 1 "OnOffSwitch" V 5650 6050 40  0000 C CNN
 	1    5600 6050
 	1    0    0    -1  
@@ -196,7 +196,7 @@ AR Path="/4DD19FA6/4DD1EC78" Ref="RV1"  Part="1"
 AR Path="/4DD2E82D/4DD1EC78" Ref="RV2"  Part="1" 
 AR Path="/4DD2E86D/4DD1EC78" Ref="RV4"  Part="1" 
 AR Path="/4DD2E861/4DD1EC78" Ref="RV3"  Part="1" 
-F 0 "RV4" H 9400 3350 50  0000 C CNN
+F 0 "RV1" H 9400 3350 50  0000 C CNN
 F 1 "POT" H 9400 3450 50  0000 C CNN
 	1    9400 3450
 	-1   0    0    1   
@@ -237,7 +237,7 @@ AR Path="/4DD19FA6/4DD1EAF8" Ref="C8"  Part="1"
 AR Path="/4DD2E82D/4DD1EAF8" Ref="C12"  Part="1" 
 AR Path="/4DD2E86D/4DD1EAF8" Ref="C20"  Part="1" 
 AR Path="/4DD2E861/4DD1EAF8" Ref="C16"  Part="1" 
-F 0 "C20" H 7750 4200 50  0000 L CNN
+F 0 "C8" H 7750 4200 50  0000 L CNN
 F 1 "0.1uF" H 7450 4000 50  0000 L CNN
 	1    7700 4100
 	0    1    1    0   
@@ -263,7 +263,7 @@ AR Path="/4DD19FA6/4DD1E9C2" Ref="R3"  Part="1"
 AR Path="/4DD2E82D/4DD1E9C2" Ref="R6"  Part="1" 
 AR Path="/4DD2E86D/4DD1E9C2" Ref="R12"  Part="1" 
 AR Path="/4DD2E861/4DD1E9C2" Ref="R9"  Part="1" 
-F 0 "R12" V 7430 5450 50  0000 C CNN
+F 0 "R3" V 7430 5450 50  0000 C CNN
 F 1 "43k" V 7350 5450 50  0000 C CNN
 	1    7350 5450
 	0    1    1    0   
@@ -276,7 +276,7 @@ AR Path="/4DD19FA6/4DD1E9BF" Ref="R4"  Part="1"
 AR Path="/4DD2E82D/4DD1E9BF" Ref="R7"  Part="1" 
 AR Path="/4DD2E86D/4DD1E9BF" Ref="R13"  Part="1" 
 AR Path="/4DD2E861/4DD1E9BF" Ref="R10"  Part="1" 
-F 0 "R13" V 7080 5800 50  0000 C CNN
+F 0 "R4" V 7080 5800 50  0000 C CNN
 F 1 "1.7k" V 7000 5800 50  0000 C CNN
 	1    7000 5800
 	1    0    0    -1  
@@ -317,7 +317,7 @@ AR Path="/4DD19FA6/4DD1E92F" Ref="U3"  Part="1"
 AR Path="/4DD2E82D/4DD1E92F" Ref="U4"  Part="1" 
 AR Path="/4DD2E86D/4DD1E92F" Ref="U6"  Part="1" 
 AR Path="/4DD2E861/4DD1E92F" Ref="U5"  Part="1" 
-F 0 "U6" H 7600 5000 70  0000 C CNN
+F 0 "U3" H 7600 5000 70  0000 C CNN
 F 1 "LM321" H 7600 4900 70  0000 C CNN
 	1    7450 4700
 	1    0    0    -1  
@@ -347,7 +347,7 @@ AR Path="/4DD19FA6/4DD1BDC8" Ref="R2"  Part="1"
 AR Path="/4DD2E82D/4DD1BDC8" Ref="R5"  Part="1" 
 AR Path="/4DD2E86D/4DD1BDC8" Ref="R11"  Part="1" 
 AR Path="/4DD2E861/4DD1BDC8" Ref="R8"  Part="1" 
-F 0 "R11" V 3830 4400 50  0000 C CNN
+F 0 "R2" V 3830 4400 50  0000 C CNN
 F 1 "1.7k" V 3750 4400 50  0000 C CNN
 	1    3750 4400
 	0    1    1    0   
@@ -360,7 +360,7 @@ AR Path="/4DD19FA6/4DD1BDBA" Ref="C9"  Part="1"
 AR Path="/4DD2E82D/4DD1BDBA" Ref="C13"  Part="1" 
 AR Path="/4DD2E86D/4DD1BDBA" Ref="C21"  Part="1" 
 AR Path="/4DD2E861/4DD1BDBA" Ref="C17"  Part="1" 
-F 0 "C21" H 4300 4700 50  0000 L CNN
+F 0 "C9" H 4300 4700 50  0000 L CNN
 F 1 "1uF" H 4300 4500 50  0000 L CNN
 	1    4250 4600
 	1    0    0    -1  
@@ -386,7 +386,7 @@ AR Path="/4DD19FA6/4DD1B655" Ref="C7"  Part="1"
 AR Path="/4DD2E82D/4DD1B655" Ref="C11"  Part="1" 
 AR Path="/4DD2E86D/4DD1B655" Ref="C19"  Part="1" 
 AR Path="/4DD2E861/4DD1B655" Ref="C15"  Part="1" 
-F 0 "C19" H 6800 3300 50  0000 L CNN
+F 0 "C7" H 6800 3300 50  0000 L CNN
 F 1 "1uF" H 6800 3100 50  0000 L CNN
 	1    6750 3200
 	1    0    0    -1  
@@ -412,7 +412,7 @@ AR Path="/4DD19FA6/4DD1B46C" Ref="C6"  Part="1"
 AR Path="/4DD2E82D/4DD1B46C" Ref="C10"  Part="1" 
 AR Path="/4DD2E86D/4DD1B46C" Ref="C18"  Part="1" 
 AR Path="/4DD2E861/4DD1B46C" Ref="C14"  Part="1" 
-F 0 "C18" H 7500 3150 50  0000 L CNN
+F 0 "C6" H 7500 3150 50  0000 L CNN
 F 1 "0.1uF" H 7500 2950 50  0000 L CNN
 	1    7450 3050
 	1    0    0    -1  
@@ -455,7 +455,7 @@ AR Path="/4DD19FA6/4DD1B143" Ref="ACS1"  Part="1"
 AR Path="/4DD2E82D/4DD1B143" Ref="ACS2"  Part="1" 
 AR Path="/4DD2E86D/4DD1B143" Ref="ACS4"  Part="1" 
 AR Path="/4DD2E861/4DD1B143" Ref="ACS3"  Part="1" 
-F 0 "ACS4" H 5850 3200 60  0000 C CNN
+F 0 "ACS1" H 5850 3200 60  0000 C CNN
 F 1 "ACS712" H 5850 2700 60  0000 C CNN
 	1    5850 2950
 	1    0    0    -1  
@@ -468,7 +468,7 @@ AR Path="/4DD19FA6/4DD1A2DC" Ref="BP1"  Part="1"
 AR Path="/4DD2E82D/4DD1A2DC" Ref="BP2"  Part="1" 
 AR Path="/4DD2E86D/4DD1A2DC" Ref="BP4"  Part="1" 
 AR Path="/4DD2E861/4DD1A2DC" Ref="BP3"  Part="1" 
-F 0 "BP4" H 5100 3450 60  0000 C CNN
+F 0 "BP1" H 5100 3450 60  0000 C CNN
 F 1 "BUCKPUCK" H 4750 3950 60  0000 C CNN
 	1    4750 3650
 	1    0    0    -1  
@@ -481,7 +481,7 @@ AR Path="/4DD19FA6/4DD1A2DB" Ref="#PWR18"  Part="1"
 AR Path="/4DD2E82D/4DD1A2DB" Ref="#PWR33"  Part="1" 
 AR Path="/4DD2E86D/4DD1A2DB" Ref="#PWR63"  Part="1" 
 AR Path="/4DD2E861/4DD1A2DB" Ref="#PWR48"  Part="1" 
-F 0 "#PWR63" H 4250 3260 30  0001 C CNN
+F 0 "#PWR18" H 4250 3260 30  0001 C CNN
 F 1 "VAA" H 4250 3310 30  0000 C CNN
 	1    4250 3200
 	1    0    0    -1  
@@ -507,7 +507,7 @@ AR Path="/4DD19FA6/4DD1A2D9" Ref="P5"  Part="1"
 AR Path="/4DD2E82D/4DD1A2D9" Ref="P7"  Part="1" 
 AR Path="/4DD2E86D/4DD1A2D9" Ref="P11"  Part="1" 
 AR Path="/4DD2E861/4DD1A2D9" Ref="P9"  Part="1" 
-F 0 "P11" V 5950 3600 40  0000 C CNN
+F 0 "P5" V 5950 3600 40  0000 C CNN
 F 1 "CurrentOutput" V 6050 3600 40  0000 C CNN
 	1    6000 3600
 	1    0    0    -1  

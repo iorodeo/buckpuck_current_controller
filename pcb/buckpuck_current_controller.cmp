@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPCB (2010-03-14)-final date = Mon 23 May 2011 01:07:19 PM PDT
+Cmp-Mod V01 Created by CvPCB (2010-03-14)-final date = Tue 24 May 2011 02:48:46 PM PDT
 
 BeginCmp
 TimeStamp = /4DD19FA6/4DD1B143;
@@ -227,7 +227,7 @@ EndCmp
 BeginCmp
 TimeStamp = /4DD40675;
 Reference = P3;
-ValeurCmp = SetSwitch;
+ValeurCmp = DisplaySwitch;
 IdModule  = PIN_ARRAY_2X1;
 EndCmp
 
@@ -295,36 +295,43 @@ IdModule  = PIN_ARRAY_2X1;
 EndCmp
 
 BeginCmp
-TimeStamp = /4DD6F3DD;
+TimeStamp = /4DDC2584;
 Reference = P13;
-ValeurCmp = CONN_1;
-IdModule  = MOUNT_HOLE_4_40;
+ValeurCmp = SetSwitch;
+IdModule  = PIN_ARRAY_2X1;
 EndCmp
 
 BeginCmp
-TimeStamp = /4DD6F3E5;
+TimeStamp = /4DD6F3DD;
 Reference = P14;
 ValeurCmp = CONN_1;
 IdModule  = MOUNT_HOLE_4_40;
 EndCmp
 
 BeginCmp
-TimeStamp = /4DD6F3E8;
+TimeStamp = /4DD6F3E5;
 Reference = P15;
 ValeurCmp = CONN_1;
 IdModule  = MOUNT_HOLE_4_40;
 EndCmp
 
 BeginCmp
-TimeStamp = /4DD6F3EB;
+TimeStamp = /4DD6F3E8;
 Reference = P16;
 ValeurCmp = CONN_1;
 IdModule  = MOUNT_HOLE_4_40;
 EndCmp
 
 BeginCmp
-TimeStamp = /4DD6F3EE;
+TimeStamp = /4DD6F3EB;
 Reference = P17;
+ValeurCmp = CONN_1;
+IdModule  = MOUNT_HOLE_4_40;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DD6F3EE;
+Reference = P18;
 ValeurCmp = CONN_1;
 IdModule  = MOUNT_HOLE_4_40;
 EndCmp
