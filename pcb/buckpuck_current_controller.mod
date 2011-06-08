@@ -1,4 +1,4 @@
-PCBNEW-LibModule-V1  Tue 07 Jun 2011 04:12:53 PM PDT
+PCBNEW-LibModule-V1  Tue 07 Jun 2011 09:50:09 PM PDT
 $INDEX
 TO_269AA
 Mounting_Hole
@@ -20,6 +20,7 @@ PBPC-6
 pin_array_6x2
 current_sensor_board
 20-TSSOP
+MOUNT_HOLE_M3
 $EndINDEX
 $MODULE Mounting_Hole
 Po 0 0 0 15 4A79CE3B 00000000 ~~
@@ -99,47 +100,6 @@ Ne 0 ""
 Po 0 0
 $EndPAD
 $EndMODULE  MOUNT_HOLE_4_40
-$MODULE SCREW_TERMINAL_2
-Po 0 0 0 15 4A32B9B6 00000000 ~~
-Li SCREW_TERMINAL_2
-Sc 00000000
-AR
-Op 0 0 0
-T0 0 2000 600 600 0 120 N V 21 N"SCREW_TERMINAL_2"
-T1 0 -1750 600 600 0 120 N V 21 N"VAL**"
-DS -1250 -1250 -1250 1500 150 21
-DS -1250 -1250 1250 -1250 150 21
-DS 1250 -1250 1250 1500 150 21
-DS -1250 1500 1250 1500 150 21
-$PAD
-Sh "2" C 730 730 0 0 0
-Dr 430 0 0
-At STD N 00C0FFFF
-Ne 0 ""
-Po 500 0
-$EndPAD
-$PAD
-Sh "1" R 730 730 0 0 0
-Dr 430 0 0
-At STD N 00C0FFFF
-Ne 0 ""
-Po -500 0
-$EndPAD
-$PAD
-Sh "" C 530 530 0 0 0
-Dr 430 0 0
-At STD N 00C0FFFF
-Ne 0 ""
-Po -500 1000
-$EndPAD
-$PAD
-Sh "" C 530 530 0 0 0
-Dr 430 0 0
-At STD N 00C0FFFF
-Ne 0 ""
-Po 500 1000
-$EndPAD
-$EndMODULE  SCREW_TERMINAL_2
 $MODULE 8-pin_SOIC
 Po 0 0 0 15 4DD58FF7 00000000 ~~
 Li 8-pin_SOIC
@@ -1135,14 +1095,72 @@ Ne 0 ""
 Po -5000 1500
 $EndPAD
 $EndMODULE  current_sensor_board
+$MODULE MOUNT_HOLE_M3
+Po 0 0 0 15 4DEEE022 00000000 ~~
+Li MOUNT_HOLE_M3
+Sc 00000000
+AR
+Op 0 0 0
+T0 0 -800 100 100 0 25 N I 21 N"MOUNT_HOLE"
+T1 0 800 100 100 0 25 N I 21 N"VAL**"
+DC 0 0 500 -1250 150 21
+$PAD
+Sh "1" C 2360 2360 0 0 0
+Dr 1600 0 0
+At STD N 00F0FFFF
+Ne 0 ""
+Po 0 0
+$EndPAD
+$EndMODULE  MOUNT_HOLE_M3
+$MODULE SCREW_TERMINAL_2
+Po 0 0 0 15 4DEEE589 00000000 ~~
+Li SCREW_TERMINAL_2
+Sc 00000000
+AR
+Op 0 0 0
+T0 1750 -750 400 400 900 100 N V 21 N"SCREW_TERMINAL_2"
+T1 0 -1750 400 400 0 100 N V 21 N"VAL**"
+DS -1250 -1250 -1250 1500 150 21
+DS -1250 -1250 1250 -1250 150 21
+DS 1250 -1250 1250 1500 150 21
+DS -1250 1500 1250 1500 150 21
+$PAD
+Sh "2" C 730 730 0 0 0
+Dr 430 0 0
+At STD N 00C0FFFF
+Ne 0 ""
+Po 500 0
+$EndPAD
+$PAD
+Sh "1" R 730 730 0 0 0
+Dr 430 0 0
+At STD N 00C0FFFF
+Ne 0 ""
+Po -500 0
+$EndPAD
+$PAD
+Sh "" C 530 530 0 0 0
+Dr 430 0 0
+At STD N 00C0FFFF
+Ne 0 ""
+Po -500 1000
+$EndPAD
+$PAD
+Sh "" C 530 530 0 0 0
+Dr 430 0 0
+At STD N 00C0FFFF
+Ne 0 ""
+Po 500 1000
+$EndPAD
+$EndMODULE  SCREW_TERMINAL_2
 $MODULE 20-TSSOP
-Po 0 0 0 15 4DEEB070 00000000 ~~
+Po 0 0 0 15 4DEEFF7D 00000000 ~~
 Li 20-TSSOP
 Sc 00000000
 AR 
 Op 0 0 0
-T0 0 -2000 600 600 0 120 N V 21 N"20-TSSOP"
-T1 0 2250 600 600 0 120 N V 21 N"VAL**"
+T0 0 2000 400 400 0 100 N V 21 N"20-TSSOP"
+T1 0 -2000 400 400 0 100 N V 21 N"VAL**"
 DC -250 -1000 -250 -1250 150 21
 DS -750 -1500 -750 1500 150 21
 DS -750 1500 750 1500 150 21
@@ -1154,8 +1172,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po -1160 -1150
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "2" R 571 177 0 0 0
@@ -1163,8 +1181,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po -1160 -896
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "3" R 571 177 0 0 0
@@ -1172,8 +1190,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po -1160 -640
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "4" R 571 177 0 0 0
@@ -1181,8 +1199,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po -1160 -384
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "5" R 571 177 0 0 0
@@ -1190,8 +1208,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po -1160 -128
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "6" R 571 177 0 0 0
@@ -1199,8 +1217,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po -1160 128
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "7" R 571 177 0 0 0
@@ -1208,8 +1226,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po -1160 384
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "8" R 571 177 0 0 0
@@ -1217,8 +1235,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po -1160 640
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "9" R 571 177 0 0 0
@@ -1226,8 +1244,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po -1160 896
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "10" R 571 177 0 0 0
@@ -1235,8 +1253,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po -1160 1150
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "11" R 571 177 0 0 0
@@ -1244,8 +1262,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po 1160 1150
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "12" R 571 177 0 0 0
@@ -1253,8 +1271,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po 1160 896
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "13" R 571 177 0 0 0
@@ -1262,8 +1280,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po 1160 640
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "14" R 571 177 0 0 0
@@ -1271,8 +1289,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po 1160 384
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "15" R 571 177 0 0 0
@@ -1280,8 +1298,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po 1160 128
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "16" R 571 177 0 0 0
@@ -1289,8 +1307,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po 1160 -128
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "17" R 571 177 0 0 0
@@ -1298,8 +1316,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po 1160 -384
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "18" R 571 177 0 0 0
@@ -1307,8 +1325,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po 1160 -640
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "19" R 571 177 0 0 0
@@ -1316,8 +1334,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po 1160 -896
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $PAD
 Sh "20" R 571 177 0 0 0
@@ -1325,8 +1343,8 @@ Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""
 Po 1160 -1150
-.SolderMask 30
-.LocalClearance 30
+.SolderMask 10
+.LocalClearance 10
 $EndPAD
 $EndMODULE  20-TSSOP
 $EndLIBRARY
