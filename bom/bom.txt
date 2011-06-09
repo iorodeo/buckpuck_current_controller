@@ -41,49 +41,63 @@
 | U5  | NOT_GATE             |
 
 # Bill of Materials
-| ! | part    | description                         | vendor       | part number       | quantity |   cost |
-|---+---------+-------------------------------------+--------------+-------------------+----------+--------|
-|   | PCB     | buckpuck_controller 2.0             | protoexpress | afv1-59924        |        1 |  83.80 |
-|   | B1-4    | ACS712 Low Current Sensor Breakout  | sparkfun     | SEN-08883         |        4 |  14.95 |
-|   | BP1-4   | Buckpuck 1000mA external dimming    | ledsupply    | 3021-D-E-1000     |        4 |  16.44 |
-|   | BP1-4   | CONN RECEPT 7POS .100 VERT AU       | digikey      | A26419-ND         |        8 |   1.30 |
-|   | C1-3    | CAP CER 10UF 50V X7S 1210           | digikey      | 445-4536-1-ND     |        3 |   1.24 |
-|   | C4      | CAP CERM .33UF 10% 50V X7R 1210     | digikey      | 478-1620-1-ND     |        1 |   1.21 |
-|   | C5,6    | CAP CERM .10UF 10% 50V X7R 1210     | digikey      | 478-3586-1-ND     |        2 |  0.724 |
-|   | P1,9-12 | CONN TERM BLOCK 2.54MM 2POS         | digikey      | 277-1273-ND       |        5 |  1.102 |
-|   | P1      | AC/DC Power 30 Volt 8A 240W         | jameco       | 2102473           |        1 |  59.95 |
-|   | P1      | MODULE POWER ENTRY FLANGE 15A       | digikey      | CCM1906-ND        |        1 |  12.40 |
-|   | P1      | LINE CORD 3 COND US                 | digikey      | 993-1039-ND       |        1 |   3.18 |
-|   | P2      | CONN HEADER 4POS .100" DUAL TIN     | digikey      | SAM1034-02-ND     |        1 |   0.59 |
-|   | P2      | CONN JUMPER SHORTING GOLD FLASH     | digikey      | S9001-ND          |        1 |   0.87 |
-|   | P3      | Serial Graphic LCD 128x64           | sparkfun     | LCD-09351         |        1 |  34.95 |
-|   | P3      | Jumper Wire - 0.1", 4-pin, 12"      | sparkfun     | PRT-10374         |        1 |   1.95 |
-|   | P3      | CONN HEADER R/A DUAL 6POS GOLD      | digikey      | 3M9479-ND         |        1 |   0.31 |
-|   | P3      | CONN HEADER 50POS .100" SGL GOLD    | digikey      | SAM1031-50-ND     |        1 |   2.91 |
-|   | P3      | Hex Spacer 3/16" Hex, 1/8" Length   | mcmaster     | 97732A101         |        4 |   1.13 |
-|   | P3      | Hex Nut M2 Size .4mm                | mcmaster     | 90710A020         |        4 |   0.08 |
-|   | P3      | Cap Screw M2 Thread, 10mm, 0.4mm    | mcmaster     | 91292A011         |        4 |   0.04 |
-|   | P3      | Flat Washer M2 Screw Size, 5mm OD   | mcmaster     | 93475A195         |        4 |   0.01 |
-|   | P4      | SWITCH PB SPST MOMENTARY 1A         | digikey      | CKN1121-ND        |        2 |   5.97 |
-|   | P4      | SWITCH ROCKER SPST BLK PNL MNT      | digikey      | CH865-ND          |        4 |   1.79 |
-|   | P4      | Jumper Wire - 0.1", 2-pin, 12"      | sparkfun     | PRT-10372         |        6 |   1.95 |
-|   | P4      | CONN HEADER 12POS .100 STR 15AU     | digikey      | 609-3237-ND       |        1 |   1.15 |
-|   | P5-8    | Spacer 6mm OD, 5mm Length, M3       | mcmaster     | 93657A007         |        4 |   0.83 |
-|   | P5-8    | Black Nylon 6/6 Hex Nut M3 Size     | mcmaster     | 93369A116         |        4 |   0.11 |
-|   | P5-8    | Cap Screw M3 Size, 14 mm Length     | mcmaster     | 92095A168         |        4 |   0.11 |
-|   | P5-8    | Washer Black, M3 Screw Size         | mcmaster     | 95610A330         |        4 |   0.03 |
-|   | P9-12   | ASSY DOUBLE BINDING POST R/B        | digikey      | 501-1126-ND       |        4 |   7.01 |
-|   | R1      | RES 68 OHM 1/4W 5% 1210 SMD         | digikey      | RHM68BECT-ND      |        1 |  0.279 |
-|   | RV1-4   | POT 10K OHM 9MM HORZ MET BUSHING    | digikey      | P3T9103-ND        |        4 |   1.24 |
-|   | RV1-4   | KNOB CLR GLOSS .50"DIA 6MM SHAFT    | digikey      | 226-2092-ND       |        4 |   3.22 |
-|   | U1      | CONVERTER DC/DC REG 9V 1A           | digikey      | 102-1717-ND       |        1 |   9.11 |
-|   | U2      | Arduino Nano 3.0                    | gravitech    | ARD-NANO30        |        1 |  34.99 |
-|   | U2      | 0.1" 15-pin female header           | gravitech    | 15Fx1-254mm       |        2 |   0.95 |
-|   | U2      | CABLE USB 2.0 A-A MALE BLACK 2M     | digikey      | AE10624-ND        |        1 |   6.18 |
-|   | U2      | A Female Panel Mount to Mini-B Male | angledcables | RR-2MB-AFPM-XXG   |        1 |  12.25 |
-|   | U3,4    | IC DGTL POT 5K 2CH 14DIP            | digikey      | MCP4261-502E/P-ND |        2 |   1.32 |
-|   | U3,4    | CONN IC SOCKET 14POS DIP 15AU       | digikey      | A32869-ND         |        2 |   1.13 |
-|   | U5      | IC INVERTER SGL TINYLOGIC SOT-23    | digikey      | NC7SZ04M5XCT-ND   |        1 |   0.61 |
-|---+---------+-------------------------------------+--------------+-------------------+----------+--------|
-| # | total   |                                     |              |                   |          | 506.17 |
-#+TBLFM: @43$7=(@I$quantity..@II$quantity)*(@I$cost..@II$cost);%.2f;N
+| ! | part      | description                         | vendor            | part number       | quantity |   cost |
+|---+-----------+-------------------------------------+-------------------+-------------------+----------+--------|
+|   | PCB       | buckpuck_controller 2.0             | protoexpress      | afv1-59924        |        1 |  83.80 |
+|   | B1-4      | ACS712 Low Current Sensor Breakout  | sparkfun          | SEN-08883         |        4 |  14.95 |
+|   | B1-4      | CONN RECEPT 3POS .100 VERT AU       | digikey           | A26415-ND         |        4 |   0.95 |
+|   | B1-4      | CONN RECEPT 4POS .100 VERT AU       | digikey           | A26416-ND         |        4 |   1.03 |
+|   | BP1-4     | Buckpuck 1000mA external dimming    | ledsupply         | 3021-D-E-1000     |        4 |  16.44 |
+|   | BP1-4     | CONN RECEPT 7POS .100 VERT AU       | digikey           | A26419-ND         |        8 |   1.30 |
+|   | C1-3      | CAP CER 10UF 50V X7S 1210           | digikey           | 445-4536-1-ND     |        3 |   1.24 |
+|   | C4        | CAP CERM .33UF 10% 50V X7R 1210     | digikey           | 478-1620-1-ND     |        1 |   1.21 |
+|   | C5,6      | CAP CERM .10UF 10% 50V X7R 1210     | digikey           | 478-3586-1-ND     |        2 |  0.724 |
+|   | P1,9-12   | CONN TERM BLOCK 2.54MM 2POS         | digikey           | 277-1273-ND       |        5 |  1.102 |
+|   | P1        | AC/DC Power 30 Volt 8A 240W         | jameco            | 2102473           |        1 |  59.95 |
+|   | P1        | MODULE POWER ENTRY FLANGE 15A       | digikey           | CCM1906-ND        |        1 |  12.40 |
+|   | P1        | LINE CORD 3 COND US                 | digikey           | 993-1039-ND       |        1 |   3.18 |
+|   | P1        | Flat Head Screw M3 Size, 6mm        | mcmaster          | 92125A126         |        2 |   0.05 |
+|   | P1        | Cap Screw M3 Size, 6 mm             | mcmaster          | 92095A179         |        4 |   0.05 |
+|   | P2        | CONN HEADER 4POS .100" DUAL TIN     | digikey           | SAM1034-02-ND     |        1 |   0.59 |
+|   | P2        | CONN JUMPER SHORTING GOLD FLASH     | digikey           | S9001-ND          |        1 |   0.87 |
+|   | P3        | Serial Graphic LCD 128x64           | sparkfun          | LCD-09351         |        1 |  34.95 |
+|   | P3        | Jumper Wire - 0.1", 4-pin, 12"      | sparkfun          | PRT-10374         |        1 |   1.95 |
+|   | P3        | CONN HEADER R/A DUAL 6POS GOLD      | digikey           | 3M9479-ND         |        1 |   0.31 |
+|   | P3,B1-4   | CONN HEADER 50POS .100" SGL GOLD    | digikey           | SAM1031-50-ND     |        1 |   2.91 |
+|   | P3        | Hex Spacer 3/16" Hex, 1/8" Length   | mcmaster          | 97732A101         |        4 |   1.13 |
+|   | P3        | Hex Nut M2 Size .4mm                | mcmaster          | 90710A020         |        4 |   0.08 |
+|   | P3        | Cap Screw M2 Thread, 10mm, 0.4mm    | mcmaster          | 91292A011         |        4 |   0.04 |
+|   | P3        | Flat Washer M2 Screw Size, 5mm OD   | mcmaster          | 93475A195         |        4 |   0.01 |
+|   | P4        | SWITCH PB SPST MOMENTARY 1A         | digikey           | CKN1121-ND        |        2 |   5.97 |
+|   | P4        | SWITCH ROCKER SPST BLK PNL MNT      | digikey           | CH865-ND          |        4 |   1.79 |
+|   | P4        | Jumper Wire - 0.1", 2-pin, 12"      | sparkfun          | PRT-10372         |        6 |   1.95 |
+|   | P4        | CONN HEADER 12POS .100 STR 15AU     | digikey           | 609-3237-ND       |        1 |   1.15 |
+|   | P5-8      | Spacer 6mm OD, 5mm Length, M3       | mcmaster          | 93657A007         |        4 |   0.83 |
+|   | P5-8      | Black Nylon 6/6 Hex Nut M3 Size     | mcmaster          | 93369A116         |        4 |   0.11 |
+|   | P5-8      | Cap Screw M3 Size, 14 mm Length     | mcmaster          | 92095A168         |        4 |   0.11 |
+|   | P5-8      | Washer Black, M3 Screw Size         | mcmaster          | 95610A330         |        4 |   0.03 |
+|   | P9-12     | ASSY DOUBLE BINDING POST R/B        | digikey           | 501-1126-ND       |        4 |   7.01 |
+|   | R1        | RES 68 OHM 1/4W 5% 1210 SMD         | digikey           | RHM68BECT-ND      |        1 |  0.279 |
+|   | RV1-4     | POT 10K OHM 9MM HORZ MET BUSHING    | digikey           | P3T9103-ND        |        4 |   1.24 |
+|   | RV1-4     | KNOB CLR GLOSS .50"DIA 6MM SHAFT    | digikey           | 226-2092-ND       |        4 |   3.22 |
+|   | U1        | CONVERTER DC/DC REG 9V 1A           | digikey           | 102-1717-ND       |        1 |   9.11 |
+|   | U2        | Arduino Nano 3.0                    | gravitech         | ARD-NANO30        |        1 |  34.99 |
+|   | U2        | 0.1" 15-pin female header           | gravitech         | 15Fx1-254mm       |        2 |   0.95 |
+|   | U2        | CABLE USB 2.0 A-A MALE BLACK 2M     | digikey           | AE10624-ND        |        1 |   6.18 |
+|   | U2        | A Female Panel Mount to Mini-B Male | usbfirewire.com   | RR-2MB-AFPM-XXG   |        1 |  13.25 |
+|   | U3,4      | IC DGTL POT 5K 2CH 14DIP            | digikey           | MCP4261-502E/P-ND |        2 |   1.32 |
+|   | U3,4      | CONN IC SOCKET 14POS DIP 15AU       | digikey           | A32869-ND         |        2 |   1.13 |
+|   | U5        | IC INVERTER SGL TINYLOGIC SOT-23    | digikey           | NC7SZ04M5XCT-ND   |        1 |   0.61 |
+|   | ENCLOSURE | Enclosure Front                     | frontpanelexpress |                   |        1 |  52.00 |
+|   | ENCLOSURE | Enclosure Back                      | frontpanelexpress |                   |        1 |  43.67 |
+|   | ENCLOSURE | Enclosure Bottom                    | frontpanelexpress |                   |        1 |  49.11 |
+|   | ENCLOSURE | Enclosure Top                       | frontpanelexpress |                   |        1 |  49.07 |
+|   | ENCLOSURE | Enclosure Sides                     | frontpanelexpress |                   |        2 |  43.47 |
+|   | ENCLOSURE | Enclosure Housing Profiles          | frontpanelexpress | GL GP 20 11-230   |        4 |   7.20 |
+|   | ENCLOSURE | Button Head Cap Screw M5, 20 mm     | mcmaster          | 92095A214         |        8 |   0.18 |
+|   | ENCLOSURE | Hex Nut W/Tooth Washer M3           | mcmaster          | 93825A110         |        6 |   0.10 |
+|   | ENCLOSURE | Cap Screw M3                        | mcmaster          | 92095A181         |        6 |   0.11 |
+|   | ENCLOSURE | Bumper Dome Top, 3/8", 5/32"        | mcmaster          | 95495K391         |        4 |   0.05 |
+|---+-----------+-------------------------------------+-------------------+-------------------+----------+--------|
+| # | total     |                                     |                   |                   |          | 827.88 |
+#+TBLFM: @57$7=(@I$quantity..@II$quantity)*(@I$cost..@II$cost);%.2f;N
