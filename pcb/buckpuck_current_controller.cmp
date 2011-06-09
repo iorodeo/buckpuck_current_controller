@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPCB (2010-03-14)-final date = Tue 07 Jun 2011 08:54:18 PM PDT
+Cmp-Mod V01 Created by CvPCB (2010-03-14)-final date = Wed 08 Jun 2011 11:41:23 AM PDT
 
 BeginCmp
 TimeStamp = /4DEEDD29/4DEEBB77;
@@ -87,6 +87,13 @@ EndCmp
 BeginCmp
 TimeStamp = /4DEEBDAE;
 Reference = C5;
+ValeurCmp = 0.1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DEFAF63;
+Reference = C6;
 ValeurCmp = 0.1uF;
 IdModule  = SM1210;
 EndCmp
@@ -225,10 +232,24 @@ IdModule  = arduino_nano;
 EndCmp
 
 BeginCmp
-TimeStamp = /4DEEB6BE;
+TimeStamp = /4DEFAAB1;
 Reference = U3;
-ValeurCmp = MCP434X/436X;
-IdModule  = 20-TSSOP;
+ValeurCmp = MCP42X1-PDIP;
+IdModule  = DIP-14__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DEFAABD;
+Reference = U4;
+ValeurCmp = MCP42X1-PDIP;
+IdModule  = DIP-14__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /4DEFBBBC;
+Reference = U5;
+ValeurCmp = NOT_GATE;
+IdModule  = SOT23-5;
 EndCmp
 
 EndListe

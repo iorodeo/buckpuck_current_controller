@@ -1,4 +1,4 @@
-PCBNEW-LibDoc----V1  Tue 07 Jun 2011 09:50:09 PM PDT
+PCBNEW-LibDoc----V1  Wed 08 Jun 2011 11:40:48 AM PDT
 #
 $MODULE SM1210
 Li SM1210
@@ -21,6 +21,12 @@ $MODULE pin_array_6x2
 Li pin_array_6x2
 Cd Double rangee de contacts 2 x 6 pins
 Kw CONN
+$EndMODULE
+#
+$MODULE DIP-14__300
+Li DIP-14__300
+Cd 14 pins DIL package, round pads
+Kw DIL
 $EndMODULE
 #
 $EndLIBDOC
