@@ -96,7 +96,7 @@
 |   | ENCLOSURE | Enclosure Housing Profiles          | frontpanelexpress | GL GP 20 11-230   |        4 |   7.20 |
 |   | ENCLOSURE | Button Head Cap Screw M5, 20 mm     | mcmaster          | 92095A214         |        8 |   0.18 |
 |   | ENCLOSURE | Hex Nut W/Tooth Washer M3           | mcmaster          | 93825A110         |        6 |   0.10 |
-|   | ENCLOSURE | Cap Screw M3                        | mcmaster          | 92095A181         |        6 |   0.11 |
+|   | ENCLOSURE | Cap Screw M3 Size, 8 mm             | mcmaster          | 92095A181         |        6 |   0.11 |
 |   | ENCLOSURE | Bumper Dome Top, 3/8", 5/32"        | mcmaster          | 95495K391         |        4 |   0.05 |
 |---+-----------+-------------------------------------+-------------------+-------------------+----------+--------|
 | # | total     |                                     |                   |                   |          | 827.88 |
