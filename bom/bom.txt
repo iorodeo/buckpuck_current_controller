@@ -98,6 +98,11 @@
 |   | ENCLOSURE | Hex Nut W/Tooth Washer M3           | mcmaster          | 93825A110         |        6 |   0.10 |
 |   | ENCLOSURE | Cap Screw M3 Size, 8 mm             | mcmaster          | 92095A181         |        6 |   0.11 |
 |   | ENCLOSURE | Bumper Dome Top, 3/8", 5/32"        | mcmaster          | 95495K391         |        4 |   0.05 |
+|   | ENCLOSURE | Wire, 2C, 22AWG, 7"                 | jameco            | 732996            |        4 |   0.20 |
+|   | ENCLOSURE | Ring Terminal, 22-18 AWG, #8 Stud   | mcmaster          | 7113k855          |       14 |   0.45 |
+|   | ENCLOSURE | Wire, 3C, 22AWG, 7"                 | jameco            | 733024            |        1 |   0.21 |
+|   | ENCLOSURE | Ring Terminal, 22-18 AWG, #6 Stud   | mcmaster          | 7113K854          |        6 |   0.45 |
+|   | ENCLOSURE | Wire, 2C, 18AWG, 12"                | jameco            | 2119515           |        1 |   0.42 |
 |---+-----------+-------------------------------------+-------------------+-------------------+----------+--------|
-| # | total     |                                     |                   |                   |          | 827.88 |
-#+TBLFM: @57$7=(@I$quantity..@II$quantity)*(@I$cost..@II$cost);%.2f;N
+| # | total     |                                     |                   |                   |          | 838.31 |
+#+TBLFM: @62$7=(@I$quantity..@II$quantity)*(@I$cost..@II$cost);%.2f;N
