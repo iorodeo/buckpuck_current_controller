@@ -75,8 +75,21 @@ def digipot_plot():
     # pylab.plot(CmAgl,digiPotValuesMeasured)
 
     digiPotValuesMeasured = numpy.array([0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,243,256])
-    CmAg = numpy.array([914,912,911,909,907,905,904,898,890,875,857,831,806,779,746,711,672,627,576,517,448,370,269,153,1,1,0])
+    print "digiPotValuesMeasured Reversed = "
+    d_reversed = digiPotValuesMeasured[::-1]
+    print d_reversed
+    CmAg = numpy.array([914,912,911,909,907,905,904,898,890,875,857,831,806,779,746,711,672,627,576,517,448,370,269,153,5,1,0])
+    print "CmAg Reversed = "
+    c_reversed = CmAg[::-1]
+    print c_reversed
+    print "len(CmAg) = " + str(len(CmAg))
+
+    print "Lookup Table: x = Current in mA, y = digiPotValue"
+    for i in range(len(c_reversed)):
+        print "{" + str(c_reversed[i]) + ", " + str(d_reversed[i]) + "},"
     CmAg = CmAg/1000
+
+
     pylab.plot(CmAg,digiPotValuesMeasured)
 
     pylab.xlim(0,1)
