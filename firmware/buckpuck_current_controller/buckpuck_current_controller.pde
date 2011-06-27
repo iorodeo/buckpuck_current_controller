@@ -5,6 +5,7 @@
 #include "mcp4261.h"
 #include "DigiPot.h"
 #include "LookupTable.h"
+#include <EEPROM.h>
 
 #define MSG_SIZE 20
 #define DIGIPOT_CS 10
@@ -15,8 +16,8 @@ SerialLCD lcd(softSerial);
 const int channelCount = 4;
 char* channelNames[] = {"A","B","C","D"};
 char* channelStateNames[] = {"ON ","OFF","SET"};
-int channelStateValue = 1;
-char* channelStateName = channelStateNames[channelStateValue];
+byte channelStateValue[] = {1,1,1,1};
+char* channelStateName = channelStateNames[channelStateValue[0]];
 const byte channelSwitchPins[] = {7,6,5,4};
 byte channelSwitchState = LOW;
 
@@ -31,6 +32,7 @@ int potentiometerDisplay;
 const int currentValueMin = 0;
 const int currentValueMax = 1000;
 int currentValueMaxSetting[] = {1000,1000,1000,1000};
+int currentValueMaxSettingValue;
 int currentValue;
 
 int brightnessValue;
@@ -46,6 +48,17 @@ const int digiPotValueMin = 256;
 const int digiPotValueMax = 0;
 DigiPot digiPot = DigiPot(DIGIPOT_CS);
 
+int EEPROMAddress_DigiPotInitialized = 0;
+byte EEPROM_DigiPotInitializedValueTrue = 123;
+byte EEPROM_DigiPotInitializedValue;
+
+int EEPROMAddress_CurrentValueMaxSetting[] = {1,2,3,4};
+byte EEPROM_currentValueMin = 0;
+byte EEPROM_currentValueMax = 255;
+byte EEPROM_currentValueMaxSetting[] = {EEPROM_currentValueMax,EEPROM_currentValueMax,EEPROM_currentValueMax,EEPROM_currentValueMax};
+bool EEPROM_currentValueMaxSettingSaved[] = {true,true,true,true};
+byte EEPROM_currentValueMaxSettingValue;
+
 char msg[MSG_SIZE];
 
 long previousMillisClearLCD = 0;
@@ -57,6 +70,7 @@ bool updateLCD = false;
 const byte setSwitchPin = 3;
 byte setSwitchState = HIGH;
 bool setMode[] = {false,false,false,false};
+bool setModeDeadbandExceeded[] = {false,false,false,false};
 int setModeInitialValues[channelCount];
 const int setModeValueDeadband = 10;
 int setModeValueDifference;
@@ -115,6 +129,15 @@ void setup() {
 
   // Initialize digital pot
   digiPot.initialize();
+  EEPROM_DigiPotInitializedValue = EEPROM.read(EEPROMAddress_DigiPotInitialized);
+  if (EEPROM_DigiPotInitializedValue != EEPROM_DigiPotInitializedValueTrue) {
+    EEPROM.write(EEPROMAddress_DigiPotInitialized,EEPROM_DigiPotInitializedValueTrue);
+    delay(100);
+    for (int channel = 0; channel < channelCount; channel++) {
+      digiPot.setWiper_NonVolatile(channel,digiPotValueMin);
+      delay(250);
+    }
+  }
 
   // initialize the channel switch pins as input and turn on pullup resistors
   for (int channel = 0; channel < channelCount; channel++) {
@@ -133,6 +156,14 @@ void setup() {
   /* Setup lookup table */
   bool rtnVal;
   rtnVal = lookup.setTable(table,TABLE_SIZE);
+
+  /* Initalize currentValueMaxSetting */
+  for (int channel = 0; channel < channelCount; channel++) {
+    EEPROM_currentValueMaxSettingValue = EEPROM.read(EEPROMAddress_CurrentValueMaxSetting[channel]);
+    currentValueMaxSettingValue = map(EEPROM_currentValueMaxSettingValue,EEPROM_currentValueMin,EEPROM_currentValueMax,currentValueMin,currentValueMax);
+    currentValueMaxSetting[channel] = currentValueMaxSettingValue;
+  }
+
 }
 
 
@@ -182,32 +213,43 @@ void loop() {
     /* Find channel state */
     setSwitchState = digitalRead(setSwitchPin);
     if (setSwitchState == LOW) {
-      channelStateValue = 2;
+      channelStateValue[channel] = 2;
       if (!setMode[channel]) {
         setMode[channel] = true;
+        setModeDeadbandExceeded[channel] = false;
         setModeInitialValues[channel] = potentiometerValue;
       } else {
         setModeValueDifference = potentiometerValue - setModeInitialValues[channel];
         if (setModeValueDeadband < abs(setModeValueDifference)) {
+          setModeDeadbandExceeded[channel] = true;
+          EEPROM_currentValueMaxSettingSaved[channel] = false;
+        }
+        if (setModeDeadbandExceeded[channel]) {
           currentValueMaxSetting[channel] = map(potentiometerValue,potentiometerValueMin,potentiometerValueMax,currentValueMin,currentValueMax);
+          /* Serial << "channel: " << channelNames[channel] << "potentiometerValue: " << _DEC(potentiometerValue) << "potentiometerValueMin: " << _DEC(potentiometerValueMin) <<  "potentiometerValueMax: " << _DEC(potentiometerValueMax) <<  "currentValueMin: " << _DEC(currentValueMin) << "currentValueMax: " << _DEC(currentValueMax); */
         }
       }
     } else {
       if (setMode[channel]) {
         setMode[channel] = false;
+        if (!EEPROM_currentValueMaxSettingSaved[channel]) {
+          EEPROM_currentValueMaxSettingSaved[channel] = true;
+          EEPROM_currentValueMaxSetting[channel] = map(currentValueMaxSetting[channel],currentValueMin,currentValueMax,EEPROM_currentValueMin,EEPROM_currentValueMax);
+          EEPROM.write(EEPROMAddress_CurrentValueMaxSetting[channel],EEPROM_currentValueMaxSetting[channel]);
+        }
       }
 
       // read the state of the On/Off switch
       channelSwitchState = digitalRead(channelSwitchPins[channel]);
       if (channelSwitchState == HIGH) {
-        channelStateValue = 1;
+        channelStateValue[channel] = 1;
       } else {
-        channelStateValue = 0;
+        channelStateValue[channel] = 0;
       }
     }
-    channelStateName = channelStateNames[channelStateValue];
+    channelStateName = channelStateNames[channelStateValue[channel]];
 
-    if (channelStateValue == 0) {
+    if (channelStateValue[channel] == 0) {
       digiPotValue = lookup.getValue(currentValue);
     } else {
       digiPotValue = digiPotValueMin;
@@ -221,6 +263,6 @@ void loop() {
       lcd.print(msg);
     }
   }
-
+  Serial << endl;
   updateLCD = false;
 }
