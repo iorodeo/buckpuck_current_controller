@@ -1,4 +1,4 @@
-update=Wed 08 Jun 2011 11:38:39 AM PDT
+update=Tue 12 Jul 2011 05:08:53 PM PDT
 last_client=pcbnew
 [general]
 version=1
@@ -75,14 +75,10 @@ LibName29=valves
 LibName30=buckpuck_current_controller
 [pcbnew]
 version=1
-PadDrlX=320
-PadDimH=550
-PadDimV=550
+PadDrlX=400
+PadDimH=690
+PadDimV=690
 BoardThickness=630
-RouteTo=15
-RouteBo=0
-Segm45=1
-Racc45=1
 SgPcb45=1
 TxtPcbV=800
 TxtPcbH=600
@@ -94,7 +90,7 @@ DrawLar=150
 EdgeLar=90
 TxtLar=120
 MSegLar=150
-WpenSer=10
+LastNetListRead=buckpuck_current_controller.net
 [pcbnew/libraries]
 LibDir=
 LibName1=buckpuck_current_controller

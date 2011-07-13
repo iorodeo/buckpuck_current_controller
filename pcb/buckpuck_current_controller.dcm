@@ -1,4 +1,4 @@
-EESchema-DOCLIB  Version 2.0  Date: Mon 11 Jul 2011 05:20:34 PM PDT
+EESchema-DOCLIB  Version 2.0  Date: Tue 12 Jul 2011 11:26:27 AM PDT
 #
 $CMP 78L05
 D Linear Regulator +5V
@@ -9,6 +9,11 @@ $ENDCMP
 $CMP AD57X4R
 D ymbole general de connecteur
 K DAC
+$ENDCMP
+#
+$CMP BUFFER_EL5227
+D symbole general de connecteur
+K BUFFER
 $ENDCMP
 #
 $CMP LM321
