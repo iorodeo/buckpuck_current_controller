@@ -1,4 +1,4 @@
-update=Tue 12 Jul 2011 05:08:53 PM PDT
+update=Wed 13 Jul 2011 07:06:30 PM PDT
 last_client=pcbnew
 [general]
 version=1
@@ -75,9 +75,9 @@ LibName29=valves
 LibName30=buckpuck_current_controller
 [pcbnew]
 version=1
-PadDrlX=400
-PadDimH=690
-PadDimV=690
+PadDrlX=1060
+PadDimH=1400
+PadDimV=1400
 BoardThickness=630
 SgPcb45=1
 TxtPcbV=800

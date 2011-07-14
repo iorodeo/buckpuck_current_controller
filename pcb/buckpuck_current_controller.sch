@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Tue 12 Jul 2011 03:30:38 PM PDT
+EESchema Schematic File Version 2  date Wed 13 Jul 2011 06:58:13 PM PDT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -35,7 +35,7 @@ EELAYER END
 $Descr A4 11700 8267
 Sheet 1 5
 Title "Buckpuck Current Controller"
-Date "12 jul 2011"
+Date "14 jul 2011"
 Rev "3.0"
 Comp ""
 Comment1 ""
@@ -43,15 +43,19 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Connection ~ 3200 2900
-Wire Wire Line
-	3450 2300 3450 2900
-Wire Wire Line
-	3450 2900 2350 2900
-Wire Wire Line
-	4250 2300 4250 2450
+Text Label 2450 2900 0    60   ~ 0
+PowerIn-
+Text Label 2500 1800 0    60   ~ 0
+PowerIn+
 Wire Wire Line
 	5750 2300 5750 2450
+Wire Wire Line
+	4250 1900 4250 1800
+Wire Wire Line
+	3450 2300 3450 2900
+Connection ~ 3200 2900
+Wire Wire Line
+	3450 2900 2350 2900
 Connection ~ 4250 5700
 Wire Wire Line
 	3450 5700 4250 5700
@@ -68,9 +72,9 @@ Wire Wire Line
 Wire Wire Line
 	3700 6600 3450 6600
 Wire Wire Line
-	4450 6150 4050 6150
+	4050 6150 4450 6150
 Wire Wire Line
-	4450 5750 4050 5750
+	4050 5750 4450 5750
 Wire Wire Line
 	4250 6300 4250 6150
 Connection ~ 4250 6150
@@ -78,9 +82,9 @@ Connection ~ 3950 7250
 Wire Wire Line
 	3950 7250 3950 7400
 Wire Wire Line
-	4150 6850 3750 6850
+	3750 6850 4150 6850
 Wire Wire Line
-	3450 6700 3950 6700
+	3950 6700 3450 6700
 Wire Wire Line
 	2450 6150 2450 6100
 Wire Wire Line
@@ -94,7 +98,7 @@ Wire Wire Line
 	5850 5300 6400 5300
 Connection ~ 5650 6100
 Wire Wire Line
-	5650 6100 6250 6100
+	6250 6100 5650 6100
 Connection ~ 7250 6200
 Wire Wire Line
 	7050 6200 7250 6200
@@ -226,7 +230,7 @@ Wire Wire Line
 	3700 1800 3700 1600
 Connection ~ 3450 1800
 Wire Wire Line
-	2950 2900 2950 2750
+	2950 2750 2950 2900
 Wire Wire Line
 	3200 2900 3200 3050
 Wire Wire Line
@@ -340,7 +344,7 @@ Wire Wire Line
 	6050 6500 6250 6500
 Connection ~ 6050 6500
 Wire Wire Line
-	7250 6700 7250 6100
+	7250 6100 7250 6700
 Wire Wire Line
 	5650 6200 6250 6200
 Wire Wire Line
@@ -351,7 +355,7 @@ Wire Wire Line
 	7600 5300 6800 5300
 Connection ~ 7250 6100
 Wire Wire Line
-	5650 5750 5650 6300
+	5650 6300 5650 5750
 Connection ~ 5650 6200
 Wire Wire Line
 	2650 5700 2450 5700
@@ -371,7 +375,7 @@ Wire Wire Line
 	3550 6900 3550 6700
 Connection ~ 3550 6700
 Wire Wire Line
-	4150 7250 3750 7250
+	3750 7250 4150 7250
 Wire Wire Line
 	3950 6600 3950 6850
 Connection ~ 3950 6700
@@ -388,26 +392,26 @@ Wire Wire Line
 Wire Wire Line
 	4250 5550 4250 5750
 Connection ~ 4250 5750
-Wire Wire Line
-	5750 1900 5750 1800
 Connection ~ 5750 1800
-Wire Wire Line
-	4250 1800 4250 1900
 Connection ~ 4250 1800
 Wire Wire Line
 	3450 1900 3450 1500
+Wire Wire Line
+	4250 2300 4250 2450
+Wire Wire Line
+	5750 1900 5750 1800
 $Comp
-L CAPAPOL C1
-U 1 1 4E1CA1AE
-P 3450 2100
-F 0 "C1" H 3500 2200 50  0000 L CNN
-F 1 "10uF" H 3500 2000 50  0000 L CNN
-	1    3450 2100
+L C C3
+U 1 1 4E1E4A21
+P 5750 2100
+F 0 "C3" H 5800 2200 50  0000 L CNN
+F 1 "10uF" H 5800 2000 50  0000 L CNN
+	1    5750 2100
 	1    0    0    -1  
 $EndComp
 $Comp
-L CAPAPOL C2
-U 1 1 4E1CA18D
+L C C2
+U 1 1 4E1E49E0
 P 4250 2100
 F 0 "C2" H 4300 2200 50  0000 L CNN
 F 1 "10uF" H 4300 2000 50  0000 L CNN
@@ -415,12 +419,12 @@ F 1 "10uF" H 4300 2000 50  0000 L CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CAPAPOL C3
-U 1 1 4E1CA16A
-P 5750 2100
-F 0 "C3" H 5800 2200 50  0000 L CNN
-F 1 "10uF" H 5800 2000 50  0000 L CNN
-	1    5750 2100
+L C C1
+U 1 1 4E1E49B6
+P 3450 2100
+F 0 "C1" H 3500 2200 50  0000 L CNN
+F 1 "10uF" H 3500 2000 50  0000 L CNN
+	1    3450 2100
 	1    0    0    -1  
 $EndComp
 $Comp

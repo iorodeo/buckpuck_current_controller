@@ -1,4 +1,4 @@
-PCBNEW-LibDoc----V1  Tue 12 Jul 2011 03:10:20 PM PDT
+PCBNEW-LibDoc----V1  Wed 13 Jul 2011 06:50:02 PM PDT
 #
 $MODULE PIN_ARRAY_2X2
 Li PIN_ARRAY_2X2
@@ -28,6 +28,11 @@ $MODULE pin_array_4x2
 Li pin_array_4x2
 Cd Double rangee de contacts 2 x 6 pins
 Kw CONN
+$EndMODULE
+#
+$MODULE SM1210_POLARIZED
+Li SM1210_POLARIZED
+Kw CMS SM
 $EndMODULE
 #
 $MODULE SM1210

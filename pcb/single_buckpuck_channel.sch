@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Tue 12 Jul 2011 03:30:38 PM PDT
+EESchema Schematic File Version 2  date Wed 13 Jul 2011 06:58:13 PM PDT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -35,7 +35,7 @@ EELAYER END
 $Descr A4 11700 8267
 Sheet 4 5
 Title "Single Buckpuck Channel"
-Date "12 jul 2011"
+Date "14 jul 2011"
 Rev "3.0"
 Comp ""
 Comment1 ""

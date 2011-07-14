@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPCB (2010-00-09 BZR 23xx)-stable date = Tue 12 Jul 2011 03:30:56 PM PDT
+Cmp-Mod V01 Created by CvPCB (2010-00-09 BZR 23xx)-stable date = Wed 13 Jul 2011 06:49:01 PM PDT
 
 BeginCmp
 TimeStamp = /4E1C91DE;
@@ -36,21 +36,21 @@ IdModule  = BUCKPUCK;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E1CA1AE;
+TimeStamp = /4E1E49B6;
 Reference = C1;
 ValeurCmp = 10uF;
 IdModule  = SM1210;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E1CA18D;
+TimeStamp = /4E1E49E0;
 Reference = C2;
 ValeurCmp = 10uF;
 IdModule  = SM1210;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E1CA16A;
+TimeStamp = /4E1E4A21;
 Reference = C3;
 ValeurCmp = 10uF;
 IdModule  = SM1210;
@@ -74,7 +74,7 @@ BeginCmp
 TimeStamp = /4E1C9F70;
 Reference = C6;
 ValeurCmp = 10uF;
-IdModule  = SM1210;
+IdModule  = SM1210_POLARIZED;
 EndCmp
 
 BeginCmp
@@ -88,7 +88,7 @@ BeginCmp
 TimeStamp = /4E1C956F;
 Reference = C8;
 ValeurCmp = 4.7uF;
-IdModule  = SM1210;
+IdModule  = SM1210_POLARIZED;
 EndCmp
 
 BeginCmp
@@ -102,7 +102,7 @@ BeginCmp
 TimeStamp = /4E1C9F16;
 Reference = C10;
 ValeurCmp = 10uF;
-IdModule  = SM1210;
+IdModule  = SM1210_POLARIZED;
 EndCmp
 
 BeginCmp
@@ -123,7 +123,7 @@ BeginCmp
 TimeStamp = /4B885718;
 Reference = P1;
 ValeurCmp = POWER;
-IdModule  = DCJACK_2PIN;
+IdModule  = DCJACK_2PIN_HIGHCURRENT;
 EndCmp
 
 BeginCmp
