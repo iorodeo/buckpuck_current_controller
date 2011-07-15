@@ -44,7 +44,7 @@
 # Bill of Materials
 | ! | part      | description                         | vendor            | part number       | quantity |   cost |
 |---+-----------+-------------------------------------+-------------------+-------------------+----------+--------|
-|   | PCB       | buckpuck_controller 3.0             | protoexpress      |                   |        1 | 100.00 |
+|   | PCB       | buckpuck_controller 3.0             | protoexpress      |                   |        1 |  28.00 |
 |   | B1        | IC BUFFER RR 2.5MHZ OCT 20TSSOP     | digikey           | EL5227CRZ-ND      |        1 |   4.70 |
 |   | BP1-4     | Buckpuck 1000mA external dimming    | ledsupply         | 3021-D-E-1000     |        4 |  16.44 |
 |   | BP1-4     | CONN RECEPT 7POS .100 VERT AU       | digikey           | A26419-ND         |        8 |   1.30 |
@@ -55,7 +55,7 @@
 |   | C8        | CAP TANT 4.7UF 25V 10% SMD          | digikey           | 718-1152-1-ND     |        1 |   1.03 |
 |   | D1        | IC DAC 12BIT DSP/SRL 24TSSOP        | digikey           | AD5724RBREZ-ND    |        1 |  20.90 |
 |   | P1        | CONN PWR JACK DC 2.1X5.5 8A T/H     | digikey           | CP-063AH-ND       |        1 |   1.55 |
-|   | P1        |                                     |                   |                   |          |        |
+|   | P1        | CABLE ASSY STR 2.1MM 6' 18 AWG      | digikey           | CP-2187-ND        |        1 |   3.42 |
 |   | P1        | AC/DC Power 30 Volt 8A 240W         | jameco            | 2102473           |        1 |  59.95 |
 |   | P1        | MODULE POWER ENTRY FLANGE 15A       | digikey           | CCM1906-ND        |        1 |  12.40 |
 |   | P1        | LINE CORD 3 COND US                 | digikey           | 993-1039-ND       |        1 |   3.18 |
@@ -81,7 +81,7 @@
 |   | P5-8      | Washer Black, M3 Screw Size         | mcmaster          | 95610A330         |        4 |   0.03 |
 |   | P9-12     | CONN TERM BLOCK 2.54MM 2POS         | digikey           | 277-1273-ND       |        4 |   1.11 |
 |   | P9-12     | ASSY DOUBLE BINDING POST R/B        | digikey           | 501-1126-ND       |        4 |   7.01 |
-|   | P13       |                                     |                   |                   |          |        |
+|   | P13       | CONN HEADER 8POS .100 STR 15AU      | digikey           | 609-3235-ND       |        1 |   0.50 |
 |   | R1        | RES 68 OHM 1/4W 5% 1210 SMD         | digikey           | RHM68BECT-ND      |        1 |   0.28 |
 |   | RV1-4     | POT 10K OHM 9MM HORZ MET BUSHING    | digikey           | P3T9103-ND        |        4 |   1.24 |
 |   | RV1-4     | KNOB CLR GLOSS .50"DIA 6MM SHAFT    | digikey           | 226-2092-ND       |        4 |   3.22 |
@@ -108,5 +108,5 @@
 |   | ENCLOSURE | Wire, 3C, 22AWG, 7"                 | jameco            | 733024            |        1 |   0.21 |
 |   | ENCLOSURE | Ring Terminal, 22-18 AWG, #6 Stud   | mcmaster          | 7113K854          |        6 |   0.45 |
 |---+-----------+-------------------------------------+-------------------+-------------------+----------+--------|
-| # | total     |                                     |                   |                   |          | 790.46 |
+| # | total     |                                     |                   |                   |          | 749.09 |
 #+TBLFM: @65$7=(@I$quantity..@II$quantity)*(@I$cost..@II$cost);%.2f;N

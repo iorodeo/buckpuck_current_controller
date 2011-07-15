@@ -21,7 +21,7 @@
       )
     )
     (boundary
-      (path pcb 0  3050 -5575  8550 -5575  8550 -2825  3050 -2825  3050 -5575)
+      (path pcb 0  3050 -2950  3050 -5575  8550 -5575  8550 -2950  3050 -2950)
     )
     (via "Via[0-1]_35:25_mil" "Via[0-1]_35:0_mil" "Via[0-1]_80:36_mil" "Via[0-1]_60:36_mil")
     (rule
@@ -39,22 +39,22 @@
       (place RV2 4800 -5350 front 270 (PN POT))
     )
     (component arduino_nano
-      (place U2 5800 -3800 front 180 (PN ARDUINO_NANO))
+      (place U2 5800 -3925 front 180 (PN ARDUINO_NANO))
     )
     (component "V78XX-1000"
-      (place U1 5500 -5000 front 90 (PN V7809))
+      (place U1 5325 -5050 front 90 (PN V7809))
     )
     (component PIN_ARRAY_2X2
-      (place P2 5600 -5450 front 270 (PN ResetOverride))
+      (place P2 5300 -5425 front 270 (PN ResetOverride))
     )
     (component PIN_ARRAY_4X1
-      (place P3 6350 -3175 front 270 (PN Display))
+      (place P3 5275 -4000 front 270 (PN Display))
     )
     (component MOUNT_HOLE_M3
-      (place P5 7550 -3200 front 180 (PN CONN_1))
+      (place P5 7550 -3825 front 180 (PN CONN_1))
       (place P6 4050 -5325 front 180 (PN CONN_1))
       (place P7 7550 -5325 front 180 (PN CONN_1))
-      (place P8 4050 -3200 front 180 (PN CONN_1))
+      (place P8 4050 -3825 front 180 (PN CONN_1))
     )
     (component BUCKPUCK
       (place BP1 3425 -4400 front 270 (PN BUCKPUCK))
@@ -63,39 +63,41 @@
       (place BP2 4800 -4400 front 270 (PN BUCKPUCK))
     )
     (component SCREW_TERMINAL_2
-      (place P12 8175 -3000 front 180 (PN CurrentOutput))
-      (place P10 4800 -3000 front 180 (PN CurrentOutput))
-      (place P11 6800 -3000 front 180 (PN CurrentOutput))
-      (place P9 3425 -3000 front 180 (PN CurrentOutput))
+      (place P12 8175 -3125 front 180 (PN CurrentOutput))
+      (place P10 4800 -3125 front 180 (PN CurrentOutput))
+      (place P11 6800 -3125 front 180 (PN CurrentOutput))
+      (place P9 3425 -3125 front 180 (PN CurrentOutput))
     )
     (component "24-TSSOP"
-      (place D1 4525 -3625 front 180 (PN AD57X4R))
+      (place D1 6200 -5150 back 0 (PN AD57X4R))
     )
     (component pin_array_4x2
-      (place P13 5250 -3750 front 90 (PN I/O))
+      (place P13 5275 -3425 front 90 (PN I/O))
     )
     (component "20-TSSOP"
-      (place B1 3950 -3925 front 180 (PN BUFFER_EL5227))
-    )
-    (component DCJACK_2PIN
-      (place P1 7200 -3400 front 90 (PN POWER))
-    )
-    (component SM1210
-      (place C2 5900 -5050 front 90 (PN 10uF))
-      (place C3 5325 -4450 front 90 (PN 10uF))
-      (place C4 5900 -5450 front 270 (PN 0.33uF))
-      (place C5 3950 -3700 front 0 (PN 0.1uF))
-      (place R1 6125 -5450 front 270 (PN 68))
-      (place C1 7550 -3550 front 0 (PN 10uF))
-      (place C6 4525 -4025 front 0 (PN 10uF))
-      (place C11 4525 -3375 front 0 (PN 0.1uF))
-      (place C10 4525 -3225 front 0 (PN 10uF))
-      (place C9 4200 -3450 front 90 (PN 0.1uF))
-      (place C8 3950 -4150 front 180 (PN 4.7uF))
-      (place C7 4525 -3875 front 0 (PN 0.1uF))
+      (place B1 5800 -5150 back 0 (PN BUFFER_EL5227))
     )
     (component pin_array_6x2
-      (place P4 6350 -3850 front 270 (PN I/O))
+      (place P4 6325 -3925 front 270 (PN I/O))
+    )
+    (component SM1210_POLARIZED
+      (place C6 6200 -4800 back 180 (PN 10uF))
+      (place C8 5800 -5375 back 0 (PN 4.7uF))
+      (place C10 6325 -5425 back 90 (PN 10uF))
+    )
+    (component DCJACK_2PIN_HIGHCURRENT
+      (place P1 7300 -2975 front 0 (PN POWER))
+    )
+    (component SM1210
+      (place C2 5475 -5100 back 270 (PN 10uF))
+      (place C3 5325 -4625 back 0 (PN 10uF))
+      (place C4 5475 -5425 back 90 (PN 0.33uF))
+      (place C5 5800 -4925 back 180 (PN 0.1uF))
+      (place R1 5600 -5425 back 90 (PN 68))
+      (place C1 7100 -3425 back 270 (PN 10uF))
+      (place C11 6200 -5425 back 90 (PN 0.1uF))
+      (place C9 6075 -5425 back 90 (PN 0.1uF))
+      (place C7 6200 -4925 back 180 (PN 0.1uF))
     )
   )
   (library
@@ -300,27 +302,6 @@
       (pin Rect[T]Pad_57.1x17.7_mil 19 116 89.6)
       (pin Rect[T]Pad_57.1x17.7_mil 20 116 115)
     )
-    (image DCJACK_2PIN
-      (outline (path signal 15  0 106.3  0 177.2))
-      (outline (path signal 15  0 177.2  543.3 177.2))
-      (outline (path signal 15  543.3 177.2  543.3 -173.2))
-      (outline (path signal 15  543.3 -173.2  543.3 -177.2))
-      (outline (path signal 15  543.3 -177.2  0 -177.2))
-      (outline (path signal 15  0 -177.2  0 -106.3))
-      (pin Round[A]Pad_200_mil 1 0 0)
-      (pin Round[A]Pad_181.1_mil 2 236.2 0)
-    )
-    (image SM1210
-      (outline (path signal 15  -110 50  -110 -50))
-      (outline (path signal 5  -30 55  -90 55))
-      (outline (path signal 5  -90 55  -90 -55))
-      (outline (path signal 5  -90 -55  -30 -55))
-      (outline (path signal 5  30 -55  90 -55))
-      (outline (path signal 5  90 -55  90 55))
-      (outline (path signal 5  90 55  30 55))
-      (pin Rect[T]Pad_50x100_mil 1 -60 0)
-      (pin Rect[T]Pad_50x100_mil 2 60 0)
-    )
     (image pin_array_6x2
       (outline (path signal 12  -300 100  300 100))
       (outline (path signal 12  300 100  300 -100))
@@ -339,19 +320,51 @@
       (pin Round[A]Pad_69_mil 11 250 -50)
       (pin Round[A]Pad_69_mil 12 250 50)
     )
+    (image SM1210_POLARIZED
+      (outline (path signal 15  -110 50  -110 -50))
+      (outline (path signal 5  -30 55  -90 55))
+      (outline (path signal 5  -90 55  -90 -55))
+      (outline (path signal 5  -90 -55  -30 -55))
+      (outline (path signal 5  30 -55  90 -55))
+      (outline (path signal 5  90 -55  90 55))
+      (outline (path signal 5  90 55  30 55))
+      (pin Rect[T]Pad_50x100_mil 1 -60 0)
+      (pin Rect[T]Pad_50x100_mil 2 60 0)
+    )
+    (image DCJACK_2PIN_HIGHCURRENT
+      (outline (path signal 15  -275 0  275 0))
+      (outline (path signal 15  275 0  275 -575))
+      (outline (path signal 15  275 -575  -275 -575))
+      (outline (path signal 15  -275 -575  -275 0))
+      (pin Round[A]Pad_73_mil @1 0 -118)
+      (pin Round[A]Pad_140_mil 2 0 -236)
+      (pin Round[A]Pad_160_mil 1 0 -472)
+      (pin Round[A]Pad_140_mil @2 -177 -197)
+      (pin Round[A]Pad_140_mil @3 177 -197)
+    )
+    (image SM1210
+      (outline (path signal 5  -30 55  -90 55))
+      (outline (path signal 5  -90 55  -90 -55))
+      (outline (path signal 5  -90 -55  -30 -55))
+      (outline (path signal 5  30 -55  90 -55))
+      (outline (path signal 5  90 -55  90 55))
+      (outline (path signal 5  90 55  30 55))
+      (pin Rect[T]Pad_50x100_mil 1 -60 0)
+      (pin Rect[T]Pad_50x100_mil 2 60 0)
+    )
     (padstack Round[A]Pad_125_mil
       (shape (circle Component 125))
       (shape (circle Copper 125))
       (attach off)
     )
-    (padstack Round[A]Pad_181.1_mil
-      (shape (circle Component 181.1))
-      (shape (circle Copper 181.1))
+    (padstack Round[A]Pad_140_mil
+      (shape (circle Component 140))
+      (shape (circle Copper 140))
       (attach off)
     )
-    (padstack Round[A]Pad_200_mil
-      (shape (circle Component 200))
-      (shape (circle Copper 200))
+    (padstack Round[A]Pad_160_mil
+      (shape (circle Component 160))
+      (shape (circle Copper 160))
       (attach off)
     )
     (padstack Round[A]Pad_236_mil
@@ -435,7 +448,7 @@
   )
   (network
     (net +5V
-      (pins RV1-3 RV4-3 RV3-3 RV2-3 U2-27 D1-11 D1-14 R1-2 C11-1 C10-1)
+      (pins RV1-3 RV4-3 RV3-3 RV2-3 U2-27 D1-11 D1-14 C10-1 R1-2 C11-1)
     )
     (net /A2
       (pins U2-21 P13-7)
@@ -452,14 +465,8 @@
     (net /CS
       (pins U2-13 D1-7)
     )
-    (net /Channel1
-      (pins BP4-3 B1-17)
-    )
-    (net /Channel2
+    (net /ChannelA/Control
       (pins BP1-3 B1-20)
-    )
-    (net /Channel3
-      (pins RV1-2 U2-19)
     )
     (net /ChannelA/LED+
       (pins BP1-1 P9-1)
@@ -467,17 +474,26 @@
     (net "/ChannelA/LED-"
       (pins BP1-2 P9-2)
     )
+    (net /ChannelA/Potentiometer
+      (pins RV1-2 U2-19)
+    )
     (net /ChannelB/LED+
       (pins BP2-1 P10-1)
     )
     (net "/ChannelB/LED-"
       (pins BP2-2 P10-2)
     )
+    (net /ChannelB/Potentiometer
+      (pins RV2-2 U2-20)
+    )
     (net /ChannelC/LED+
       (pins BP3-1 P11-1)
     )
     (net "/ChannelC/LED-"
       (pins BP3-2 P11-2)
+    )
+    (net /ChannelD/Control
+      (pins BP4-3 B1-17)
     )
     (net /ChannelD/LED+
       (pins BP4-1 P12-1)
@@ -508,9 +524,6 @@
     )
     (net /MOSI
       (pins U2-14 D1-9)
-    )
-    (net /PotentiometerB
-      (pins RV2-2 U2-20)
     )
     (net /PotentiometerC
       (pins RV3-2 U2-25)
@@ -551,25 +564,26 @@
     (net GND
       (pins RV1-1 RV4-1 RV3-1 RV2-1 U2-4 U2-29 U1-2 P3-3 P5-1 P6-1 P7-1 P8-1 BP1-6
         BP4-6 BP3-6 BP2-6 D1-5 D1-10 D1-15 D1-18 D1-19 D1-20 D1-21 D1-1 P13-2 P13-4
-        P13-6 P13-8 B1-7 B1-8 B1-9 B1-10 B1-15 B1-16 P1-2 C2-2 C3-2 C4-2 C5-1 C1-2
-        C6-2 C11-2 C10-2 C9-2 C8-2 C7-2 P4-2 P4-4 P4-6 P4-8 P4-10 P4-12)
+        P13-6 P13-8 B1-7 B1-8 B1-9 B1-10 B1-15 B1-16 P4-2 P4-4 P4-6 P4-8 P4-10 P4-12
+        C6-2 C8-2 C10-2 P1-2 C2-2 C3-2 C4-2 C5-1 C1-2 C11-2 C9-2 C7-2)
     )
     (net "N-000038"
       (pins P2-2 C4-1 R1-1)
     )
-    (net "N-000049"
+    (net "N-000050"
       (pins D1-17 C9-1)
     )
     (net VAA
       (pins U1-1 BP1-5 BP4-5 BP3-5 BP2-5 P1-1 C2-1 C1-1)
     )
     (net VDD
-      (pins U2-30 U1-3 P3-4 D1-24 B1-5 B1-6 C3-1 C5-2 C6-1 C8-1 C7-1)
+      (pins U2-30 U1-3 P3-4 D1-24 B1-5 B1-6 C6-1 C8-1 C3-1 C5-2 C7-1)
     )
-    (class kicad_default "" /A2 /A3 /A4 /A5 /CS /Channel1 /Channel2 /Channel3
-      /ControlB /ControlC /D2 /D3 /DisplayRX /DisplayTX /MISO /MOSI /PotentiometerB
-      /PotentiometerC /PotentiometerD /RST /SCK /SwitchA /SwitchB /SwitchC
-      /SwitchD /VoutA /VoutB /VoutC /VoutD "N-000038" "N-000049"
+    (class kicad_default "" +5V /A2 /A3 /A4 /A5 /CS /ChannelA/Control /ChannelA/Potentiometer
+      /ChannelB/Potentiometer /ChannelD/Control /ControlB /ControlC /D2 /D3
+      /DisplayRX /DisplayTX /MISO /MOSI /PotentiometerC /PotentiometerD /RST
+      /SCK /SwitchA /SwitchB /SwitchC /SwitchD /VoutA /VoutB /VoutC /VoutD
+      GND "N-000038" "N-000050" VDD
       (circuit
         (use_via Via[0-1]_35:25_mil)
       )
@@ -579,16 +593,16 @@
       )
     )
     (class HighCurrent /ChannelA/LED+ "/ChannelA/LED-" /ChannelB/LED+ "/ChannelB/LED-"
-      /ChannelC/LED+ "/ChannelC/LED-" /ChannelD/LED+ "/ChannelD/LED-"
+      /ChannelC/LED+ "/ChannelC/LED-" /ChannelD/LED+ "/ChannelD/LED-" VAA
       (circuit
         (use_via Via[0-1]_80:36_mil)
       )
       (rule
-        (width 42)
+        (width 56)
         (clearance 10.1)
       )
     )
-    (class Power +5V GND VAA VDD
+    (class Power
       (circuit
         (use_via Via[0-1]_60:36_mil)
       )
