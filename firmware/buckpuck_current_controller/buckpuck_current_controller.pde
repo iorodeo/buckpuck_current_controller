@@ -2,13 +2,11 @@
 #include <Streaming.h>
 #include "SerialLCD.h"
 #include <SPI.h>
-#include "mcp4261.h"
-#include "DigiPot.h"
-#include "LookupTable.h"
+#include "ad57x4r.h"
 #include <EEPROM.h>
 
 #define MSG_SIZE 20
-#define DIGIPOT_CS 10
+#define DAC_CS 10
 
 SoftwareSerial softSerial(8,9);
 SerialLCD lcd(softSerial);
@@ -31,9 +29,9 @@ int potentiometerDisplay;
 
 const int currentValueMin = 0;
 const int currentValueMax = 1000;
-int currentValueMaxSetting[] = {1000,1000,1000,1000};
-int currentValueMaxSettingValue;
 int currentValue;
+int currentValueMaxSetting[] = {currentValueMax,currentValueMax,currentValueMax,currentValueMax};
+int currentValueMaxSettingValue;
 
 int brightnessValue;
 const int brightnessValueLow = 0;
@@ -41,16 +39,15 @@ const int brightnessValueHigh = 50;
 byte brightnessSwitchState = HIGH;
 byte brightnessSwitchStatePrevious = HIGH;
 byte brightnessState = LOW;
-const byte brightnessSwitchPin = 2;
+const byte brightnessSwitchPin = A3;
 
-int digiPotValue;
-const int digiPotValueMin = 256;
-const int digiPotValueMax = 0;
-DigiPot digiPot = DigiPot(DIGIPOT_CS);
-
-int EEPROMAddress_DigiPotInitialized = 0;
-byte EEPROM_DigiPotInitializedValueTrue = 123;
-byte EEPROM_DigiPotInitializedValue;
+/* Measured current vs. DAC values */
+const unsigned int dacValueMin = 3205;
+const unsigned int dacValueMax = 1067;
+const unsigned int dacValueOff = 4095;
+unsigned int dacValue;
+AD57X4R dac = AD57X4R(DAC_CS);
+AD57X4R::channels dacChannels[] = {AD57X4R::A,AD57X4R::B,AD57X4R::C,AD57X4R::D};
 
 int EEPROMAddress_CurrentValueMaxSetting[] = {1,2,3,4};
 byte EEPROM_currentValueMin = 0;
@@ -67,7 +64,7 @@ long previousMillisUpdateLCD = 0;
 const long intervalUpdateLCD = 200;
 bool updateLCD = false;
 
-const byte setSwitchPin = 3;
+const byte setSwitchPin = A2;
 byte setSwitchState = HIGH;
 bool setMode[] = {false,false,false,false};
 bool setModeDeadbandExceeded[] = {false,false,false,false};
@@ -75,69 +72,17 @@ int setModeInitialValues[channelCount];
 const int setModeValueDeadband = 10;
 int setModeValueDifference;
 
-/* x = measured current in mA, y = digiPotValue */
-#define TABLE_SIZE 27
-int table[TABLE_SIZE][2] = {
-  {0, 256},
-  {1, 243},
-  {5, 240},
-  {153, 230},
-  {269, 220},
-  {370, 210},
-  {448, 200},
-  {517, 190},
-  {576, 180},
-  {627, 170},
-  {672, 160},
-  {711, 150},
-  {746, 140},
-  {779, 130},
-  {806, 120},
-  {831, 110},
-  {857, 100},
-  {875, 90},
-  {890, 80},
-  {898, 70},
-  {904, 60},
-  {905, 50},
-  {907, 40},
-  {909, 30},
-  {911, 20},
-  {912, 10},
-  {914, 0},
-};
-LookupTable lookup;
-
 
 void setup() {
-  Serial.begin(9600);
-  softSerial.begin(115200);
-  delay(2500);
-  lcd.clearScreen();
-  if (brightnessState == LOW) {
-    brightnessValue = brightnessValueLow;
-  } else if (brightnessState == HIGH) {
-    brightnessValue = brightnessValueHigh;
-  }
-  lcd.setBrightness(brightnessValue);
-
   // Setup SPI communications
-  SPI.setDataMode(SPI_MODE0);
+  SPI.setDataMode(SPI_MODE2);
   SPI.setBitOrder(MSBFIRST);
   SPI.setClockDivider(SPI_CLOCK_DIV8);
   SPI.begin();
 
-  // Initialize digital pot
-  digiPot.initialize();
-  EEPROM_DigiPotInitializedValue = EEPROM.read(EEPROMAddress_DigiPotInitialized);
-  if (EEPROM_DigiPotInitializedValue != EEPROM_DigiPotInitializedValueTrue) {
-    EEPROM.write(EEPROMAddress_DigiPotInitialized,EEPROM_DigiPotInitializedValueTrue);
-    delay(100);
-    for (int channel = 0; channel < channelCount; channel++) {
-      digiPot.setWiper_NonVolatile(channel,digiPotValueMin);
-      delay(250);
-    }
-  }
+  // Initialize DAC
+  dac.init(AD57X4R::AD5724R, AD57X4R::UNIPOLAR_5V, AD57X4R::ALL);
+  dac.update(dacValueMax,AD57X4R::ALL);
 
   // initialize the channel switch pins as input and turn on pullup resistors
   for (int channel = 0; channel < channelCount; channel++) {
@@ -153,16 +98,23 @@ void setup() {
   pinMode(setSwitchPin, INPUT);
   digitalWrite(setSwitchPin, HIGH);
 
-  /* Setup lookup table */
-  bool rtnVal;
-  rtnVal = lookup.setTable(table,TABLE_SIZE);
-
   /* Initalize currentValueMaxSetting */
   for (int channel = 0; channel < channelCount; channel++) {
     EEPROM_currentValueMaxSettingValue = EEPROM.read(EEPROMAddress_CurrentValueMaxSetting[channel]);
     currentValueMaxSettingValue = map(EEPROM_currentValueMaxSettingValue,EEPROM_currentValueMin,EEPROM_currentValueMax,currentValueMin,currentValueMax);
     currentValueMaxSetting[channel] = currentValueMaxSettingValue;
   }
+
+  Serial.begin(9600);
+  softSerial.begin(115200);
+  delay(2500);
+  lcd.clearScreen();
+  if (brightnessState == LOW) {
+    brightnessValue = brightnessValueLow;
+  } else if (brightnessState == HIGH) {
+    brightnessValue = brightnessValueHigh;
+  }
+  lcd.setBrightness(brightnessValue);
 
 }
 
@@ -250,16 +202,18 @@ void loop() {
     channelStateName = channelStateNames[channelStateValue[channel]];
 
     if (channelStateValue[channel] == 0) {
-      digiPotValue = lookup.getValue(currentValue);
+      /* digiPotValue = lookup.getValue(currentValue); */
+      dacValue = map(currentValue,currentValueMin,currentValueMax,dacValueMin,dacValueMax);
     } else {
-      digiPotValue = digiPotValueMin;
+      dacValue = dacValueOff;
       currentValue = currentValueMin;
     }
-    digiPot.setWiper(channel,digiPotValue);
+    dac.update(dacValue,dacChannels[channel]);
 
     if (updateLCD) {
       lcd.setPos(5,5+12*(channel+1));
-      snprintf(msg, MSG_SIZE, "%s %s %4d %4d %3d ", channelNames[channel],channelStateName,currentValue,currentValueMaxSetting[channel],potentiometerDisplay);
+      /* snprintf(msg, MSG_SIZE, "%s %s %4d %4d %3d ", channelNames[channel],channelStateName,currentValue,currentValueMaxSetting[channel],potentiometerDisplay); */
+      snprintf(msg, MSG_SIZE, "%s %s %4d %4d %3d ", channelNames[channel],channelStateName,currentValue,dacValue,potentiometerDisplay);
       lcd.print(msg);
     }
   }

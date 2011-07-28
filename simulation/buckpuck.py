@@ -98,5 +98,37 @@ def digipot_plot():
     pylab.grid()
     pylab.show()
 
+def dac_plot():
+    curr_a = numpy.array([26,80,169,245,479,662,790,859])
+    dac_a = numpy.array([3136,3038,2850,2682,2178,1809,1527,1343])
+    pylab.plot(curr_a,dac_a)
+    pylab.xlim(0,1000)
+    pylab.grid()
+
+    (a,b) = numpy.polyfit(curr_a,dac_a,1)
+    dac_a_fit = curr_a*a + b
+    pylab.plot(curr_a,dac_a_fit)
+
+    dac_0 = int(round(b))
+    dac_1000 = int(round(1000*a + b))
+    print "DAC A setting for 0mA = " + str(dac_0)
+    print "DAC A setting for 1000mA = " + str(dac_1000)
+
+    curr_b = numpy.array([13,130,279,542,743,822])
+    dac_b = numpy.array([3169,2940,2624,2080,1646,1457])
+    pylab.plot(curr_b,dac_b)
+
+    (a,b) = numpy.polyfit(curr_b,dac_b,1)
+    dac_b_fit = curr_b*a + b
+    pylab.plot(curr_b,dac_b_fit)
+
+    dac_0 = int(round(b))
+    dac_1000 = int(round(1000*a + b))
+    print "DAC B setting for 0mA = " + str(dac_0)
+    print "DAC B setting for 1000mA = " + str(dac_1000)
+
+    pylab.show()
+
 if __name__ == "__main__":
-    digipot_plot()
+    # digipot_plot()
+    dac_plot()
