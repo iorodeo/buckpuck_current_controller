@@ -212,8 +212,8 @@ void loop() {
 
     if (updateLCD) {
       lcd.setPos(5,5+12*(channel+1));
-      /* snprintf(msg, MSG_SIZE, "%s %s %4d %4d %3d ", channelNames[channel],channelStateName,currentValue,currentValueMaxSetting[channel],potentiometerDisplay); */
-      snprintf(msg, MSG_SIZE, "%s %s %4d %4d %3d ", channelNames[channel],channelStateName,currentValue,dacValue,potentiometerDisplay);
+      snprintf(msg, MSG_SIZE, "%s %s %4d %4d %3d ", channelNames[channel],channelStateName,currentValue,currentValueMaxSetting[channel],potentiometerDisplay);
+      /* snprintf(msg, MSG_SIZE, "%s %s %4d %4d %3d ", channelNames[channel],channelStateName,currentValue,dacValue,potentiometerDisplay); */
       lcd.print(msg);
     }
   }

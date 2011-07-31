@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Thu 14 Jul 2011 12:12:51 PM PDT
+EESchema Schematic File Version 2  date Sun 31 Jul 2011 01:58:26 PM PDT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -33,7 +33,7 @@ LIBS:buckpuck_current_controller-cache
 EELAYER 24  0
 EELAYER END
 $Descr A4 11700 8267
-Sheet 4 5
+Sheet 5 5
 Title "Single Buckpuck Channel"
 Date "14 jul 2011"
 Rev "3.0"
@@ -43,6 +43,15 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+$Comp
+L SSR_DC_6PIN U?
+U 1 1 4E35C1C4
+P 3200 3350
+F 0 "U?" H 2950 3550 60  0000 C CNN
+F 1 "SSR_DC_6PIN" H 3200 3150 60  0000 C CNN
+	1    3200 3350
+	1    0    0    -1  
+$EndComp
 NoConn ~ 4900 4000
 Text Label 5150 3650 0    60   ~ 0
 LED-
@@ -130,7 +139,7 @@ AR Path="/4E1B87B2/4DD1EC78" Ref="RV1"  Part="1"
 AR Path="/4E1B8863/4DD1EC78" Ref="RV2"  Part="1" 
 AR Path="/4E1B8870/4DD1EC78" Ref="RV3"  Part="1" 
 AR Path="/4E1B886D/4DD1EC78" Ref="RV4"  Part="1" 
-F 0 "RV3" H 7500 3850 50  0000 C CNN
+F 0 "RV1" H 7500 3850 50  0000 C CNN
 F 1 "POT" H 7500 3950 50  0000 C CNN
 	1    7500 3950
 	-1   0    0    1   
@@ -147,7 +156,7 @@ AR Path="/4E1B87B2/4DD1A2DC" Ref="BP1"  Part="1"
 AR Path="/4E1B8863/4DD1A2DC" Ref="BP2"  Part="1" 
 AR Path="/4E1B8870/4DD1A2DC" Ref="BP3"  Part="1" 
 AR Path="/4E1B886D/4DD1A2DC" Ref="BP4"  Part="1" 
-F 0 "BP3" H 5100 3450 60  0000 C CNN
+F 0 "BP1" H 5100 3450 60  0000 C CNN
 F 1 "BUCKPUCK" H 4750 3950 60  0000 C CNN
 	1    4750 3650
 	1    0    0    -1  
@@ -164,7 +173,7 @@ AR Path="/4E1B87B2/4DD1A2DB" Ref="#PWR32"  Part="1"
 AR Path="/4E1B8863/4DD1A2DB" Ref="#PWR36"  Part="1" 
 AR Path="/4E1B8870/4DD1A2DB" Ref="#PWR44"  Part="1" 
 AR Path="/4E1B886D/4DD1A2DB" Ref="#PWR40"  Part="1" 
-F 0 "#PWR44" H 4250 3260 30  0001 C CNN
+F 0 "#PWR32" H 4250 3260 30  0001 C CNN
 F 1 "VAA" H 4250 3310 30  0000 C CNN
 	1    4250 3200
 	1    0    0    -1  
@@ -198,7 +207,7 @@ AR Path="/4E1B87B2/4DD1A2D9" Ref="P9"  Part="1"
 AR Path="/4E1B8863/4DD1A2D9" Ref="P10"  Part="1" 
 AR Path="/4E1B8870/4DD1A2D9" Ref="P11"  Part="1" 
 AR Path="/4E1B886D/4DD1A2D9" Ref="P12"  Part="1" 
-F 0 "P11" V 5950 3600 40  0000 C CNN
+F 0 "P9" V 5950 3600 40  0000 C CNN
 F 1 "CurrentOutput" V 6050 3600 40  0000 C CNN
 	1    6000 3600
 	1    0    0    -1  
