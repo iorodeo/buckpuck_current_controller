@@ -1,4 +1,4 @@
-EESchema-DOCLIB  Version 2.0  Date: Tue 12 Jul 2011 11:26:27 AM PDT
+EESchema-DOCLIB  Version 2.0  Date: Tue 02 Aug 2011 02:50:12 PM PDT
 #
 $CMP 78L05
 D Linear Regulator +5V
@@ -32,6 +32,11 @@ $CMP LM7812
 D Linear Regulator +12V
 K POWER REGUL
 F regulator\lm78xx.pdf
+$ENDCMP
+#
+$CMP MCP23S08
+D ymbole general de connecteur
+K DAC
 $ENDCMP
 #
 $CMP V7809
