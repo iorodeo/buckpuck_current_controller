@@ -1,35 +1,35 @@
-Cmp-Mod V01 Created by CvPCB (2010-00-09 BZR 23xx)-stable date = Wed 13 Jul 2011 06:49:01 PM PDT
+Cmp-Mod V01 Created by CvPCB (2010-00-09 BZR 23xx)-stable date = Wed 03 Aug 2011 09:44:42 PM PDT
 
 BeginCmp
 TimeStamp = /4E1C91DE;
 Reference = B1;
 ValeurCmp = BUFFER_EL5227;
-IdModule  = 20-TSSOP;
+IdModule  = TSSOP_20;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E1B87B2/4DD1A2DC;
+TimeStamp = /4E3873D3/4DD1A2DC;
 Reference = BP1;
 ValeurCmp = BUCKPUCK;
 IdModule  = BUCKPUCK;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E1B8863/4DD1A2DC;
+TimeStamp = /4E38806B/4DD1A2DC;
 Reference = BP2;
 ValeurCmp = BUCKPUCK;
 IdModule  = BUCKPUCK;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E1B8870/4DD1A2DC;
+TimeStamp = /4E38807C/4DD1A2DC;
 Reference = BP3;
 ValeurCmp = BUCKPUCK;
 IdModule  = BUCKPUCK;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E1B886D/4DD1A2DC;
+TimeStamp = /4E388079/4DD1A2DC;
 Reference = BP4;
 ValeurCmp = BUCKPUCK;
 IdModule  = BUCKPUCK;
@@ -53,13 +53,6 @@ BeginCmp
 TimeStamp = /4E1E4A21;
 Reference = C3;
 ValeurCmp = 10uF;
-IdModule  = SM1210;
-EndCmp
-
-BeginCmp
-TimeStamp = /4DD2F558;
-Reference = C4;
-ValeurCmp = 0.33uF;
 IdModule  = SM1210;
 EndCmp
 
@@ -113,10 +106,24 @@ IdModule  = SM1210;
 EndCmp
 
 BeginCmp
+TimeStamp = /4E39B82A;
+Reference = C12;
+ValeurCmp = 0.1uF;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
 TimeStamp = /4E1B938F;
 Reference = D1;
 ValeurCmp = AD57X4R;
-IdModule  = 24-TSSOP;
+IdModule  = TSSOP_24;
+EndCmp
+
+BeginCmp
+TimeStamp = /4E389936;
+Reference = IO1;
+ValeurCmp = MCP23S08;
+IdModule  = SOIC_18;
 EndCmp
 
 BeginCmp
@@ -127,13 +134,6 @@ IdModule  = DCJACK_2PIN_HIGHCURRENT;
 EndCmp
 
 BeginCmp
-TimeStamp = /4DD2F1DB;
-Reference = P2;
-ValeurCmp = ResetOverride;
-IdModule  = PIN_ARRAY_2X2;
-EndCmp
-
-BeginCmp
 TimeStamp = /4DD2F842;
 Reference = P3;
 ValeurCmp = Display;
@@ -141,10 +141,10 @@ IdModule  = PIN_ARRAY_4X1;
 EndCmp
 
 BeginCmp
-TimeStamp = /4DEEDC47;
+TimeStamp = /4E3899EB;
 Reference = P4;
-ValeurCmp = I/O;
-IdModule  = pin_array_6x2;
+ValeurCmp = Switches;
+IdModule  = pin_array_8x2;
 EndCmp
 
 BeginCmp
@@ -176,28 +176,28 @@ IdModule  = MOUNT_HOLE_M3;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E1B87B2/4DD1A2D9;
+TimeStamp = /4E3873D3/4DD1A2D9;
 Reference = P9;
 ValeurCmp = CurrentOutput;
 IdModule  = SCREW_TERMINAL_2;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E1B8863/4DD1A2D9;
+TimeStamp = /4E38806B/4DD1A2D9;
 Reference = P10;
 ValeurCmp = CurrentOutput;
 IdModule  = SCREW_TERMINAL_2;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E1B8870/4DD1A2D9;
+TimeStamp = /4E38807C/4DD1A2D9;
 Reference = P11;
 ValeurCmp = CurrentOutput;
 IdModule  = SCREW_TERMINAL_2;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E1B886D/4DD1A2D9;
+TimeStamp = /4E388079/4DD1A2D9;
 Reference = P12;
 ValeurCmp = CurrentOutput;
 IdModule  = SCREW_TERMINAL_2;
@@ -206,40 +206,68 @@ EndCmp
 BeginCmp
 TimeStamp = /4E1B8EA2;
 Reference = P13;
-ValeurCmp = I/O;
+ValeurCmp = BNC;
 IdModule  = pin_array_4x2;
 EndCmp
 
 BeginCmp
-TimeStamp = /4DD2F567;
-Reference = R1;
-ValeurCmp = 68;
+TimeStamp = /4E3873D3/4E386D28;
+Reference = R2;
+ValeurCmp = 150;
 IdModule  = SM1210;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E1B87B2/4DD1EC78;
+TimeStamp = /4E38806B/4E386D28;
+Reference = R3;
+ValeurCmp = 150;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4E38807C/4E386D28;
+Reference = R4;
+ValeurCmp = 150;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4E388079/4E386D28;
+Reference = R5;
+ValeurCmp = 150;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4E3A2325;
+Reference = R6;
+ValeurCmp = 10k;
+IdModule  = SM1210;
+EndCmp
+
+BeginCmp
+TimeStamp = /4E3873D3/4DD1EC78;
 Reference = RV1;
 ValeurCmp = POT;
 IdModule  = POT_EVUE2J;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E1B8863/4DD1EC78;
+TimeStamp = /4E38806B/4DD1EC78;
 Reference = RV2;
 ValeurCmp = POT;
 IdModule  = POT_EVUE2J;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E1B8870/4DD1EC78;
+TimeStamp = /4E38807C/4DD1EC78;
 Reference = RV3;
 ValeurCmp = POT;
 IdModule  = POT_EVUE2J;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E1B886D/4DD1EC78;
+TimeStamp = /4E388079/4DD1EC78;
 Reference = RV4;
 ValeurCmp = POT;
 IdModule  = POT_EVUE2J;
@@ -257,6 +285,34 @@ TimeStamp = /4DAF2A1C;
 Reference = U2;
 ValeurCmp = ARDUINO_NANO;
 IdModule  = arduino_nano;
+EndCmp
+
+BeginCmp
+TimeStamp = /4E3873D3/4E35C1C4;
+Reference = U3;
+ValeurCmp = SSR_DC_6PIN;
+IdModule  = DIP-6__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /4E38806B/4E35C1C4;
+Reference = U4;
+ValeurCmp = SSR_DC_6PIN;
+IdModule  = DIP-6__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /4E38807C/4E35C1C4;
+Reference = U5;
+ValeurCmp = SSR_DC_6PIN;
+IdModule  = DIP-6__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /4E388079/4E35C1C4;
+Reference = U6;
+ValeurCmp = SSR_DC_6PIN;
+IdModule  = DIP-6__300;
 EndCmp
 
 EndListe

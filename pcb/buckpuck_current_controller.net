@@ -1,5 +1,51 @@
-# EESchema Netlist Version 1.1 created  Thu 14 Jul 2011 12:12:55 PM PDT
+# EESchema Netlist Version 1.1 created  Wed 03 Aug 2011 10:08:45 PM PDT
 (
+ ( /4E3A2325 $noname  R6 150 {Lib=R}
+  (    1 +5V )
+  (    2 N-000060 )
+ )
+ ( /4E39B82A $noname  C12 0.1uF {Lib=C}
+  (    1 GND )
+  (    2 +5V )
+ )
+ ( /4E3899EB $noname  P4 Switches {Lib=CONN_8X2}
+  (    1 /Switch_A )
+  (    2 GND )
+  (    3 /Switch_B )
+  (    4 GND )
+  (    5 /Switch_C )
+  (    6 GND )
+  (    7 /Switch_D )
+  (    8 GND )
+  (    9 /Switch_Set )
+  (   10 GND )
+  (   11 /Switch_Light )
+  (   12 GND )
+  (   13 /Switch_E )
+  (   14 GND )
+  (   15 /Switch_F )
+  (   16 GND )
+ )
+ ( /4E389936 $noname  IO1 MCP23S08 {Lib=MCP23S08}
+  (    1 /SCK )
+  (    2 /MOSI )
+  (    3 /MISO )
+  (    4 GND )
+  (    5 GND )
+  (    6 N-000060 )
+  (    7 /CS_IO )
+  (    8 /INT_IO )
+  (    9 GND )
+  (   10 /Switch_A )
+  (   11 /Switch_B )
+  (   12 /Switch_C )
+  (   13 /Switch_D )
+  (   14 /Switch_Set )
+  (   15 /Switch_Light )
+  (   16 /Switch_E )
+  (   17 /Switch_F )
+  (   18 +5V )
+ )
  ( /4E1E4A21 $noname  C3 10uF {Lib=C}
   (    1 VDD )
   (    2 GND )
@@ -13,7 +59,7 @@
   (    2 GND )
  )
  ( /4E1C9FFE $noname  C9 0.1uF {Lib=C}
-  (    1 N-000050 )
+  (    1 N-000045 )
   (    2 GND )
  )
  ( /4E1C9F70 $noname  C6 10uF {Lib=CAPAPOL}
@@ -41,10 +87,10 @@
   (    2 VDD )
  )
  ( /4E1C91DE $noname  B1 BUFFER_EL5227 {Lib=BUFFER_EL5227}
-  (    1 /VoutA )
-  (    2 /VoutB )
-  (    3 /VoutC )
-  (    4 /VoutD )
+  (    1 /Vout_A )
+  (    2 /Vout_B )
+  (    3 /Vout_C )
+  (    4 /Vout_D )
   (    5 VDD )
   (    6 VDD )
   (    7 GND )
@@ -57,19 +103,19 @@
   (   14 ? )
   (   15 GND )
   (   16 GND )
-  (   17 /ChannelD/Control )
-  (   18 /ControlC )
-  (   19 /ControlB )
-  (   20 /ChannelA/Control )
+  (   17 /Buckpuck_Control_D )
+  (   18 /Buckpuck_Control_C )
+  (   19 /Buckpuck_Control_B )
+  (   20 /Buckpuck_Control_A )
  )
  ( /4E1B938F $noname  D1 AD57X4R {Lib=AD57X4R}
   (    1 GND )
   (    2 ? )
-  (    3 /VoutA )
-  (    4 /VoutB )
+  (    3 /Vout_A )
+  (    4 /Vout_B )
   (    5 GND )
   (    6 ? )
-  (    7 /CS )
+  (    7 /CS_DAC )
   (    8 /SCK )
   (    9 /MOSI )
   (   10 GND )
@@ -79,50 +125,36 @@
   (   14 +5V )
   (   15 GND )
   (   16 /MISO )
-  (   17 N-000050 )
+  (   17 N-000045 )
   (   18 GND )
   (   19 GND )
   (   20 GND )
   (   21 GND )
-  (   22 /VoutD )
-  (   23 /VoutC )
+  (   22 /Vout_D )
+  (   23 /Vout_C )
   (   24 VDD )
  )
- ( /4E1B8EA2 $noname  P13 I/O {Lib=CONN_4X2}
-  (    1 /A5 )
-  (    2 GND )
-  (    3 /A4 )
-  (    4 GND )
-  (    5 /A3 )
-  (    6 GND )
-  (    7 /A2 )
-  (    8 GND )
- )
- ( /4DEEDC47 $noname  P4 I/O {Lib=CONN_6X2}
-  (    1 /SwitchA )
-  (    2 GND )
-  (    3 /SwitchB )
-  (    4 GND )
-  (    5 /SwitchC )
-  (    6 GND )
-  (    7 /SwitchD )
-  (    8 GND )
-  (    9 /D3 )
-  (   10 GND )
-  (   11 /D2 )
-  (   12 GND )
+ ( /4E1B8EA2 $noname  P13 BNC {Lib=CONN_4X2}
+  (    1 GND )
+  (    2 /BNC_A )
+  (    3 GND )
+  (    4 /BNC_B )
+  (    5 GND )
+  (    6 /BNC_C )
+  (    7 GND )
+  (    8 /BNC_D )
  )
  ( /4DD6F3EB $noname  P8 CONN_1 {Lib=CONN_1}
-  (    1 GND )
+  (    1 ? )
  )
  ( /4DD6F3E8 $noname  P7 CONN_1 {Lib=CONN_1}
-  (    1 GND )
+  (    1 ? )
  )
  ( /4DD6F3E5 $noname  P6 CONN_1 {Lib=CONN_1}
-  (    1 GND )
+  (    1 ? )
  )
  ( /4DD6F3DD $noname  P5 CONN_1 {Lib=CONN_1}
-  (    1 GND )
+  (    1 ? )
  )
  ( /4DD30F0E $noname  U1 V7809 {Lib=V7809}
   (    1 VAA )
@@ -130,52 +162,38 @@
   (    3 VDD )
  )
  ( /4DD2F842 $noname  P3 Display {Lib=CONN_4}
-  (    1 /DisplayTX )
-  (    2 /DisplayRX )
+  (    1 /Display_TX )
+  (    2 /Display_RX )
   (    3 GND )
   (    4 VDD )
- )
- ( /4DD2F567 $noname  R1 68 {Lib=R}
-  (    1 N-000038 )
-  (    2 +5V )
- )
- ( /4DD2F558 $noname  C4 0.33uF {Lib=C}
-  (    1 N-000038 )
-  (    2 GND )
- )
- ( /4DD2F1DB $noname  P2 ResetOverride {Lib=CONN_2X2}
-  (    1 /RST )
-  (    2 N-000038 )
-  (    3 ? )
-  (    4 ? )
  )
  ( /4DAF2A1C $noname  U2 ARDUINO_NANO {Lib=ARDUINO_NANO}
   (    1 ? )
   (    2 ? )
-  (    3 /RST )
+  (    3 ? )
   (    4 GND )
-  (    5 /D2 )
-  (    6 /D3 )
-  (    7 /SwitchD )
-  (    8 /SwitchC )
-  (    9 /SwitchB )
-  (   10 /SwitchA )
-  (   11 /DisplayRX )
-  (   12 /DisplayTX )
-  (   13 /CS )
+  (    5 /INT_IO )
+  (    6 /CS_IO )
+  (    7 /Channel_D/SSR_Control )
+  (    8 /SSR_Control_C )
+  (    9 /SSR_Control_B )
+  (   10 /SSR_Control_A )
+  (   11 /Display_RX )
+  (   12 /Display_TX )
+  (   13 /CS_DAC )
   (   14 /MOSI )
   (   15 /MISO )
   (   16 /SCK )
   (   17 ? )
   (   18 ? )
-  (   19 /ChannelA/Potentiometer )
-  (   20 /ChannelB/Potentiometer )
-  (   21 /A2 )
-  (   22 /A3 )
-  (   23 /A4 )
-  (   24 /A5 )
-  (   25 /PotentiometerC )
-  (   26 /PotentiometerD )
+  (   19 /Potentiometer_A )
+  (   20 /Channel_B/Potentiometer )
+  (   21 /Potentiometer_C )
+  (   22 /Potentiometer_D )
+  (   23 /BNC_A )
+  (   24 /BNC_B )
+  (   25 /BNC_C )
+  (   26 /BNC_D )
   (   27 +5V )
   (   28 ? )
   (   29 GND )
@@ -185,77 +203,136 @@
   (    1 VAA )
   (    2 GND )
  )
- ( /4E1B8870/4DD1EC78 $noname  RV3 POT {Lib=POT}
+ ( /4E38807C/4E386D28 $noname  R4 150 {Lib=R}
+  (    1 N-000079 )
+  (    2 /SSR_Control_C )
+ )
+ ( /4E38807C/4E35C1C4 $noname  U5 SSR_DC_6PIN {Lib=SSR_DC_6PIN}
+  (    1 N-000079 )
+  (    2 GND )
+  (    3 ? )
+  (    4 VAA )
+  (    5 /Channel_C/BuckpuckV+ )
+  (    6 VAA )
+ )
+ ( /4E38807C/4DD1EC78 $noname  RV3 POT {Lib=POT}
   (    1 GND )
-  (    2 /PotentiometerC )
+  (    2 /Potentiometer_C )
   (    3 +5V )
  )
- ( /4E1B8870/4DD1A2DC $noname  BP3 BUCKPUCK {Lib=BUCKPUCK}
-  (    1 /ChannelC/LED+ )
-  (    2 /ChannelC/LED- )
-  (    3 /ControlC )
+ ( /4E38807C/4DD1A2DC $noname  BP3 BUCKPUCK {Lib=BUCKPUCK}
+  (    1 /Channel_C/LED+ )
+  (    2 /Channel_C/LED- )
+  (    3 /Buckpuck_Control_C )
   (    4 ? )
-  (    5 VAA )
+  (    5 /Channel_C/BuckpuckV+ )
   (    6 GND )
  )
- ( /4E1B8870/4DD1A2D9 $noname  P11 CurrentOutput {Lib=CONN_2}
-  (    1 /ChannelC/LED+ )
-  (    2 /ChannelC/LED- )
+ ( /4E38807C/4DD1A2D9 $noname  P11 CurrentOutput {Lib=CONN_2}
+  (    1 /Channel_C/LED+ )
+  (    2 /Channel_C/LED- )
  )
- ( /4E1B886D/4DD1EC78 $noname  RV4 POT {Lib=POT}
+ ( /4E388079/4E386D28 $noname  R5 150 {Lib=R}
+  (    1 N-000074 )
+  (    2 /Channel_D/SSR_Control )
+ )
+ ( /4E388079/4E35C1C4 $noname  U6 SSR_DC_6PIN {Lib=SSR_DC_6PIN}
+  (    1 N-000074 )
+  (    2 GND )
+  (    3 ? )
+  (    4 VAA )
+  (    5 /Channel_D/BuckpuckV+ )
+  (    6 VAA )
+ )
+ ( /4E388079/4DD1EC78 $noname  RV4 POT {Lib=POT}
   (    1 GND )
-  (    2 /PotentiometerD )
+  (    2 /Potentiometer_D )
   (    3 +5V )
  )
- ( /4E1B886D/4DD1A2DC $noname  BP4 BUCKPUCK {Lib=BUCKPUCK}
-  (    1 /ChannelD/LED+ )
-  (    2 /ChannelD/LED- )
-  (    3 /ChannelD/Control )
+ ( /4E388079/4DD1A2DC $noname  BP4 BUCKPUCK {Lib=BUCKPUCK}
+  (    1 /Channel_D/LED+ )
+  (    2 /Channel_D/LED- )
+  (    3 /Buckpuck_Control_D )
   (    4 ? )
-  (    5 VAA )
+  (    5 /Channel_D/BuckpuckV+ )
   (    6 GND )
  )
- ( /4E1B886D/4DD1A2D9 $noname  P12 CurrentOutput {Lib=CONN_2}
-  (    1 /ChannelD/LED+ )
-  (    2 /ChannelD/LED- )
+ ( /4E388079/4DD1A2D9 $noname  P12 CurrentOutput {Lib=CONN_2}
+  (    1 /Channel_D/LED+ )
+  (    2 /Channel_D/LED- )
  )
- ( /4E1B8863/4DD1EC78 $noname  RV2 POT {Lib=POT}
+ ( /4E38806B/4E386D28 $noname  R3 150 {Lib=R}
+  (    1 N-000069 )
+  (    2 /SSR_Control_B )
+ )
+ ( /4E38806B/4E35C1C4 $noname  U4 SSR_DC_6PIN {Lib=SSR_DC_6PIN}
+  (    1 N-000069 )
+  (    2 GND )
+  (    3 ? )
+  (    4 VAA )
+  (    5 /Channel_B/BuckpuckV+ )
+  (    6 VAA )
+ )
+ ( /4E38806B/4DD1EC78 $noname  RV2 POT {Lib=POT}
   (    1 GND )
-  (    2 /ChannelB/Potentiometer )
+  (    2 /Channel_B/Potentiometer )
   (    3 +5V )
  )
- ( /4E1B8863/4DD1A2DC $noname  BP2 BUCKPUCK {Lib=BUCKPUCK}
-  (    1 /ChannelB/LED+ )
-  (    2 /ChannelB/LED- )
-  (    3 /ControlB )
+ ( /4E38806B/4DD1A2DC $noname  BP2 BUCKPUCK {Lib=BUCKPUCK}
+  (    1 /Channel_B/LED+ )
+  (    2 /Channel_B/LED- )
+  (    3 /Buckpuck_Control_B )
   (    4 ? )
-  (    5 VAA )
+  (    5 /Channel_B/BuckpuckV+ )
   (    6 GND )
  )
- ( /4E1B8863/4DD1A2D9 $noname  P10 CurrentOutput {Lib=CONN_2}
-  (    1 /ChannelB/LED+ )
-  (    2 /ChannelB/LED- )
+ ( /4E38806B/4DD1A2D9 $noname  P10 CurrentOutput {Lib=CONN_2}
+  (    1 /Channel_B/LED+ )
+  (    2 /Channel_B/LED- )
  )
- ( /4E1B87B2/4DD1EC78 $noname  RV1 POT {Lib=POT}
+ ( /4E3873D3/4E386D28 $noname  R2 150 {Lib=R}
+  (    1 N-000062 )
+  (    2 /SSR_Control_A )
+ )
+ ( /4E3873D3/4E35C1C4 $noname  U3 SSR_DC_6PIN {Lib=SSR_DC_6PIN}
+  (    1 N-000062 )
+  (    2 GND )
+  (    3 ? )
+  (    4 VAA )
+  (    5 /Channel_A/BuckpuckV+ )
+  (    6 VAA )
+ )
+ ( /4E3873D3/4DD1EC78 $noname  RV1 POT {Lib=POT}
   (    1 GND )
-  (    2 /ChannelA/Potentiometer )
+  (    2 /Potentiometer_A )
   (    3 +5V )
  )
- ( /4E1B87B2/4DD1A2DC $noname  BP1 BUCKPUCK {Lib=BUCKPUCK}
-  (    1 /ChannelA/LED+ )
-  (    2 /ChannelA/LED- )
-  (    3 /ChannelA/Control )
+ ( /4E3873D3/4DD1A2DC $noname  BP1 BUCKPUCK {Lib=BUCKPUCK}
+  (    1 /Channel_A/LED+ )
+  (    2 /Channel_A/LED- )
+  (    3 /Buckpuck_Control_A )
   (    4 ? )
-  (    5 VAA )
+  (    5 /Channel_A/BuckpuckV+ )
   (    6 GND )
  )
- ( /4E1B87B2/4DD1A2D9 $noname  P9 CurrentOutput {Lib=CONN_2}
-  (    1 /ChannelA/LED+ )
-  (    2 /ChannelA/LED- )
+ ( /4E3873D3/4DD1A2D9 $noname  P9 CurrentOutput {Lib=CONN_2}
+  (    1 /Channel_A/LED+ )
+  (    2 /Channel_A/LED- )
  )
 )
 *
 { Allowed footprints by component:
+$component R6
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component C12
+ SM*
+ C?
+ C1-1
+$endlist
 $component C3
  SM*
  C?
@@ -303,221 +380,292 @@ $component C5
  C?
  C1-1
 $endlist
-$component R1
+$component R4
  R?
  SM0603
  SM0805
  R?-*
 $endlist
-$component C4
- SM*
- C?
- C1-1
+$component R5
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R3
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R2
+ R?
+ SM0603
+ SM0805
+ R?-*
 $endlist
 $endfootprintlist
 }
 { Pin List by Nets
-Net 1 "GND" "GND"
- C2 2
- C8 2
- C5 1
- C3 2
- C1 2
- C9 2
- P4 4
- U1 2
- P3 3
- P4 6
- P4 8
- P4 10
- P4 12
- P8 1
- P7 1
- P6 1
- P5 1
- BP1 6
- RV2 1
- BP2 6
- RV1 1
+Net 2 "/Vout_A" "Vout_A"
+ D1 3
+ B1 1
+Net 3 "/Vout_B" "Vout_B"
+ D1 4
+ B1 2
+Net 4 "/Vout_C" "Vout_C"
+ D1 23
+ B1 3
+Net 12 "/Buckpuck_Control_B" "Buckpuck_Control_B"
+ BP2 3
+ B1 19
+Net 13 "/CS_DAC" "CS_DAC"
+ U2 13
+ D1 7
+Net 14 "/SCK" "SCK"
+ D1 8
+ IO1 1
+ U2 16
+Net 15 "/Vout_D" "Vout_D"
+ D1 22
+ B1 4
+Net 16 "VDD" "VDD"
+ C6 1
+ C7 1
+ U1 3
+ P3 4
+ C3 1
+ D1 24
+ U2 30
+ C8 1
+ B1 6
+ B1 5
+ C5 2
+Net 17 "GND" "GND"
+ U4 2
+ BP4 6
  RV3 1
  BP3 6
  RV4 1
- BP4 6
- C11 2
- C6 2
- C7 2
- C10 2
- B1 9
+ U6 2
+ BP1 6
+ RV1 1
+ U3 2
+ U5 2
+ BP2 6
+ IO1 4
+ P4 6
+ P4 4
+ P4 2
+ C12 1
+ IO1 5
+ P4 8
+ P4 16
+ P4 14
+ P4 12
+ P4 10
+ RV2 1
  B1 8
  B1 7
- U2 4
- D1 19
- D1 20
- B1 10
- B1 16
  D1 5
+ IO1 9
  D1 10
- P13 2
- B1 15
+ D1 20
  D1 21
+ D1 1
+ D1 15
+ C6 2
+ D1 18
+ D1 19
+ U1 2
+ C8 2
+ C9 2
+ U2 4
  P1 2
  U2 29
- P13 4
- D1 18
- D1 15
- P13 8
- P4 2
- P13 6
- C4 2
- D1 1
-Net 2 "/A3" "A3"
- U2 22
+ B1 16
+ C5 1
  P13 5
-Net 3 "/A2" "A2"
+ B1 15
+ P13 1
+ P13 3
+ B1 10
  P13 7
- U2 21
-Net 6 "/SwitchA" "SwitchA"
- P4 1
- U2 10
-Net 7 "/ChannelA/Potentiometer" "Potentiometer"
- U2 19
- RV1 2
-Net 8 "/ChannelA/Control" "Control"
+ B1 9
+ C3 2
+ C7 2
+ C1 2
+ C11 2
+ P3 3
+ C2 2
+ C10 2
+Net 18 "/Buckpuck_Control_A" "Buckpuck_Control_A"
  B1 20
  BP1 3
-Net 9 "/ChannelB/Potentiometer" "Potentiometer"
- RV2 2
- U2 20
-Net 10 "/ControlB" "ControlB"
- BP2 3
- B1 19
-Net 11 "/PotentiometerD" "PotentiometerD"
- U2 26
- RV4 2
-Net 12 "/ChannelD/Control" "Control"
+Net 19 "/Buckpuck_Control_D" "Buckpuck_Control_D"
  B1 17
  BP4 3
-Net 13 "/PotentiometerC" "PotentiometerC"
- RV3 2
- U2 25
-Net 14 "/ControlC" "ControlC"
+Net 20 "/Buckpuck_Control_C" "Buckpuck_Control_C"
  B1 18
  BP3 3
-Net 15 "/VoutB" "VoutB"
- D1 4
- B1 2
-Net 16 "/VoutC" "VoutC"
- D1 23
- B1 3
-Net 17 "/VoutD" "VoutD"
- D1 22
- B1 4
-Net 22 "/CS" "CS"
- D1 7
- U2 13
-Net 24 "/VoutA" "VoutA"
- B1 1
- D1 3
-Net 26 "/SCK" "SCK"
- D1 8
- U2 16
-Net 27 "/MOSI" "MOSI"
+Net 21 "/Channel_D/SSR_Control" "SSR_Control"
+ U2 7
+ R5 2
+Net 22 "/Potentiometer_D" "Potentiometer_D"
+ U2 22
+ RV4 2
+Net 23 "/SSR_Control_B" "SSR_Control_B"
+ U2 9
+ R3 2
+Net 24 "/Channel_B/Potentiometer" "Potentiometer"
+ RV2 2
+ U2 20
+Net 25 "/SSR_Control_A" "SSR_Control_A"
+ R2 2
+ U2 10
+Net 26 "/Potentiometer_A" "Potentiometer_A"
+ U2 19
+ RV1 2
+Net 27 "/SSR_Control_C" "SSR_Control_C"
+ R4 2
+ U2 8
+Net 28 "/Potentiometer_C" "Potentiometer_C"
+ U2 21
+ RV3 2
+Net 29 "/MOSI" "MOSI"
  U2 14
  D1 9
-Net 28 "/MISO" "MISO"
- U2 15
- D1 16
-Net 31 "VAA" "VAA"
- BP4 5
- BP3 5
- C1 1
- U1 1
- BP2 5
+ IO1 2
+Net 30 "VAA" "VAA"
  C2 1
- BP1 5
+ C1 1
+ U4 6
+ U4 4
+ U6 6
+ U6 4
  P1 1
-Net 37 "/RST" "RST"
- U2 3
- P2 1
-Net 38 "" ""
- R1 1
- C4 1
- P2 2
-Net 39 "/A5" "A5"
- U2 24
- P13 1
-Net 40 "/A4" "A4"
- P13 3
- U2 23
-Net 41 "/DisplayTX" "DisplayTX"
- U2 12
- P3 1
-Net 42 "/DisplayRX" "DisplayRX"
+ U5 6
+ U5 4
+ U1 1
+ U3 6
+ U3 4
+Net 37 "/BNC_D" "BNC_D"
+ U2 26
+ P13 8
+Net 38 "/Display_RX" "Display_RX"
  P3 2
  U2 11
-Net 43 "/D2" "D2"
- U2 5
- P4 11
-Net 44 "/D3" "D3"
- U2 6
- P4 9
-Net 45 "/SwitchD" "SwitchD"
- U2 7
- P4 7
-Net 46 "/SwitchC" "SwitchC"
- U2 8
- P4 5
-Net 47 "/SwitchB" "SwitchB"
- P4 3
- U2 9
-Net 48 "+5V" "+5V"
- RV4 3
- U2 27
- C11 1
+Net 39 "/Display_TX" "Display_TX"
+ P3 1
+ U2 12
+Net 40 "/BNC_B" "BNC_B"
+ U2 24
+ P13 4
+Net 41 "/BNC_C" "BNC_C"
+ P13 6
+ U2 25
+Net 42 "/BNC_A" "BNC_A"
+ P13 2
+ U2 23
+Net 43 "+5V" "+5V"
  RV2 3
- D1 14
- R1 2
- C10 1
+ U2 27
+ R6 1
+ C11 1
  RV3 3
- RV1 3
  D1 11
-Net 49 "VDD" "VDD"
- C6 1
- P3 4
- C7 1
- U2 30
- B1 6
- B1 5
- U1 3
- C3 1
- C8 1
- C5 2
- D1 24
-Net 50 "" ""
- D1 17
+ D1 14
+ RV4 3
+ RV1 3
+ IO1 18
+ C12 2
+ C10 1
+Net 44 "/MISO" "MISO"
+ D1 16
+ U2 15
+ IO1 3
+Net 45 "" ""
  C9 1
-Net 52 "/ChannelA/LED+" "LED+"
+ D1 17
+Net 50 "/CS_IO" "CS_IO"
+ U2 6
+ IO1 7
+Net 51 "/INT_IO" "INT_IO"
+ U2 5
+ IO1 8
+Net 52 "/Switch_A" "Switch_A"
+ IO1 10
+ P4 1
+Net 53 "/Switch_B" "Switch_B"
+ P4 3
+ IO1 11
+Net 54 "/Switch_C" "Switch_C"
+ P4 5
+ IO1 12
+Net 55 "/Switch_D" "Switch_D"
+ P4 7
+ IO1 13
+Net 56 "/Switch_Set" "Switch_Set"
+ IO1 14
+ P4 9
+Net 57 "/Switch_Light" "Switch_Light"
+ P4 11
+ IO1 15
+Net 58 "/Switch_F" "Switch_F"
+ P4 15
+ IO1 17
+Net 59 "/Switch_E" "Switch_E"
+ IO1 16
+ P4 13
+Net 60 "" ""
+ R6 2
+ IO1 6
+Net 61 "/Channel_A/BuckpuckV+" "BuckpuckV+"
+ U3 5
+ BP1 5
+Net 62 "" ""
+ U3 1
+ R2 1
+Net 65 "/Channel_A/LED+" "LED+"
  BP1 1
  P9 1
-Net 53 "/ChannelA/LED-" "LED-"
+Net 66 "/Channel_A/LED-" "LED-"
  P9 2
  BP1 2
-Net 54 "/ChannelB/LED+" "LED+"
- P10 1
+Net 68 "/Channel_B/BuckpuckV+" "BuckpuckV+"
+ BP2 5
+ U4 5
+Net 69 "" ""
+ R3 1
+ U4 1
+Net 71 "/Channel_B/LED+" "LED+"
  BP2 1
-Net 55 "/ChannelB/LED-" "LED-"
- P10 2
+ P10 1
+Net 72 "/Channel_B/LED-" "LED-"
  BP2 2
-Net 58 "/ChannelD/LED+" "LED+"
- BP4 1
+ P10 2
+Net 73 "/Channel_D/BuckpuckV+" "BuckpuckV+"
+ U6 5
+ BP4 5
+Net 74 "" ""
+ R5 1
+ U6 1
+Net 77 "/Channel_D/LED+" "LED+"
  P12 1
-Net 59 "/ChannelD/LED-" "LED-"
+ BP4 1
+Net 78 "/Channel_D/LED-" "LED-"
  P12 2
  BP4 2
-Net 61 "/ChannelC/LED+" "LED+"
- P11 1
+Net 79 "" ""
+ R4 1
+ U5 1
+Net 81 "/Channel_C/BuckpuckV+" "BuckpuckV+"
+ U5 5
+ BP3 5
+Net 83 "/Channel_C/LED+" "LED+"
  BP3 1
-Net 62 "/ChannelC/LED-" "LED-"
+ P11 1
+Net 84 "/Channel_C/LED-" "LED-"
  P11 2
  BP3 2
 }

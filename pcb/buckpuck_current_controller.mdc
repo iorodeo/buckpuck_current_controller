@@ -1,4 +1,4 @@
-PCBNEW-LibDoc----V1  Sun 24 Jul 2011 01:21:00 PM PDT
+PCBNEW-LibDoc----V1  Wed 03 Aug 2011 07:17:33 PM PDT
 #
 $MODULE PIN_ARRAY_2X2
 Li PIN_ARRAY_2X2
@@ -10,12 +10,6 @@ $MODULE PIN_ARRAY_2X1
 Li PIN_ARRAY_2X1
 Cd Connecteurs 2 pins
 Kw CONN DEV
-$EndMODULE
-#
-$MODULE pin_array_6x2
-Li pin_array_6x2
-Cd Double rangee de contacts 2 x 6 pins
-Kw CONN
 $EndMODULE
 #
 $MODULE DIP-14__300
@@ -38,6 +32,24 @@ $EndMODULE
 $MODULE SM1210
 Li SM1210
 Kw CMS SM
+$EndMODULE
+#
+$MODULE PIN_ARRAY_8x2
+Li PIN_ARRAY_8x2
+Cd Double rangee de contacts 2 x 6 pins
+Kw CONN
+$EndMODULE
+#
+$MODULE PIN_ARRAY_6x2
+Li PIN_ARRAY_6x2
+Cd Double rangee de contacts 2 x 6 pins
+Kw CONN
+$EndMODULE
+#
+$MODULE DIP-6__300
+Li DIP-6__300
+Cd 6 pins DIL package, round pads
+Kw DIL
 $EndMODULE
 #
 $EndLIBDOC
