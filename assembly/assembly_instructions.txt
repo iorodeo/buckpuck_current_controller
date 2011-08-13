@@ -1,0 +1,42 @@
+-*- mode:org -*-
+
+# Assembly Instructions
+| Step | Description                                                                                                  |
+|------+--------------------------------------------------------------------------------------------------------------|
+|      | Front Panel                                                                                                  |
+|------+--------------------------------------------------------------------------------------------------------------|
+|    1 | cut jumper wires {28} (quantity 3, 2-pin, 12", 2 connectors) in half (quantity 6, 2-pin, 6", 1 connector)    |
+|    2 | solder cut jumper wires {28} to switches {26,27} using shrink tube {}                                        |
+|    3 | solder the 6POS header {20} to the Serial Graphic LCD {18}                                                   |
+|    4 | attach LCD {18} to Front Panel {47} with screws {24}, nuts {23}, spacers {22}, and washers {25}              |
+|    5 | program LCD {18} with newest firmware                                                                        |
+|    6 | push assembled PCB {1} potentiometers through Front Panel {47}                                               |
+|------+--------------------------------------------------------------------------------------------------------------|
+|      | Bottom Panel                                                                                                 |
+|------+--------------------------------------------------------------------------------------------------------------|
+|    1 | attach Bottom Panel {49} to 2 rails {52} and to Back Panel {48}                                              |
+|    2 | screw assembled PCB {1} to Bottom Panel {49} using screws {32}, spacers {30}, washers {33}, and nuts {31}    |
+|    3 | screw Front Panel {47} to rails {52}, connecting to Bottom Panel {49} and Back Panel {48}                    |
+|------+--------------------------------------------------------------------------------------------------------------|
+|      | Back Panel                                                                                                   |
+|------+--------------------------------------------------------------------------------------------------------------|
+|    1 | strip 3C wire {59}, solder to power entry module {14}, crimp small ring terminals {60} onto other end        |
+|    2 | screw module {14} to Back Panel {48} using flat head M3 screws {16}                                          |
+|    3 | screw USB cable {43} to Back Panel {48}                                                                      |
+|    4 | connect USB cable {43} to Arduino {41} on PCB {1}                                                            |
+|    5 | strip the 4 2C wires {57}, attach one large ring terminal {58} to each conductor (8 total, all on same side) |
+|    6 | connect non-ring terminal side of 2C wires {57} to screw terminals on PCB {1}                                |
+|    7 | attach binding posts {35} to Back Panel {48} and to 2C wires {57}                                            |
+|------+--------------------------------------------------------------------------------------------------------------|
+|      | Top Panel                                                                                                    |
+|------+--------------------------------------------------------------------------------------------------------------|
+|    1 | screw the power supply {13} to the Top Panel {50} using the 4 P1 M3 6mm cap screws {17}                      |
+|    2 | cut power cable wires {12} to a length of 12"                                                                |
+|    3 | strip wires {12} and screw into power supply {13} using ring terminals {60} (center positive, marked wire)   |
+|    4 |                                                                                                              |
+|------+--------------------------------------------------------------------------------------------------------------|
+|      | Side Panels                                                                                                  |
+|------+--------------------------------------------------------------------------------------------------------------|
+|    1 |                                                                                                              |
+|------+--------------------------------------------------------------------------------------------------------------|
+|      |                                                                                                              |

@@ -23,7 +23,7 @@ const int potentiometerValueMin = 0;
 const int potentiometerValueMax = 1023;
 const int potentiometerDisplayMin = 0;
 const int potentiometerDisplayMax = 100;
-const byte potentiometerPins[] = {A0,A1,A6,A7};
+const byte potentiometerPins[] = {A0,A1,A2,A3};
 int potentiometerValue;
 int potentiometerDisplay;
 
