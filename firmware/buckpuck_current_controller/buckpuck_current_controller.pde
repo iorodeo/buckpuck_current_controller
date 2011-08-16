@@ -92,7 +92,7 @@ void setup() {
   // Initialize DAC
   SPI.setDataMode(SPI_MODE2);
   dac.init(AD57X4R::AD5724R, AD57X4R::UNIPOLAR_5V, AD57X4R::ALL);
-  dac.analogWrite(AD57X4R::ALL,dacValueMax);
+  dac.analogWrite(AD57X4R::ALL,dacValueOff);
 
   // Initialize IO
   SPI.setDataMode(SPI_MODE0);
@@ -221,7 +221,7 @@ void loop() {
         /* digitalWrite(channelEnablePins[channel],LOW); */
       } else {
         channelStateValue[channel] = ON;
-        /* digitalWrite(channelEnablePins[channel],HIGH); */
+        digitalWrite(channelEnablePins[channel],HIGH);
       }
     }
     channelStateName = channelStateNames[channelStateValue[channel]];
@@ -236,10 +236,11 @@ void loop() {
     SPI.setDataMode(SPI_MODE2);
     dac.analogWrite(dacChannels[channel],dacValue);
 
+    // Alternate order of enabling relay and changing analog value to prevent current 'blips' when turning switch on and off
     if (channelStateValue[channel] == OFF) {
       digitalWrite(channelEnablePins[channel],LOW);
     } else {
-      digitalWrite(channelEnablePins[channel],HIGH);
+      /* digitalWrite(channelEnablePins[channel],HIGH); */
     }
 
     if (updateLCD) {
