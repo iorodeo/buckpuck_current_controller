@@ -112,6 +112,7 @@
 |   |     58 | ENCLOSURE    | Ring Terminal, 22-18 AWG, #8 Stud       | mcmaster          | 7113k855         |       14 |   0.45 |
 |   |     59 | ENCLOSURE    | Wire, 3C, 22AWG, 12"                    | jameco            | 733024           |        1 |   0.21 |
 |   |     60 | ENCLOSURE    | Ring Terminal, 22-18 AWG, #6 Stud       | mcmaster          | 7113K854         |        6 |   0.45 |
+|   |     61 | ENCLOSURE    | CABLE 16 COND 300FT MULTI-COLOR (24")   | digikey           | MC16M-300-ND     |        1 |   0.95 |
 |---+--------+--------------+-----------------------------------------+-------------------+------------------+----------+--------|
-| # |        | total        |                                         |                   |                  |          | 757.62 |
-#+TBLFM: @62$8=(@I$quantity..@II$quantity)*(@I$cost..@II$cost);%.2f;N
+| # |        | total        |                                         |                   |                  |          | 758.57 |
+#+TBLFM: @63$8=(@I$quantity..@II$quantity)*(@I$cost..@II$cost);%.2f;N

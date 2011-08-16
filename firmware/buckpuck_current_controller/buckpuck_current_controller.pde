@@ -3,20 +3,25 @@
 #include "SerialLCD.h"
 #include <SPI.h>
 #include "ad57x4r.h"
+#include <mcp23sxx.h>
 #include <EEPROM.h>
 
 #define MSG_SIZE 20
 #define DAC_CS 10
+#define IO_CS  3
 
 SoftwareSerial softSerial(8,9);
 SerialLCD lcd(softSerial);
 
+const byte ON = 0;
+const byte OFF = 1;
 const int channelCount = 4;
 char* channelNames[] = {"A","B","C","D"};
 char* channelStateNames[] = {"ON ","OFF","SET"};
 byte channelStateValue[] = {1,1,1,1};
 char* channelStateName = channelStateNames[channelStateValue[0]];
-const byte channelSwitchPins[] = {7,6,5,4};
+const byte channelEnablePins[] = {7,6,5,4};
+const byte channelSwitchPins[] = {0,1,2,3};
 byte channelSwitchState = LOW;
 
 const int potentiometerValueMin = 0;
@@ -33,21 +38,26 @@ int currentValue;
 int currentValueMaxSetting[] = {currentValueMax,currentValueMax,currentValueMax,currentValueMax};
 int currentValueMaxSettingValue;
 
-int brightnessValue;
-const int brightnessValueLow = 0;
-const int brightnessValueHigh = 50;
-byte brightnessSwitchState = HIGH;
-byte brightnessSwitchStatePrevious = HIGH;
-byte brightnessState = LOW;
-const byte brightnessSwitchPin = A3;
+int lightValue;
+const int lightValueLow = 0;
+const int lightValueHigh = 50;
+byte lightSwitchState = HIGH;
+byte lightSwitchStatePrevious = HIGH;
+byte lightState = LOW;
+const byte lightSwitchPin = 5;
 
 /* Measured current vs. DAC values */
 const unsigned int dacValueMin = 3205;
 const unsigned int dacValueMax = 1067;
 const unsigned int dacValueOff = 4095;
 unsigned int dacValue;
+/* External DAC */
 AD57X4R dac = AD57X4R(DAC_CS);
 AD57X4R::channels dacChannels[] = {AD57X4R::A,AD57X4R::B,AD57X4R::C,AD57X4R::D};
+
+/* External IO */
+MCP23SXX io = MCP23SXX(IO_CS);
+byte ioPortValues;
 
 int EEPROMAddress_CurrentValueMaxSetting[] = {1,2,3,4};
 byte EEPROM_currentValueMin = 0;
@@ -64,7 +74,7 @@ long previousMillisUpdateLCD = 0;
 const long intervalUpdateLCD = 200;
 bool updateLCD = false;
 
-const byte setSwitchPin = A2;
+const byte setSwitchPin = 4;
 byte setSwitchState = HIGH;
 bool setMode[] = {false,false,false,false};
 bool setModeDeadbandExceeded[] = {false,false,false,false};
@@ -75,28 +85,38 @@ int setModeValueDifference;
 
 void setup() {
   // Setup SPI communications
-  SPI.setDataMode(SPI_MODE2);
   SPI.setBitOrder(MSBFIRST);
   SPI.setClockDivider(SPI_CLOCK_DIV8);
   SPI.begin();
 
   // Initialize DAC
+  SPI.setDataMode(SPI_MODE2);
   dac.init(AD57X4R::AD5724R, AD57X4R::UNIPOLAR_5V, AD57X4R::ALL);
-  dac.update(dacValueMax,AD57X4R::ALL);
+  dac.analogWrite(AD57X4R::ALL,dacValueMax);
+
+  // Initialize IO
+  SPI.setDataMode(SPI_MODE0);
+  io.init(MCP23SXX::MCP23S08);
+
+  // initialize channel enable pins and set LOW
+  for (int channel = 0; channel < channelCount; channel++) {
+    pinMode(channelEnablePins[channel], OUTPUT);
+    digitalWrite(channelEnablePins[channel], LOW);
+  }
 
   // initialize the channel switch pins as input and turn on pullup resistors
   for (int channel = 0; channel < channelCount; channel++) {
-    pinMode(channelSwitchPins[channel], INPUT);
-    digitalWrite(channelSwitchPins[channel], HIGH);
+    io.pinMode(channelSwitchPins[channel], INPUT);
+    io.digitalWrite(channelSwitchPins[channel], HIGH);
   }
 
-  // initialize the brightness switch pin as input and turn on pullup resistor
-  pinMode(brightnessSwitchPin, INPUT);
-  digitalWrite(brightnessSwitchPin, HIGH);
+  // initialize the light switch pin as input and turn on pullup resistor
+  io.pinMode(lightSwitchPin, INPUT);
+  io.digitalWrite(lightSwitchPin, HIGH);
 
   // initialize the set switch pin as input and turn on pullup resistor
-  pinMode(setSwitchPin, INPUT);
-  digitalWrite(setSwitchPin, HIGH);
+  io.pinMode(setSwitchPin, INPUT);
+  io.digitalWrite(setSwitchPin, HIGH);
 
   /* Initalize currentValueMaxSetting */
   for (int channel = 0; channel < channelCount; channel++) {
@@ -109,12 +129,12 @@ void setup() {
   softSerial.begin(115200);
   delay(2500);
   lcd.clearScreen();
-  if (brightnessState == LOW) {
-    brightnessValue = brightnessValueLow;
-  } else if (brightnessState == HIGH) {
-    brightnessValue = brightnessValueHigh;
+  if (lightState == LOW) {
+    lightValue = lightValueLow;
+  } else if (lightState == HIGH) {
+    lightValue = lightValueHigh;
   }
-  lcd.setBrightness(brightnessValue);
+  lcd.setBrightness(lightValue);
 
 }
 
@@ -135,18 +155,19 @@ void loop() {
   }
 
   /* Check display button status */
-  brightnessSwitchState = digitalRead(brightnessSwitchPin);
-  if (brightnessSwitchState != brightnessSwitchStatePrevious) {
-    brightnessSwitchStatePrevious = brightnessSwitchState;
-    if (brightnessSwitchState == LOW) {
-      if (brightnessState == LOW) {
-        brightnessState = HIGH;
-        brightnessValue = brightnessValueHigh;
-      } else if (brightnessState == HIGH) {
-        brightnessState = LOW;
-        brightnessValue = brightnessValueLow;
+  SPI.setDataMode(SPI_MODE0);
+  lightSwitchState = io.digitalRead(lightSwitchPin);
+  if (lightSwitchState != lightSwitchStatePrevious) {
+    lightSwitchStatePrevious = lightSwitchState;
+    if (lightSwitchState == LOW) {
+      if (lightState == LOW) {
+        lightState = HIGH;
+        lightValue = lightValueHigh;
+      } else if (lightState == HIGH) {
+        lightState = LOW;
+        lightValue = lightValueLow;
       }
-      lcd.setBrightness(brightnessValue);
+      lcd.setBrightness(lightValue);
     }
   }
 
@@ -163,7 +184,8 @@ void loop() {
     currentValue = map(potentiometerValue,potentiometerValueMin,potentiometerValueMax,currentValueMin,currentValueMaxSetting[channel]);
 
     /* Find channel state */
-    setSwitchState = digitalRead(setSwitchPin);
+    SPI.setDataMode(SPI_MODE0);
+    setSwitchState = io.digitalRead(setSwitchPin);
     if (setSwitchState == LOW) {
       channelStateValue[channel] = 2;
       if (!setMode[channel]) {
@@ -192,23 +214,33 @@ void loop() {
       }
 
       // read the state of the On/Off switch
-      channelSwitchState = digitalRead(channelSwitchPins[channel]);
+      SPI.setDataMode(SPI_MODE0);
+      channelSwitchState = io.digitalRead(channelSwitchPins[channel]);
       if (channelSwitchState == HIGH) {
-        channelStateValue[channel] = 1;
+        channelStateValue[channel] = OFF;
+        /* digitalWrite(channelEnablePins[channel],LOW); */
       } else {
-        channelStateValue[channel] = 0;
+        channelStateValue[channel] = ON;
+        /* digitalWrite(channelEnablePins[channel],HIGH); */
       }
     }
     channelStateName = channelStateNames[channelStateValue[channel]];
 
-    if (channelStateValue[channel] == 0) {
+    if (channelStateValue[channel] == ON) {
       /* digiPotValue = lookup.getValue(currentValue); */
       dacValue = map(currentValue,currentValueMin,currentValueMax,dacValueMin,dacValueMax);
     } else {
       dacValue = dacValueOff;
       currentValue = currentValueMin;
     }
-    dac.update(dacValue,dacChannels[channel]);
+    SPI.setDataMode(SPI_MODE2);
+    dac.analogWrite(dacChannels[channel],dacValue);
+
+    if (channelStateValue[channel] == OFF) {
+      digitalWrite(channelEnablePins[channel],LOW);
+    } else {
+      digitalWrite(channelEnablePins[channel],HIGH);
+    }
 
     if (updateLCD) {
       lcd.setPos(5,5+12*(channel+1));
