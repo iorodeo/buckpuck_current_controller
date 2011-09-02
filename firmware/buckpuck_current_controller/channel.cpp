@@ -12,56 +12,56 @@
 
 //---------- constructor ----------------------------------------------------
 
-CHANNEL::CHANNEL(char* name, IO onOffSwitch, IO potentiometer, IO relayEnable, int EEPROMAddress) {
+Channel::Channel(char* name, IO onOffSwitch, IO potentiometer, IO relayEnable, int EEPROMAddress) {
   setName(name);
 }
 
 //---------- public ----------------------------------------------------
 
 // ----------------------------------------------------------------------------
-// CHANNEL::setMode
+// Channel::setMode
 //
 // Set the channel mode.
 // ----------------------------------------------------------------------------
-void CHANNEL::setMode(modes mode) {
+void Channel::setMode(modes mode) {
   this->mode = mode;
 }
 
 // ----------------------------------------------------------------------------
-// CHANNEL::getMode
+// Channel::getMode
 //
 // Get the channel mode.
 // ----------------------------------------------------------------------------
-modes CHANNEL::getMode() {
+modes Channel::getMode() {
   return mode;
 }
 
 // ----------------------------------------------------------------------------
-// CHANNEL::setName
+// Channel::setName
 //
 // Set the channel name.
 // ----------------------------------------------------------------------------
-void CHANNEL::setName(char* name) {
+void Channel::setName(char* name) {
   this->name = name;
 }
 
 // ----------------------------------------------------------------------------
-// CHANNEL::getName
+// Channel::getName
 //
 // Get the channel name.
 // ----------------------------------------------------------------------------
-char* CHANNEL::getName() {
+char* Channel::getName() {
   return name;
 }
 
 //------------------ private -----------------------------------------------
 
 // ----------------------------------------------------------------------------
-// CHANNEL::setupCS
+// Channel::setupCS
 //
 // Set chip select pin for SPI Bus, and start high (disabled)
 // ----------------------------------------------------------------------------
-void CHANNEL::setupCS(int csPin) {
+void Channel::setupCS(int csPin) {
   csInvertFlag = false;
   ::pinMode(csPin,OUTPUT);
   ::digitalWrite(csPin,HIGH);

@@ -9,11 +9,11 @@
 #ifndef CHANNEL_H_
 #define CHANNEL_H_
 
-class CHANNEL {
+class Channel {
  public:
-  enum modes {ON,OFF,SET};
+  enum modes {ON,OFF,SET,CC};
 
-  CHANNEL(char* name, IO onOffSwitch, IO potentiometer, IO relayEnable, int EEPROMAddress);
+  Channel(char* name, IO onOffSwitch, IO potentiometer, IO relayEnable, int EEPROMAddress);
 
   void setMode(modes mode);
   modes getMode();

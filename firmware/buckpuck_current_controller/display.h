@@ -9,22 +9,25 @@
 #define DISPLAY_H_
 
 #include "WProgram.h"
-#include "SoftwareSerial.h"
 #include "SerialLCD.h"
+#include "ControllerDefines.h"
 
-class DISPLAY {
+class Display {
  public:
-  DISPLAY(byte rx, byte tx);
+  Display(Print &port);
 
+  void init();
   void clearScreen();
   void setLightLow();
   void setLightHigh();
+  void update(char * channelNames[], char * channelModes[], unsigned int currentValues[], unsigned int currentValueMaxSettings[], unsigned int potentiometerValues[]);
 
  private:
-  SoftwareSerial softSerial;
+  Print * port;
   SerialLCD lcd;
-  const int lightValueLow = 0;
-  const int lightValueHigh = 50;
-}
+  char msg[MSG_SIZE];
+  unsigned int potentiometerValue;
+  unsigned int potentiometerDisplay;
+};
 
 #endif // DISPLAY_H
