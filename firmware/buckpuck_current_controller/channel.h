@@ -9,26 +9,26 @@
 #ifndef CHANNEL_H_
 #define CHANNEL_H_
 
+#include "ioPin.h"
+
 class Channel {
  public:
-  enum modes {ON,OFF,SET,CC};
+  enum modes {ON_MODE,OFF_MODE,SET_MODE,CC_MODE};
 
-  Channel(char* name, IO onOffSwitch, IO potentiometer, IO relayEnable, int EEPROMAddress);
+  Channel();
+  Channel(IOPin onOffSwitch, IOPin potentiometer, IOPin relayEnable, int EEPROMAddress);
 
   void setMode(modes mode);
-  modes getMode();
-  void setCurrentValue(int currentValue);
-  int getCurrentValue();
-  void setCurrentLimit(int currentLimit);
-  int getCurrentLimit();
-  int getPotentiometerValue();
-  byte getOnOffSwitchValue();
-  void setName(char* name);
-  char* getName();
+  /* modes getMode(); */
+  /* void setCurrentValue(int currentValue); */
+  /* int getCurrentValue(); */
+  /* void setCurrentLimit(int currentLimit); */
+  /* int getCurrentLimit(); */
+  /* int getPotentiometerValue(); */
+  /* byte getOnOffSwitchValue(); */
 
  private:
   modes mode;
-  char* name;
 };
 
 #endif // CHANNEL_H

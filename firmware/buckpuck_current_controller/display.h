@@ -11,6 +11,7 @@
 #include "WProgram.h"
 #include "SerialLCD.h"
 #include "ControllerDefines.h"
+#include "channel.h"
 
 class Display {
  public:
@@ -20,7 +21,8 @@ class Display {
   void clearScreen();
   void setLightLow();
   void setLightHigh();
-  void update(char * channelNames[], char * channelModes[], unsigned int currentValues[], unsigned int currentValueMaxSettings[], unsigned int potentiometerValues[]);
+  void setLightLevel(byte level);
+  void update(Channel::modes channelModes[], unsigned int currentValues[], unsigned int currentValueMaxSettings[], unsigned int potentiometerValues[]);
 
  private:
   Print * port;
@@ -28,6 +30,10 @@ class Display {
   char msg[MSG_SIZE];
   unsigned int potentiometerValue;
   unsigned int potentiometerDisplay;
+  char* channelNames[CHANNEL_COUNT];
+  char* modeString;
+
+  char* getModeString(Channel::modes mode);
 };
 
 #endif // DISPLAY_H
