@@ -12,7 +12,10 @@
 
 Display::Display(Print &port) {
   lcd = SerialLCD(port);
-  channelNames[] = {"A","B","C","D"};
+  channelNames[0] = "A";
+  channelNames[1] = "B";
+  channelNames[2] = "C";
+  channelNames[3] = "D";
 }
 
 //---------- public ----------------------------------------------------
@@ -94,15 +97,15 @@ void Display::update(Channel::modes channelModes[], unsigned int currentValues[]
 //
 // Returns the displayable string for each mode.
 // ----------------------------------------------------------------------------
-void Display::getModeString(Channel::modes mode) {
+char* Display::getModeString(Channel::modes mode) {
   if (mode == Channel::ON_MODE) {
-    return " ON";
+    return "ON ";
   } else if (mode == Channel::OFF_MODE) {
     return "OFF";
   } else if (mode == Channel::SET_MODE) {
     return "SET";
   } else if (mode == Channel::CC_MODE) {
-    return " CC";
+    return "CC ";
   }
 }
 

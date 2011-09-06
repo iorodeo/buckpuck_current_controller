@@ -7,33 +7,16 @@
 // Author: Peter Polidoro, IO Rodeo Inc.
 // ----------------------------------------------------------------------------
 #include "ioPin.h"
+#include <Streaming.h>
 
 
 //---------- constructor ----------------------------------------------------
-IOPin::IOPin() {
-}
+// IOPin::IOPin() {
+// }
 
-IOPin::IOPin(int pinNumber, types type, int direction) {
-  this->pinNumber = pinNumber;
-  this->location = INTERNAL_PIN;
-  this->type = type;
-  this->direction = direction;
-}
-
-IOPin::IOPin(int pinNumber, int direction, MCP23SXX &extDigital) {
-  this->pinNumber = pinNumber;
-  this->location = EXTERNAL_PIN;
-  this->type = DIGITAL_PIN;
-  this->direction = direction;
-  this->extDigital = extDigital;
-}
-
-IOPin::IOPin(AD57X4R::channels channel, AD57X4R &extAnalogOutput) {
-  this->channel = channel;
-  this->location = EXTERNAL_PIN;
-  this->type = ANALOG_PIN;
-  this->direction = OUTPUT;
-  this->extAnalogOutput = extAnalogOutput;
+IOPin::IOPin(int pinNumber, locations location, types type, int direction, MCP23SXX & extDigital, AD57X4R & extAnalogOutput):
+  pinNumber(pinNumber), location(location), type(type), direction(direction), extDigital(extDigital), extAnalogOutput(extAnalogOutput)
+{
 }
 
 //---------- public ----------------------------------------------------
@@ -49,7 +32,17 @@ void IOPin::init() {
       if (location == INTERNAL_PIN) {
         pinMode(pinNumber,INPUT);
       } else {
+        SPI.setDataMode(SPI_MODE0);
         extDigital.pinMode(pinNumber,INPUT);
+      }
+    }
+  } else {
+    if (type == DIGITAL_PIN) {
+      if (location == INTERNAL_PIN) {
+        pinMode(pinNumber,OUTPUT);
+      } else {
+        SPI.setDataMode(SPI_MODE0);
+        extDigital.pinMode(pinNumber,OUTPUT);
       }
     }
   }
@@ -61,21 +54,32 @@ void IOPin::init() {
 // Return the value of the IOPin
 // ----------------------------------------------------------------------------
 int IOPin::read() {
+  int pinValue;
+  // Serial << "read from pinNumber " << pinNumber << endl;
   if (direction == INPUT) {
+    // Serial << "direction = INPUT" << endl;
     if (type == DIGITAL_PIN) {
+      // Serial << "type = DIGITAL_PIN" << endl;
       if (location == INTERNAL_PIN) {
+        // Serial << "location = INTERNAL_PIN" << endl;
         return digitalRead(pinNumber);
       } else {
+        // Serial << "location = EXTERNAL_PIN" << endl;
+        SPI.setDataMode(SPI_MODE0);
         return extDigital.digitalRead(pinNumber);
       }
     } else {
+      // Serial << "type = ANALOG_PIN" << endl;
       if (location == INTERNAL_PIN) {
+        // Serial << "location = INTERNAL_PIN" << endl;
         return analogRead(pinNumber);
       } else {
+        // Serial << "location = EXTERNAL_PIN" << endl;
         return 0;
       }
     }
   } else {
+    // Serial << "direction = OUTPUT" << endl;
     return 0;
   }
 }
@@ -91,11 +95,13 @@ void IOPin::write(unsigned int value) {
       if (location == INTERNAL_PIN) {
         digitalWrite(pinNumber,value);
       } else {
+        SPI.setDataMode(SPI_MODE0);
         extDigital.digitalWrite(pinNumber,value);
       }
     } else {
       if (location == EXTERNAL_PIN) {
-        extAnalogOutput.analogWrite(channel,value);
+        SPI.setDataMode(SPI_MODE2);
+        extAnalogOutput.analogWrite(pinNumber,value);
       }
     }
   }
@@ -112,6 +118,7 @@ void IOPin::enablePullup() {
       if (location == INTERNAL_PIN) {
         digitalWrite(pinNumber,HIGH);
       } else {
+        SPI.setDataMode(SPI_MODE0);
         extDigital.digitalWrite(pinNumber,HIGH);
       }
     }
@@ -127,6 +134,7 @@ void IOPin::enableInterrupt() {
   if (direction == INPUT) {
     if (type == DIGITAL_PIN) {
       if (location == EXTERNAL_PIN) {
+        SPI.setDataMode(SPI_MODE0);
         extDigital.enableInterrupt(pinNumber);
       }
     }
@@ -142,6 +150,7 @@ void IOPin::enableInterrupt(bool defaultValue) {
   if (direction == INPUT) {
     if (type == DIGITAL_PIN) {
       if (location == EXTERNAL_PIN) {
+        SPI.setDataMode(SPI_MODE0);
         extDigital.enableInterrupt(pinNumber,defaultValue);
       }
     }
