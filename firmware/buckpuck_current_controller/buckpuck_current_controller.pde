@@ -129,6 +129,9 @@ void loop() {
     if (receiver.messageReady()) {
       serialCommand = receiver.readInt(0);
       switch (serialCommand) {
+      case SERIAL_COMMAND_GET_123 : 
+        Serial << 123 << endl; 
+        break;
       case SERIAL_COMMAND_SET_COMPUTERCONTROL_MODE : 
         standaloneMode = false; 
         break;
@@ -200,7 +203,7 @@ void loop() {
     currentValues[channelIndex] = channels[channelIndex].getCurrentValue();
     currentLimits[channelIndex] = channels[channelIndex].getCurrentLimit();
   }
-  delay(LOOP_DELAY);
+  /* delay(LOOP_DELAY); */
 }
 
 // updateDisplay interrupt callback
