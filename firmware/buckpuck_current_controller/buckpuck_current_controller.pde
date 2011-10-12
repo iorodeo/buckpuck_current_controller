@@ -1,4 +1,5 @@
 #include "WProgram.h"
+#include <util/atomic.h>
 #include <Streaming.h>
 #include <SoftwareSerial.h>
 #include <SPI.h>
@@ -25,24 +26,28 @@ MCP23SXX io = MCP23SXX(IO_CS_PIN);
 AD57X4R dac = AD57X4R(DAC_CS_PIN);
 
 // IO pins
-IOPin switchOnOffA = IOPin(SWITCH_A_ONOFF_IO_PIN,IOPin::EXTERNAL_PIN,IOPin::DIGITAL_PIN,INPUT,io,dac); 
-IOPin switchOnOffB = IOPin(SWITCH_B_ONOFF_IO_PIN,IOPin::EXTERNAL_PIN,IOPin::DIGITAL_PIN,INPUT,io,dac); 
-IOPin switchOnOffC = IOPin(SWITCH_C_ONOFF_IO_PIN,IOPin::EXTERNAL_PIN,IOPin::DIGITAL_PIN,INPUT,io,dac); 
-IOPin switchOnOffD = IOPin(SWITCH_D_ONOFF_IO_PIN,IOPin::EXTERNAL_PIN,IOPin::DIGITAL_PIN,INPUT,io,dac); 
-IOPin switchPushbuttonSet = IOPin(SWITCH_SET_PUSHBUTTON_IO_PIN,IOPin::EXTERNAL_PIN,IOPin::DIGITAL_PIN,INPUT,io,dac); 
-IOPin switchPushbuttonLight = IOPin(SWITCH_LIGHT_PUSHBUTTON_IO_PIN,IOPin::EXTERNAL_PIN,IOPin::DIGITAL_PIN,INPUT,io,dac); 
-IOPin relayEnableA = IOPin(RELAY_ENABLE_A_PIN,IOPin::INTERNAL_PIN,IOPin::DIGITAL_PIN,OUTPUT,io,dac); 
-IOPin relayEnableB = IOPin(RELAY_ENABLE_B_PIN,IOPin::INTERNAL_PIN,IOPin::DIGITAL_PIN,OUTPUT,io,dac); 
-IOPin relayEnableC = IOPin(RELAY_ENABLE_C_PIN,IOPin::INTERNAL_PIN,IOPin::DIGITAL_PIN,OUTPUT,io,dac); 
-IOPin relayEnableD = IOPin(RELAY_ENABLE_D_PIN,IOPin::INTERNAL_PIN,IOPin::DIGITAL_PIN,OUTPUT,io,dac); 
-IOPin potentiometerA = IOPin(POTENTIOMETER_A_PIN,IOPin::INTERNAL_PIN,IOPin::ANALOG_PIN,INPUT,io,dac); 
-IOPin potentiometerB = IOPin(POTENTIOMETER_B_PIN,IOPin::INTERNAL_PIN,IOPin::ANALOG_PIN,INPUT,io,dac); 
-IOPin potentiometerC = IOPin(POTENTIOMETER_C_PIN,IOPin::INTERNAL_PIN,IOPin::ANALOG_PIN,INPUT,io,dac); 
-IOPin potentiometerD = IOPin(POTENTIOMETER_D_PIN,IOPin::INTERNAL_PIN,IOPin::ANALOG_PIN,INPUT,io,dac); 
+IOPin switchOnOffA = IOPin(SWITCH_A_ONOFF_IO_PIN,IOPin::EXTERNAL_PIN,IOPin::DIGITAL_PIN,INPUT,io,dac);
+IOPin switchOnOffB = IOPin(SWITCH_B_ONOFF_IO_PIN,IOPin::EXTERNAL_PIN,IOPin::DIGITAL_PIN,INPUT,io,dac);
+IOPin switchOnOffC = IOPin(SWITCH_C_ONOFF_IO_PIN,IOPin::EXTERNAL_PIN,IOPin::DIGITAL_PIN,INPUT,io,dac);
+IOPin switchOnOffD = IOPin(SWITCH_D_ONOFF_IO_PIN,IOPin::EXTERNAL_PIN,IOPin::DIGITAL_PIN,INPUT,io,dac);
+IOPin switchPushbuttonSet = IOPin(SWITCH_SET_PUSHBUTTON_IO_PIN,IOPin::EXTERNAL_PIN,IOPin::DIGITAL_PIN,INPUT,io,dac);
+IOPin switchPushbuttonLight = IOPin(SWITCH_LIGHT_PUSHBUTTON_IO_PIN,IOPin::EXTERNAL_PIN,IOPin::DIGITAL_PIN,INPUT,io,dac);
+IOPin relayEnableA = IOPin(RELAY_ENABLE_A_PIN,IOPin::INTERNAL_PIN,IOPin::DIGITAL_PIN,OUTPUT,io,dac);
+IOPin relayEnableB = IOPin(RELAY_ENABLE_B_PIN,IOPin::INTERNAL_PIN,IOPin::DIGITAL_PIN,OUTPUT,io,dac);
+IOPin relayEnableC = IOPin(RELAY_ENABLE_C_PIN,IOPin::INTERNAL_PIN,IOPin::DIGITAL_PIN,OUTPUT,io,dac);
+IOPin relayEnableD = IOPin(RELAY_ENABLE_D_PIN,IOPin::INTERNAL_PIN,IOPin::DIGITAL_PIN,OUTPUT,io,dac);
+IOPin potentiometerA = IOPin(POTENTIOMETER_A_PIN,IOPin::INTERNAL_PIN,IOPin::ANALOG_PIN,INPUT,io,dac);
+IOPin potentiometerB = IOPin(POTENTIOMETER_B_PIN,IOPin::INTERNAL_PIN,IOPin::ANALOG_PIN,INPUT,io,dac);
+IOPin potentiometerC = IOPin(POTENTIOMETER_C_PIN,IOPin::INTERNAL_PIN,IOPin::ANALOG_PIN,INPUT,io,dac);
+IOPin potentiometerD = IOPin(POTENTIOMETER_D_PIN,IOPin::INTERNAL_PIN,IOPin::ANALOG_PIN,INPUT,io,dac);
 IOPin dacA = IOPin(DAC_A_PIN,IOPin::EXTERNAL_PIN,IOPin::ANALOG_PIN,OUTPUT,io,dac);
 IOPin dacB = IOPin(DAC_B_PIN,IOPin::EXTERNAL_PIN,IOPin::ANALOG_PIN,OUTPUT,io,dac);
 IOPin dacC = IOPin(DAC_C_PIN,IOPin::EXTERNAL_PIN,IOPin::ANALOG_PIN,OUTPUT,io,dac);
 IOPin dacD = IOPin(DAC_D_PIN,IOPin::EXTERNAL_PIN,IOPin::ANALOG_PIN,OUTPUT,io,dac);
+IOPin bncA = IOPin(BNC_A_PIN,IOPin::INTERNAL_PIN,IOPin::ANALOG_PIN,INPUT,io,dac);
+IOPin bncB = IOPin(BNC_B_PIN,IOPin::INTERNAL_PIN,IOPin::ANALOG_PIN,INPUT,io,dac);
+IOPin bncC = IOPin(BNC_C_PIN,IOPin::INTERNAL_PIN,IOPin::ANALOG_PIN,INPUT,io,dac);
+IOPin bncD = IOPin(BNC_D_PIN,IOPin::INTERNAL_PIN,IOPin::ANALOG_PIN,INPUT,io,dac);
 
 Channel channels[CHANNEL_COUNT] = {Channel(switchOnOffA,relayEnableA,potentiometerA,dacA,EEPROM_ADDRESS_A),
                                    Channel(switchOnOffB,relayEnableB,potentiometerB,dacB,EEPROM_ADDRESS_B),
@@ -52,6 +57,7 @@ Channel::modes channelModes[CHANNEL_COUNT] = {Channel::ON_MODE,Channel::OFF_MODE
 unsigned int currentValues[CHANNEL_COUNT];
 unsigned int currentLimits[CHANNEL_COUNT];
 unsigned int potentiometerValues[CHANNEL_COUNT];
+IOPin bnc[CHANNEL_COUNT] = {bncA,bncB,bncC,bncD};
 
 byte lightLevel = LOW;
 bool standaloneMode = true;
@@ -129,11 +135,11 @@ void loop() {
     if (receiver.messageReady()) {
       serialCommand = receiver.readInt(0);
       switch (serialCommand) {
-      case SERIAL_COMMAND_GET_123 : 
-        Serial << 123 << endl; 
+      case SERIAL_COMMAND_GET_123 :
+        Serial << 123 << endl;
         break;
-      case SERIAL_COMMAND_SET_COMPUTERCONTROL_MODE : 
-        standaloneMode = false; 
+      case SERIAL_COMMAND_SET_COMPUTERCONTROL_MODE :
+        standaloneMode = false;
         break;
       case SERIAL_COMMAND_SET_STANDALONE_MODE :
         standaloneMode = true;
@@ -171,6 +177,8 @@ void loop() {
       if (setMode) {
         channels[channelIndex].setMode(Channel::SET_MODE);
       } else {
+        pinValue = bnc[channelIndex].read();
+        Serial << "channel " << channelIndex << " BNC input value = " << pinValue << endl; 
         pinValue = channels[channelIndex].getOnOffSwitchValue();
         if (pinValue == HIGH) {
           channels[channelIndex].setMode(Channel::OFF_MODE);

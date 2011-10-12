@@ -8,6 +8,7 @@
 // ----------------------------------------------------------------------------
 #include "ioPin.h"
 #include <Streaming.h>
+#include <util/atomic.h>
 
 
 //---------- constructor ----------------------------------------------------
@@ -32,8 +33,10 @@ void IOPin::init() {
       if (location == INTERNAL_PIN) {
         pinMode(pinNumber,INPUT);
       } else {
-        SPI.setDataMode(SPI_MODE0);
-        extDigital.pinMode(pinNumber,INPUT);
+        ATOMIC_BLOCK (ATOMIC_RESTORESTATE) {
+          SPI.setDataMode(SPI_MODE0);
+          extDigital.pinMode(pinNumber,INPUT);
+        }
       }
     }
   } else {
@@ -41,8 +44,10 @@ void IOPin::init() {
       if (location == INTERNAL_PIN) {
         pinMode(pinNumber,OUTPUT);
       } else {
-        SPI.setDataMode(SPI_MODE0);
-        extDigital.pinMode(pinNumber,OUTPUT);
+        ATOMIC_BLOCK (ATOMIC_RESTORESTATE) {
+          SPI.setDataMode(SPI_MODE0);
+          extDigital.pinMode(pinNumber,OUTPUT);
+        }
       }
     }
   }
@@ -65,8 +70,11 @@ int IOPin::read() {
         return digitalRead(pinNumber);
       } else {
         // Serial << "location = EXTERNAL_PIN" << endl;
-        SPI.setDataMode(SPI_MODE0);
-        return extDigital.digitalRead(pinNumber);
+        ATOMIC_BLOCK (ATOMIC_RESTORESTATE) {
+          SPI.setDataMode(SPI_MODE0);
+          pinValue = extDigital.digitalRead(pinNumber);
+        }
+        return pinValue;
       }
     } else {
       // Serial << "type = ANALOG_PIN" << endl;
@@ -95,13 +103,17 @@ void IOPin::write(unsigned int value) {
       if (location == INTERNAL_PIN) {
         digitalWrite(pinNumber,value);
       } else {
-        SPI.setDataMode(SPI_MODE0);
-        extDigital.digitalWrite(pinNumber,value);
+        ATOMIC_BLOCK (ATOMIC_RESTORESTATE) {
+          SPI.setDataMode(SPI_MODE0);
+          extDigital.digitalWrite(pinNumber,value);
+        }
       }
     } else {
       if (location == EXTERNAL_PIN) {
-        SPI.setDataMode(SPI_MODE2);
-        extAnalogOutput.analogWrite(pinNumber,value);
+        ATOMIC_BLOCK (ATOMIC_RESTORESTATE) {
+          SPI.setDataMode(SPI_MODE2);
+          extAnalogOutput.analogWrite(pinNumber,value);
+        }
       }
     }
   }
@@ -118,8 +130,14 @@ void IOPin::enablePullup() {
       if (location == INTERNAL_PIN) {
         digitalWrite(pinNumber,HIGH);
       } else {
-        SPI.setDataMode(SPI_MODE0);
-        extDigital.digitalWrite(pinNumber,HIGH);
+        ATOMIC_BLOCK (ATOMIC_RESTORESTATE) {
+          SPI.setDataMode(SPI_MODE0);
+          extDigital.digitalWrite(pinNumber,HIGH);
+        }
+      }
+    } else {
+      if (location == INTERNAL_PIN) {
+        digitalWrite(pinNumber,HIGH);
       }
     }
   }
@@ -134,8 +152,10 @@ void IOPin::enableInterrupt() {
   if (direction == INPUT) {
     if (type == DIGITAL_PIN) {
       if (location == EXTERNAL_PIN) {
-        SPI.setDataMode(SPI_MODE0);
-        extDigital.enableInterrupt(pinNumber);
+        ATOMIC_BLOCK (ATOMIC_RESTORESTATE) {
+          SPI.setDataMode(SPI_MODE0);
+          extDigital.enableInterrupt(pinNumber);
+        }
       }
     }
   }
@@ -150,8 +170,10 @@ void IOPin::enableInterrupt(bool defaultValue) {
   if (direction == INPUT) {
     if (type == DIGITAL_PIN) {
       if (location == EXTERNAL_PIN) {
-        SPI.setDataMode(SPI_MODE0);
-        extDigital.enableInterrupt(pinNumber,defaultValue);
+        ATOMIC_BLOCK (ATOMIC_RESTORESTATE) {
+          SPI.setDataMode(SPI_MODE0);
+          extDigital.enableInterrupt(pinNumber,defaultValue);
+        }
       }
     }
   }

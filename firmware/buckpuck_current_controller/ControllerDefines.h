@@ -49,6 +49,11 @@
 #define DAC_C_PIN 2
 #define DAC_D_PIN 3
 
+#define BNC_A_PIN A4
+#define BNC_B_PIN A5
+#define BNC_C_PIN A6
+#define BNC_D_PIN A7
+
 #define EEPROM_ADDRESS_A 1
 #define EEPROM_ADDRESS_B 2
 #define EEPROM_ADDRESS_C 3
