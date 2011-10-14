@@ -15,11 +15,13 @@
 //   setMode(OFF_MODE);
 // }
 
-Channel::Channel(IOPin & onOffSwitch, IOPin & relayEnable, IOPin & potentiometer, IOPin & dac, int EEPROMAddress):
-  mode(OFF_MODE), onOffSwitch(onOffSwitch), relayEnable(relayEnable), potentiometer(potentiometer), dac(dac), EEPROMAddress(EEPROMAddress),
-  currentValue(0), currentLimit(CURRENT_VALUE_MIN), updateValue(0), initialSetValue(0), currentLimitNeedsSaving(false)
+Channel::Channel(IOPin & onOffSwitch, IOPin & relayEnable, IOPin & potentiometer, IOPin & dac, IOPin & bnc, int eepromAddressCurrentLimit, int eepromAddressBncMode):
+  mode(OFF_MODE), onOffSwitch(onOffSwitch), relayEnable(relayEnable), potentiometer(potentiometer), dac(dac), bnc(bnc), eepromAddressCurrentLimit(eepromAddressCurrentLimit), eepromAddressBncMode(eepromAddressBncMode),
+  currentValue(0), currentLimit(CURRENT_VALUE_MIN), updateValue(0), initialSetValue(0), currentLimitNeedsSaving(false), bncMode(false), initialized(false)
 {
-  getSavedCurrentLimit();
+  currentLimit = getSavedCurrentLimit();
+  bncMode = getSavedBncMode();
+  initialized = true;
 }
 
 //---------- public ----------------------------------------------------
@@ -37,6 +39,7 @@ void Channel::setMode(modes mode) {
     case OFF_MODE: setModeOff(); break;
     case SET_MODE: setModeSet(); break;
     case CC_MODE: setModeCC(); break;
+    case BNC_MODE: setModeBnc(); break;
     }
   }
 }
@@ -57,6 +60,15 @@ Channel::modes Channel::getMode() {
 // ----------------------------------------------------------------------------
 int Channel::getPotentiometerValue() {
   return potentiometer.read();
+}
+
+// ----------------------------------------------------------------------------
+// Channel::getBncValue
+//
+// Get the channel bnc value.
+// ----------------------------------------------------------------------------
+int Channel::getBncValue() {
+  return bnc.read();
 }
 
 // ----------------------------------------------------------------------------
@@ -119,20 +131,47 @@ void Channel::update(int updateValue) {
   this->updateValue = updateValue;
   switch (mode) {
   case ON_MODE:
-    currentValue = map(updateValue,POTENTIOMETER_VALUE_MIN,POTENTIOMETER_VALUE_MAX,CURRENT_VALUE_MIN,currentLimit);
+    currentValue = map(updateValue,UPDATE_VALUE_MIN,UPDATE_VALUE_MAX,CURRENT_VALUE_MIN,currentLimit);
     setDacValue();
     break;
   case OFF_MODE:
     break;
   case SET_MODE:
     if (SET_DEADBAND < abs(updateValue - initialSetValue)) {
-      currentLimit = map(updateValue,POTENTIOMETER_VALUE_MIN,POTENTIOMETER_VALUE_MAX,CURRENT_VALUE_MIN,CURRENT_VALUE_MAX);
+      currentLimit = map(updateValue,UPDATE_VALUE_MIN,UPDATE_VALUE_MAX,CURRENT_VALUE_MIN,CURRENT_VALUE_MAX);
       currentLimitNeedsSaving = true;
     }
     break;
   case CC_MODE:
     break;
+  case BNC_MODE:
+    currentValue = map(updateValue,UPDATE_VALUE_MIN,UPDATE_VALUE_MAX,CURRENT_VALUE_MIN,currentLimit);
+    setDacValue();
+    break;
   }
+}
+
+// ----------------------------------------------------------------------------
+// Channel::setSavedBncMode
+//
+// Save bncMode to EEPROM and class variable.
+// ----------------------------------------------------------------------------
+void Channel::setSavedBncMode(bool bncMode) {
+  this->bncMode = bncMode;
+  EEPROM.write(eepromAddressBncMode,bncMode);
+}
+
+// ----------------------------------------------------------------------------
+// Channel::getSavedBncMode
+//
+// Get the channel bnc mode.
+// ----------------------------------------------------------------------------
+bool Channel::getSavedBncMode() {
+  if (!initialized) {
+    byte eepromValue = EEPROM.read(eepromAddressBncMode);
+    bncMode = bool(eepromValue);
+  }
+  return bncMode;
 }
 
 //------------------ private -----------------------------------------------
@@ -223,13 +262,22 @@ void Channel::setModeCC() {
 }
 
 // ----------------------------------------------------------------------------
+// Channel::setModeBnc
+//
+// SetModeBnc
+// ----------------------------------------------------------------------------
+void Channel::setModeBnc() {
+  setModeOn();
+}
+
+// ----------------------------------------------------------------------------
 // Channel::setSavedCurrentLimit
 //
 // Save currentLimit to EEPROM after remapping.
 // ----------------------------------------------------------------------------
 void Channel::setSavedCurrentLimit() {
-  byte EEPROMValue = map(currentLimit,CURRENT_VALUE_MIN,CURRENT_VALUE_MAX,EEPROM_VALUE_MIN,EEPROM_VALUE_MAX);
-  EEPROM.write(EEPROMAddress,EEPROMValue);
+  byte eepromValue = map(currentLimit,CURRENT_VALUE_MIN,CURRENT_VALUE_MAX,EEPROM_VALUE_MIN,EEPROM_VALUE_MAX);
+  EEPROM.write(eepromAddressCurrentLimit,eepromValue);
 }
 
 // ----------------------------------------------------------------------------
@@ -237,7 +285,7 @@ void Channel::setSavedCurrentLimit() {
 //
 // Get saved from EEPROM and remap to currentLimit.
 // ----------------------------------------------------------------------------
-void Channel::getSavedCurrentLimit() {
-  byte EEPROMValue = EEPROM.read(EEPROMAddress);
-  currentLimit = map(EEPROMValue,EEPROM_VALUE_MIN,EEPROM_VALUE_MAX,CURRENT_VALUE_MIN,CURRENT_VALUE_MAX);
+int Channel::getSavedCurrentLimit() {
+  byte eepromValue = EEPROM.read(eepromAddressCurrentLimit);
+  return map(eepromValue,EEPROM_VALUE_MIN,EEPROM_VALUE_MAX,CURRENT_VALUE_MIN,CURRENT_VALUE_MAX);
 }

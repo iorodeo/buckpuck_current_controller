@@ -32,6 +32,8 @@ SERIAL_COMMAND_SET_COMPUTERCONTROL_MODE = 1
 SERIAL_COMMAND_SET_STANDALONE_MODE = 2
 SERIAL_COMMAND_SET_CURRENT_VALUES = 3
 SERIAL_COMMAND_SET_CURRENT_VALUE = 4
+SERIAL_COMMAND_SET_BNC_MODES = 5
+SERIAL_COMMAND_SET_BNC_MODE = 6
 
 
 class CurrentController(object):
@@ -122,17 +124,24 @@ class CurrentController(object):
         serial_list.extend(value_list)
         self.serial.write(str(serial_list))
 
+    def set_bnc_modes(self,mode_list=[False]*CHANNEL_COUNT):
+        serial_list = [SERIAL_COMMAND_SET_BNC_MODES]
+        serial_list.extend(mode_list)
+        print "sending " + str(serial_list)
+        self.serial.write(str(serial_list))
+
 # -----------------------------------------------------------------------
 if __name__ == '__main__':
     cc = CurrentController()
     time.sleep(1)
-    for i in range(3):
-        cc.set_current_values([100,0,500,100])
-        time.sleep(1)
-        cc.set_current_values([500,0,100,500])
-        time.sleep(1)
-        cc.turn_off_channel('c')
-        cc.set_current_value('a',50)
-        time.sleep(1)
-    cc.set_current_values([0,0,0,0])
+    # for i in range(3):
+    #     cc.set_current_values([100,0,500,100])
+    #     time.sleep(1)
+    #     cc.set_current_values([500,0,100,500])
+    #     time.sleep(1)
+    #     cc.turn_off_channel('c')
+    #     cc.set_current_value('a',50)
+    #     time.sleep(1)
+    # cc.set_current_values([0,0,0,0])
+    cc.set_bnc_modes()
     cc.close()

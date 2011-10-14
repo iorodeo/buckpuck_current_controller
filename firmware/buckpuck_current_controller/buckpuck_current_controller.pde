@@ -49,15 +49,14 @@ IOPin bncB = IOPin(BNC_B_PIN,IOPin::INTERNAL_PIN,IOPin::ANALOG_PIN,INPUT,io,dac)
 IOPin bncC = IOPin(BNC_C_PIN,IOPin::INTERNAL_PIN,IOPin::ANALOG_PIN,INPUT,io,dac);
 IOPin bncD = IOPin(BNC_D_PIN,IOPin::INTERNAL_PIN,IOPin::ANALOG_PIN,INPUT,io,dac);
 
-Channel channels[CHANNEL_COUNT] = {Channel(switchOnOffA,relayEnableA,potentiometerA,dacA,EEPROM_ADDRESS_A),
-                                   Channel(switchOnOffB,relayEnableB,potentiometerB,dacB,EEPROM_ADDRESS_B),
-                                   Channel(switchOnOffC,relayEnableC,potentiometerC,dacC,EEPROM_ADDRESS_C),
-                                   Channel(switchOnOffD,relayEnableD,potentiometerD,dacD,EEPROM_ADDRESS_D)};
+Channel channels[CHANNEL_COUNT] = {Channel(switchOnOffA,relayEnableA,potentiometerA,dacA,bncA,EEPROM_ADDRESS_CURRENT_LIMIT_A,EEPROM_ADDRESS_BNC_MODE_A),
+                                   Channel(switchOnOffB,relayEnableB,potentiometerB,dacB,bncB,EEPROM_ADDRESS_CURRENT_LIMIT_B,EEPROM_ADDRESS_BNC_MODE_B),
+                                   Channel(switchOnOffC,relayEnableC,potentiometerC,dacC,bncC,EEPROM_ADDRESS_CURRENT_LIMIT_C,EEPROM_ADDRESS_BNC_MODE_C),
+                                   Channel(switchOnOffD,relayEnableD,potentiometerD,dacD,bncD,EEPROM_ADDRESS_CURRENT_LIMIT_D,EEPROM_ADDRESS_BNC_MODE_D)};
 Channel::modes channelModes[CHANNEL_COUNT] = {Channel::ON_MODE,Channel::OFF_MODE,Channel::SET_MODE,Channel::CC_MODE};
-unsigned int currentValues[CHANNEL_COUNT];
-unsigned int currentLimits[CHANNEL_COUNT];
-unsigned int potentiometerValues[CHANNEL_COUNT];
-IOPin bnc[CHANNEL_COUNT] = {bncA,bncB,bncC,bncD};
+int currentValues[CHANNEL_COUNT];
+int currentLimits[CHANNEL_COUNT];
+int updateValues[CHANNEL_COUNT];
 
 byte lightLevel = LOW;
 bool standaloneMode = true;
@@ -66,7 +65,6 @@ int pinValue;
 
 int serialCommand;
 int updateValue;
-int updateValues[CHANNEL_COUNT];
 int updateChannelIndex;
 typedef enum computercontrolModes {WAIT,SET_CURRENT_VALUES,SET_CURRENT_VALUE};
 computercontrolModes computercontrolMode = WAIT;
@@ -155,6 +153,19 @@ void loop() {
         updateChannelIndex = receiver.readInt(1);
         updateValue = receiver.readInt(2);
         break;
+      case SERIAL_COMMAND_SET_BNC_MODES :
+        standaloneMode = true;
+        for (int channelIndex = 0; channelIndex < CHANNEL_COUNT; channelIndex++) {
+          bool bncMode = receiver.readInt(channelIndex+1);
+          channels[channelIndex].setSavedBncMode(bncMode);
+        }
+        break;
+      case SERIAL_COMMAND_SET_BNC_MODE :
+        standaloneMode = true;
+        int channelIndex = receiver.readInt(1);
+        bool bncMode = receiver.readInt(2);
+        channels[channelIndex].setSavedBncMode(bncMode);
+        break;
       }
       receiver.reset();
     }
@@ -172,35 +183,41 @@ void loop() {
   for (int channelIndex = 0; channelIndex < CHANNEL_COUNT; channelIndex++) {
     // Determine channel mode
     if (standaloneMode) {
-      updateValue = channels[channelIndex].getPotentiometerValue();
-      potentiometerValues[channelIndex] = updateValue;
       if (setMode) {
         channels[channelIndex].setMode(Channel::SET_MODE);
       } else {
-        pinValue = bnc[channelIndex].read();
-        Serial << "channel " << channelIndex << " BNC input value = " << pinValue << endl; 
         pinValue = channels[channelIndex].getOnOffSwitchValue();
         if (pinValue == HIGH) {
           channels[channelIndex].setMode(Channel::OFF_MODE);
         } else {
-          channels[channelIndex].setMode(Channel::ON_MODE);
+          if (!(channels[channelIndex].getSavedBncMode())) {
+            channels[channelIndex].setMode(Channel::ON_MODE);
+          } else {
+            channels[channelIndex].setMode(Channel::BNC_MODE);
+          }
         }
       }
+      if (channels[channelIndex].getMode() != Channel::BNC_MODE) {
+        updateValue = channels[channelIndex].getPotentiometerValue();
+      } else {
+        updateValue = channels[channelIndex].getBncValue();
+      }
+      updateValues[channelIndex] = updateValue;
     } else {
       channels[channelIndex].setMode(Channel::CC_MODE);
-      switch (serialCommand) {
+      switch (computercontrolMode) {
       case WAIT :
         break;
-      case SERIAL_COMMAND_SET_CURRENT_VALUES :
+      case SET_CURRENT_VALUES :
         for (int channelIndex = 0; channelIndex < CHANNEL_COUNT; channelIndex++) {
           channels[channelIndex].setCurrentValue(updateValues[channelIndex]);
         }
         break;
-      case SERIAL_COMMAND_SET_CURRENT_VALUE :
+      case SET_CURRENT_VALUE :
         channels[updateChannelIndex].setCurrentValue(updateValue);
         break;
       }
-      serialCommand = WAIT;
+      computercontrolMode = WAIT;
     }
 
     // Update channel
@@ -217,7 +234,7 @@ void loop() {
 // updateDisplay interrupt callback
 unsigned long clearDisplayPeriodCount = 0;
 void updateDisplayCallback() {
-  display.update(channelModes,currentValues,currentLimits,potentiometerValues);
+  display.update(channelModes,currentValues,currentLimits,updateValues);
   clearDisplayPeriodCount++;
   if (CLEAR_DISPLAY_PERIOD_RATIO <= clearDisplayPeriodCount) {
     clearDisplayPeriodCount = 0;

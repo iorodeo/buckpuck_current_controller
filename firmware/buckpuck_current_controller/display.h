@@ -22,14 +22,14 @@ class Display {
   void setLightLow();
   void setLightHigh();
   void setLightLevel(byte level);
-  void update(Channel::modes channelModes[], unsigned int currentValues[], unsigned int currentValueMaxSettings[], unsigned int potentiometerValues[]);
+  void update(Channel::modes channelModes[], int currentValues[], int currentValueMaxSettings[], int updateValues[]);
 
  private:
   Print * port;
   SerialLCD lcd;
   char msg[MSG_SIZE];
-  unsigned int potentiometerValue;
-  unsigned int potentiometerDisplay;
+  int updateValue;
+  int percentDisplay;
   char* channelNames[CHANNEL_COUNT];
   char* modeString;
 

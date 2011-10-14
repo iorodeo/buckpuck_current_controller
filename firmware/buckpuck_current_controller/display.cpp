@@ -75,18 +75,18 @@ void Display::setLightLevel(byte level) {
 //
 // Updates the display.
 // ----------------------------------------------------------------------------
-void Display::update(Channel::modes channelModes[], unsigned int currentValues[], unsigned int currentValueMaxSettings[], unsigned int potentiometerValues[]) {
+void Display::update(Channel::modes channelModes[], int currentValues[], int currentValueMaxSettings[], int updateValues[]) {
   // Write header
   lcd.setPos(5,5);
-  snprintf(msg, MSG_SIZE, "        mA  MAX POT ");
+  snprintf(msg, MSG_SIZE, "        mA  MAX o/o ");
   lcd.print(msg);
 
   for (int channel = 0; channel < CHANNEL_COUNT; channel++) {
     modeString = getModeString(channelModes[channel]);
-    potentiometerValue = potentiometerValues[channel];
-    potentiometerDisplay = map(potentiometerValue,POTENTIOMETER_VALUE_MIN,POTENTIOMETER_VALUE_MAX,POTENTIOMETER_DISPLAY_MIN,POTENTIOMETER_DISPLAY_MAX);
+    updateValue = updateValues[channel];
+    percentDisplay = map(updateValue,UPDATE_VALUE_MIN,UPDATE_VALUE_MAX,PERCENT_DISPLAY_MIN,PERCENT_DISPLAY_MAX);
     lcd.setPos(5,5+12*(channel+1));
-    snprintf(msg, MSG_SIZE, "%s %s %4d %4d %3d ", channelNames[channel],modeString,currentValues[channel],currentValueMaxSettings[channel],potentiometerDisplay);
+    snprintf(msg, MSG_SIZE, "%s %s %4d %4d %3d ", channelNames[channel],modeString,currentValues[channel],currentValueMaxSettings[channel],percentDisplay);
     lcd.print(msg);
   }
 }
@@ -106,6 +106,8 @@ char* Display::getModeString(Channel::modes mode) {
     return "SET";
   } else if (mode == Channel::CC_MODE) {
     return "CC ";
+  } else if (mode == Channel::BNC_MODE) {
+    return "BNC";
   }
 }
 
