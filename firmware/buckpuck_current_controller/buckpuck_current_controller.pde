@@ -70,6 +70,19 @@ typedef enum computercontrolModes {WAIT,SET_CURRENT_VALUES,SET_CURRENT_VALUE};
 computercontrolModes computercontrolMode = WAIT;
 
 void setup() {
+  // Check to see if EEPROM values have been initialized, if not, initialize
+  if (EEPROM.read(EEPROM_ADDRESS_INITIALIZED) != INITIALIZED_VALUE) {
+    EEPROM.write(EEPROM_ADDRESS_INITIALIZED,INITIALIZED_VALUE);
+    EEPROM.write(EEPROM_ADDRESS_CURRENT_LIMIT_A,CURRENT_VALUE_MAX);
+    EEPROM.write(EEPROM_ADDRESS_CURRENT_LIMIT_B,CURRENT_VALUE_MAX);
+    EEPROM.write(EEPROM_ADDRESS_CURRENT_LIMIT_C,CURRENT_VALUE_MAX);
+    EEPROM.write(EEPROM_ADDRESS_CURRENT_LIMIT_D,CURRENT_VALUE_MAX);
+    EEPROM.write(EEPROM_ADDRESS_BNC_MODE_A,false);
+    EEPROM.write(EEPROM_ADDRESS_BNC_MODE_B,false);
+    EEPROM.write(EEPROM_ADDRESS_BNC_MODE_C,false);
+    EEPROM.write(EEPROM_ADDRESS_BNC_MODE_D,false);
+  }
+
   // Setup serial communications
   Serial.begin(SERIAL_RATE);
 
