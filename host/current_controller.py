@@ -23,6 +23,8 @@ import time
 import serial
 
 
+DEBUG = True
+
 CHANNEL_COUNT = 4
 
 SERIAL_BAUDRATE = 115200
@@ -39,12 +41,17 @@ SERIAL_COMMAND_SET_BNC_MODE = 6
 class CurrentController(object):
     def __init__(self,port=''):
         # Set default com port
-        osType = platform.system()
+        self.osType = platform.system()
+        self.port_list_linux = ['/dev/ttyUSB0','/dev/ttyUSB1','/dev/ttyUSB2','/dev/ttyUSB3']
+        self.port_list_windows = ['com1','com2','com3','com4']
+        self.port_index = 0
         if port == '':
-            if osType == 'Linux':
-                self.port = '/dev/ttyUSB0'
+            if self.osType == 'Linux':
+                self.port_list = self.port_list_linux
+                self.port = self.port_list[self.port_index]
             else:
-                self.port = 'com1'
+                self.port_list = self.port_list_windows
+                self.port = self.port_list_windows[self.port_index]
         else:
             self.port = port
 
@@ -63,21 +70,34 @@ class CurrentController(object):
         self.serial.close()
 
     def test_serial_port(self):
+        if DEBUG:
+            print "Testing port " + self.port
         serial_list = [SERIAL_COMMAND_GET_123]
         self.serial.write(str(serial_list))
         read_line = self.serial.readline()
         if (read_line == '') or (int(read_line) != 123):
-            raise RuntimeError('Did not receive expected response on serial port, check port and connections.')
+            self.port_index += 1
+            if self.port_index < len(self.port_list):
+                self.port = self.port_list[self.port_index]
+                self.test_serial_port()
+            else:
+                raise RuntimeError('Did not receive expected response on serial port, check port and connections.')
+        if DEBUG:
+            print "Test successful!"
 
     def set_computercontrol_mode(self):
+        if DEBUG:
+            print "Setting computercontrol mode."
         serial_list = [SERIAL_COMMAND_SET_COMPUTERCONTROL_MODE]
         self.serial.write(str(serial_list))
 
     def set_standalone_mode(self):
+        if DEBUG:
+            print "Setting standalone mode."
         serial_list = [SERIAL_COMMAND_SET_STANDALONE_MODE]
         self.serial.write(str(serial_list))
 
-    def convert_channel_to_int(self,channel):
+    def condition_channel(self,channel):
         if type(channel) == str:
             channel = channel.lower()
             if channel == 'a':
@@ -90,10 +110,17 @@ class CurrentController(object):
                 channel = 3
             elif channel == 'all':
                 channel = -1
+
+        if channel not in range(-1,CHANNEL_COUNT):
+            raise RuntimeError('Invalid channel, must be -1,0,1,2,3 or "a", "b", "c", "d", or "all"')
+
         return channel
 
     def turn_off_channel(self,channel='all'):
-        channel = self.convert_channel_to_int(channel)
+        channel = self.condition_channel(channel)
+        if DEBUG:
+            print "Turning off channel " + str(channel)
+
         if channel != -1:
             self.set_current_value(channel,0)
         else:
@@ -103,11 +130,12 @@ class CurrentController(object):
         if (value < 0) or (value > 1000):
             raise RuntimeError('Invalid current value, must be between 0-1000')
 
-        channel = self.convert_channel_to_int(channel)
-        if (channel < -1 ) or (CHANNEL_COUNT <= channel):
-            raise RuntimeError('Invalid channel, must be 0-3 or "a", "b", "c", "d", or "all"')
+        channel = self.condition_channel(channel)
 
         if channel != -1:
+            if DEBUG:
+                print "Setting channel " + str(channel) + " to current value " + str(value)
+
             serial_list = [SERIAL_COMMAND_SET_CURRENT_VALUE,channel,value]
             self.serial.write(str(serial_list))
         else:
@@ -120,20 +148,53 @@ class CurrentController(object):
         if (len(value_list) != CHANNEL_COUNT):
             raise RuntimeError('set_current_values argument length must equal ' + str(CHANNEL_COUNT))
         serial_list = [SERIAL_COMMAND_SET_CURRENT_VALUES]
-        print "sending " + str(value_list)
+
+        if DEBUG:
+            print "Setting current values to " + str(value_list)
+
         serial_list.extend(value_list)
         self.serial.write(str(serial_list))
 
-    def set_bnc_modes(self,mode_list=[False]*CHANNEL_COUNT):
+    def set_bnc_modes(self,bnc_mode_list=[False]*CHANNEL_COUNT):
+        if (type(bnc_mode_list) != list) and (type(bnc_mode_list) != tuple):
+            raise RuntimeError('bnc_mode_list argument must be a list or tuple.')
+
+        bnc_mode_list = [bool(bnc_mode) for bnc_mode in bnc_mode_list]
         serial_list = [SERIAL_COMMAND_SET_BNC_MODES]
-        serial_list.extend(mode_list)
-        print "sending " + str(serial_list)
+        if len(bnc_mode_list) == CHANNEL_COUNT:
+            if DEBUG:
+                print "Setting bnc modes to " + str(bnc_mode_list)
+
+            bnc_mode_list = [int(bnc_mode) for bnc_mode in bnc_mode_list]
+            serial_list.extend(bnc_mode_list)
+        else:
+            raise RuntimeError('bnc_mode_list argument must be a list or tuple with length equal to ' + str(CHANNEL_COUNT))
+
         self.serial.write(str(serial_list))
+
+    def set_bnc_mode(self,channel='a',bnc_mode=False):
+        bnc_mode = bool(bnc_mode)
+        channel = self.condition_channel(channel)
+        if channel != -1:
+            if DEBUG:
+                print "Setting channel " + str(channel) + " to bnc mode " + str(bnc_mode)
+
+            bnc_mode = int(bnc_mode)
+
+            serial_list = [SERIAL_COMMAND_SET_BNC_MODE,channel,bnc_mode]
+            self.serial.write(str(serial_list))
+        else:
+            self.set_bnc_modes([bnc_mode]*CHANNEL_COUNT)
 
 # -----------------------------------------------------------------------
 if __name__ == '__main__':
     cc = CurrentController()
     time.sleep(1)
+
+    # cc.set_bnc_mode('b',True)
+    # cc.set_bnc_mode('all',True)
+    # cc.set_bnc_modes([False,False,False,False])
+
     # for i in range(3):
     #     cc.set_current_values([100,0,500,100])
     #     time.sleep(1)
@@ -143,5 +204,5 @@ if __name__ == '__main__':
     #     cc.set_current_value('a',50)
     #     time.sleep(1)
     # cc.set_current_values([0,0,0,0])
-    cc.set_bnc_modes()
+    # cc.set_bnc_modes()
     cc.close()
