@@ -219,8 +219,8 @@ void Channel::setDacOff() {
 // Enable relay and set DAC.
 // ----------------------------------------------------------------------------
 void Channel::setModeOn() {
-  enableRelay();
   setDacValue();
+  enableRelay();
   if (currentLimitNeedsSaving) {
     currentLimitNeedsSaving = false;
     setSavedCurrentLimit();
