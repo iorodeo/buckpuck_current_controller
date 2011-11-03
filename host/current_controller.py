@@ -61,6 +61,7 @@ class CurrentController(object):
         self.test_serial_port()
         self.set_computercontrol_mode()
         self.set_current_values([0,0,0,0])
+        time.sleep(1)
 
     def close(self):
         self.set_standalone_mode()
@@ -112,7 +113,7 @@ class CurrentController(object):
                 channel = -1
 
         if channel not in range(-1,CHANNEL_COUNT):
-            raise RuntimeError('Invalid channel, must be -1,0,1,2,3 or "a", "b", "c", "d", or "all"')
+            raise RuntimeError('Invalid channel, must be -1,0,1,2,3 or "all", "a", "b", "c", or "d"')
 
         return channel
 
@@ -189,8 +190,6 @@ class CurrentController(object):
 # -----------------------------------------------------------------------
 if __name__ == '__main__':
     cc = CurrentController()
-    time.sleep(1)
-
     # cc.set_bnc_mode('b',True)
     # cc.set_bnc_mode('all',True)
     # cc.set_bnc_modes([False,False,False,False])
