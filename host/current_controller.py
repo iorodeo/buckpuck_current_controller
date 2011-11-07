@@ -38,8 +38,16 @@ SERIAL_COMMAND_SET_BNC_MODES = 5
 SERIAL_COMMAND_SET_BNC_MODE = 6
 
 
+def remap(x,in_min,in_max,out_min,out_max):
+    return (x - in_min)*(out_max - out_min)/(in_max - in_min) + out_min
+
+
 class CurrentController(object):
     def __init__(self,port=''):
+        self.current_min = 0
+        self.current_max = 1000
+        self.output_min = 0
+        self.output_max = 1023
         # Set default com port
         self.osType = platform.system()
         self.port_list_linux = ['/dev/ttyUSB0','/dev/ttyUSB1','/dev/ttyUSB2','/dev/ttyUSB3']
@@ -57,11 +65,11 @@ class CurrentController(object):
 
         self.serial = serial.Serial(self.port,SERIAL_BAUDRATE,timeout=1)
         self.serial.open()
-        time.sleep(2)
+        time.sleep(0.5)
         self.test_serial_port()
         self.set_computercontrol_mode()
-        self.set_current_values([0,0,0,0])
-        time.sleep(1)
+        self.set_current_values([self.current_min,self.current_min,self.current_min,self.current_min])
+        time.sleep(0.25)
 
     def close(self):
         self.set_standalone_mode()
@@ -123,13 +131,13 @@ class CurrentController(object):
             print "Turning off channel " + str(channel)
 
         if channel != -1:
-            self.set_current_value(channel,0)
+            self.set_current_value(channel,self.current_min)
         else:
-            self.set_current_values([0]*CHANNEL_COUNT)
+            self.set_current_values([self.current_min]*CHANNEL_COUNT)
 
     def set_current_value(self,channel='a',value=0):
-        if (value < 0) or (value > 1000):
-            raise RuntimeError('Invalid current value, must be between 0-1000')
+        if (value < self.current_min) or (value > self.current_max):
+            raise RuntimeError('Invalid current value, must be between ' + str(self.current_min) + ' - ' + self.current_max)
 
         channel = self.condition_channel(channel)
 
@@ -137,6 +145,7 @@ class CurrentController(object):
             if DEBUG:
                 print "Setting channel " + str(channel) + " to current value " + str(value)
 
+            value = self.remap_output(value)
             serial_list = [SERIAL_COMMAND_SET_CURRENT_VALUE,channel,value]
             self.serial.write(str(serial_list))
         else:
@@ -153,6 +162,7 @@ class CurrentController(object):
         if DEBUG:
             print "Setting current values to " + str(value_list)
 
+        value_list = self.remap_output(value_list)
         serial_list.extend(value_list)
         self.serial.write(str(serial_list))
 
@@ -187,6 +197,14 @@ class CurrentController(object):
         else:
             self.set_bnc_modes([bnc_mode]*CHANNEL_COUNT)
 
+    def remap_output(self,value):
+        try:
+            value_remapped = [remap(v,self.current_min,self.current_max,self.output_min,self.output_max) for v in value]
+        except TypeError:
+            value_remapped = remap(value,self.current_min,self.current_max,self.output_min,self.output_max)
+
+        return value_remapped
+
 # -----------------------------------------------------------------------
 if __name__ == '__main__':
     cc = CurrentController()
@@ -194,14 +212,14 @@ if __name__ == '__main__':
     # cc.set_bnc_mode('all',True)
     # cc.set_bnc_modes([False,False,False,False])
 
-    # for i in range(3):
-    #     cc.set_current_values([100,0,500,100])
-    #     time.sleep(1)
-    #     cc.set_current_values([500,0,100,500])
-    #     time.sleep(1)
-    #     cc.turn_off_channel('c')
-    #     cc.set_current_value('a',50)
-    #     time.sleep(1)
-    # cc.set_current_values([0,0,0,0])
+    for i in range(3):
+        cc.set_current_values([100,0,500,100])
+        time.sleep(1)
+        cc.set_current_values([500,0,100,500])
+        time.sleep(1)
+        cc.turn_off_channel('c')
+        cc.set_current_value('a',50)
+        time.sleep(1)
+    cc.set_current_values([0,0,0,0])
     # cc.set_bnc_modes()
     cc.close()
