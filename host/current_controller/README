@@ -1,0 +1,16 @@
+current_controller 
+==================
+
+A pyserial based library for communicating with the IO Rodeo LED Current
+Controller
+
+
+See the examples demonstrating how to use the library see the "examples"
+directory.
+
+See INSTALL for installation instructions.
+
+Author: Peter Polidoro and Will Dickson IO Rodeo Inc.
+
+current_controller may be freely distributed and modified in accordance with
+the Apache 2.0  License.
