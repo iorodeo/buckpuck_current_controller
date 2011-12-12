@@ -216,7 +216,8 @@ void loop() {
         updateValue = channels[channelIndex].getBncValue();
       }
       updateValues[channelIndex] = updateValue;
-    } else {
+    } 
+    else {
       channels[channelIndex].setMode(Channel::CC_MODE);
       switch (computercontrolMode) {
       case WAIT :

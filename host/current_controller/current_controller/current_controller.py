@@ -20,7 +20,8 @@ from serial import Serial
 
 DEBUG = False 
 CHANNEL_COUNT = 4
-SERIAL_BAUDRATE = 115200
+#SERIAL_BAUDRATE = 115200
+SERIAL_BAUDRATE = 9600 
 
 SERIAL_COMMAND_GET_123 = 0
 SERIAL_COMMAND_SET_COMPUTERCONTROL_MODE = 1
@@ -43,7 +44,7 @@ class CurrentController(Serial):
         self.current_min = 0
         self.current_max = 1000
         self.output_min = 0
-        self.output_max = 1023
+        self.output_max = 1000
 
         self.set_computercontrol_mode()
         self.set_current_values([self.current_min,self.current_min,self.current_min,self.current_min])
