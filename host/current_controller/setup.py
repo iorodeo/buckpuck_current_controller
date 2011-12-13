@@ -21,5 +21,9 @@ setup(name='current_controller',
       author = 'William Dickson and Peter Polidoro, IO Rodeo Inc.',
       author_email = 'will@iorodeo.com',
       packages=find_packages(),
+      entry_points = {
+          'console_scripts': [
+              'current-controller = current_controller.current_controller_app:run_app'
+              ]}
       )
 

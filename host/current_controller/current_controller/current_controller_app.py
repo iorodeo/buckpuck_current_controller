@@ -153,10 +153,16 @@ def channelWrapper(f,chan):
     return decorated
 
 
-# -----------------------------------------------------------------------------
-if __name__ == '__main__':
+def run_app():
+    """
+    Gui entry point.
+    """
     app = QtGui.QApplication(sys.argv)
     mainWindow = Controller_MainWindow()
     mainWindow.main()
     app.exec_()
+
+# -----------------------------------------------------------------------------
+if __name__ == '__main__':
+    run_app()
 
