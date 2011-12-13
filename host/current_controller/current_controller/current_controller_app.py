@@ -100,12 +100,12 @@ class Controller_MainWindow(QtGui.QMainWindow, Ui_CurrentController_MainWindow):
                 self.serialPort_LineEdit.setEnabled(True)
                 self.openClose_PushButton.setText('Open')
         else:
-            self.dev.close()
-            self.dev = None 
             self.serialPort_LineEdit.setEnabled(True)
             self.openClose_PushButton.setText('Open')
+            self.setChanGroupBoxChecked(False)
             self.setChanGroupBoxEnabled(False)
-            self.setChanGroupBoxEnabled(False)
+            self.dev.close()
+            self.dev = None 
 
     def serialPort_Callback(self):
         """
@@ -141,11 +141,21 @@ class Controller_MainWindow(QtGui.QMainWindow, Ui_CurrentController_MainWindow):
         """
         Enable/Disables the all of the channel group boxes
         """
-        # Disable channel groups
         for chan in self.channelList:
             widgetName = 'channel{0}_GroupBox'.format(chan.upper())
-            groubox = getattr(self,widgetName)
-            groubox.setEnabled(value)
+            groupbox = getattr(self,widgetName)
+            groupbox.setEnabled(value)
+
+    def setChanGroupBoxChecked(self,value):
+        """
+        Check/unchech channel group boxes        
+        """
+        for chan in self.channelList:
+            widgetName = 'channel{0}_GroupBox'.format(chan.upper())
+            groupbox = getattr(self,widgetName)
+            groupbox.setChecked(value)
+
+            
 
 def channelWrapper(f,chan):
     """
