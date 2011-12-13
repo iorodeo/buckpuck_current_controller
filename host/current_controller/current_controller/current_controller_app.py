@@ -7,10 +7,8 @@ import time
 from PyQt4 import QtCore
 from PyQt4 import QtGui
 from current_controller import CurrentController
-
 from current_controller_ui import Ui_CurrentController_MainWindow 
 
-SET_CURRENT_DT = 0.10
 
 class Controller_MainWindow(QtGui.QMainWindow, Ui_CurrentController_MainWindow):
     """
@@ -134,8 +132,10 @@ class Controller_MainWindow(QtGui.QMainWindow, Ui_CurrentController_MainWindow):
         return slider.value()
 
     def channelValueChanged_Callback(self,value,chan=None):
+        """
+        Sets new current value in device.
+        """
         self.dev.set_current_value(chan,value)
-        #time.sleep(SET_CURRENT_DT)
 
     def setChanGroupBoxEnabled(self,value):
         """
