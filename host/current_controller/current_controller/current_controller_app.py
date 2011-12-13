@@ -26,6 +26,11 @@ class Controller_MainWindow(QtGui.QMainWindow, Ui_CurrentController_MainWindow):
     def main(self):
         self.show()
 
+    def closeEvent(self,event):
+        if self.dev is not None:
+            self.dev.close()
+        event.accept()
+
     def connectActions(self):
         """
         Connect widget actions.
