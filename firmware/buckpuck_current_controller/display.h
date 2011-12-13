@@ -23,6 +23,7 @@ class Display {
   void setLightHigh();
   void setLightLevel(byte level);
   void update(Channel::modes channelModes[], int currentValues[], int currentValueMaxSettings[], int updateValues[]);
+  void computerControlMsg();
 
  private:
   Print * port;

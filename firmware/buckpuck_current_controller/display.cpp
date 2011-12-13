@@ -91,6 +91,21 @@ void Display::update(Channel::modes channelModes[], int currentValues[], int cur
   }
 }
 
+// ----------------------------------------------------------------------------
+// Display::computerControlMsg
+//
+// Display message that device is under computer control. LCD not updated 
+// during this period.
+// ----------------------------------------------------------------------------
+void Display::computerControlMsg() {
+  lcd.setPos(17,5);
+  snprintf(msg,MSG_SIZE,"COMPUTER CONTROL");
+  lcd.print(msg);
+  lcd.setPos(17,20);
+  snprintf(msg,MSG_SIZE,"      MODE      ");
+  lcd.print(msg);
+}
+
 //------------------ private -----------------------------------------------
 // ----------------------------------------------------------------------------
 // Display::getModeString

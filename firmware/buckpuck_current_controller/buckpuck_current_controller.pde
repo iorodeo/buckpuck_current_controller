@@ -151,9 +151,12 @@ void loop() {
         break;
       case SERIAL_COMMAND_SET_COMPUTERCONTROL_MODE :
         standaloneMode = false;
+        display.clearScreen();
+        display.computerControlMsg();
         break;
       case SERIAL_COMMAND_SET_STANDALONE_MODE :
         standaloneMode = true;
+        display.clearScreen();
         break;
       case SERIAL_COMMAND_SET_CURRENT_VALUES :
         computercontrolMode = SET_CURRENT_VALUES;
@@ -248,11 +251,13 @@ void loop() {
 // updateDisplay interrupt callback
 unsigned long clearDisplayPeriodCount = 0;
 void updateDisplayCallback() {
-  display.update(channelModes,currentValues,currentLimits,updateValues);
-  clearDisplayPeriodCount++;
-  if (CLEAR_DISPLAY_PERIOD_RATIO <= clearDisplayPeriodCount) {
-    clearDisplayPeriodCount = 0;
-    display.clearScreen();
+  if (standaloneMode) {
+    display.update(channelModes,currentValues,currentLimits,updateValues);
+    clearDisplayPeriodCount++;
+    if (CLEAR_DISPLAY_PERIOD_RATIO <= clearDisplayPeriodCount) {
+      clearDisplayPeriodCount = 0;
+      display.clearScreen();
+    }
   }
 }
 
