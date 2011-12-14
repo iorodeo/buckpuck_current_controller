@@ -7,6 +7,7 @@ syntax: glob
 *.scad
 *.stl
 *.pkl
+*.asv
 *.komodo*
 *.egg-info
 .DS_Store
