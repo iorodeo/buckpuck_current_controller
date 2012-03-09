@@ -1,2 +1,5 @@
 from current_controller import *
-import current_controller_app 
+try:
+    import current_controller_app 
+except ImportError:
+    pass
