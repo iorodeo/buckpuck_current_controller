@@ -200,8 +200,14 @@ void Channel::disableRelay() {
 // Set DAC given currentValue.
 // ----------------------------------------------------------------------------
 void Channel::setDacValue() {
-  int dacValue = map(currentValue,CURRENT_VALUE_MIN,CURRENT_VALUE_MAX,DAC_VALUE_MIN,DAC_VALUE_MAX);
-  dac.write(dacValue);
+  if (currentValue < CURRENT_DAC_OFF) {
+    setDacOff();
+  }
+  else {
+    int dacValue = map(currentValue,CURRENT_VALUE_MIN,CURRENT_VALUE_MAX,DAC_VALUE_MIN,DAC_VALUE_MAX);
+    dac.write(dacValue);
+  }
+  
 }
 
 // ----------------------------------------------------------------------------
